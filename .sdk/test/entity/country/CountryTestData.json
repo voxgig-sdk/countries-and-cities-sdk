@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "country": {
+      "COUNTRY00": {
+        "city": [],
+        "code": "s83",
+        "country": "s84",
+        "data": {},
+        "error": true,
+        "flag": "s87",
+        "iso2": "s88",
+        "iso3": "s89",
+        "lat": 138,
+        "long": 139,
+        "msg": "s8c",
+        "name": "s8d",
+        "population_count": []
+      },
+      "COUNTRY01": {
+        "city": [],
+        "code": "s105",
+        "country": "s106",
+        "data": {},
+        "error": true,
+        "flag": "s109",
+        "iso2": "s10a",
+        "iso3": "s10b",
+        "lat": 268,
+        "long": 269,
+        "msg": "s10e",
+        "name": "s10f",
+        "population_count": []
+      },
+      "COUNTRY02": {
+        "city": [],
+        "code": "s187",
+        "country": "s188",
+        "data": {},
+        "error": true,
+        "flag": "s18b",
+        "iso2": "s18c",
+        "iso3": "s18d",
+        "lat": 398,
+        "long": 399,
+        "msg": "s190",
+        "name": "s191",
+        "population_count": []
+      }
+    }
+  },
+  "new": {
+    "country": {
+      "country_ref01": {
+        "city": [],
+        "code": "s209",
+        "country": "s20a",
+        "data": {},
+        "error": true,
+        "flag": "s20d",
+        "iso2": "s20e",
+        "iso3": "s20f",
+        "lat": 528,
+        "long": 529,
+        "msg": "s212",
+        "name": "s213",
+        "population_count": []
+      }
+    }
+  }
+}

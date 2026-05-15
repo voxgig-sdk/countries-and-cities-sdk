@@ -1,0 +1,269 @@
+# Entity: country
+
+main: kit: entity: country: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "city"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "country"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "data"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "error"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "flag"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "iso2"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "iso3"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lat"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "long"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "msg"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "population_count"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "country"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/countries/capital"
+          parts: [
+            "countries"
+            "capital"
+          ]
+          select: {
+            "$action": "capital"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/currency"
+          parts: [
+            "countries"
+            "currency"
+          ]
+          select: {
+            "$action": "currency"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/flag/images"
+          parts: [
+            "countries"
+            "flag"
+            "images"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/iso"
+          parts: [
+            "countries"
+            "iso"
+          ]
+          select: {
+            "$action": "iso"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/population"
+          parts: [
+            "countries"
+            "population"
+          ]
+          select: {
+            "$action": "population"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/positions"
+          parts: [
+            "countries"
+            "positions"
+          ]
+          select: {
+            "$action": "position"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/states"
+          parts: [
+            "countries"
+            "states"
+          ]
+          select: {
+            "$action": "state"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/countries"
+          parts: [
+            "countries"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/countries/codes"
+          parts: [
+            "countries"
+            "codes"
+          ]
+          select: {
+            "$action": "code"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/countries/flag/images"
+          parts: [
+            "countries"
+            "flag"
+            "images"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/countries/population"
+          parts: [
+            "countries"
+            "population"
+          ]
+          select: {
+            "$action": "population"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/countries/positions"
+          parts: [
+            "countries"
+            "positions"
+          ]
+          select: {
+            "$action": "position"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

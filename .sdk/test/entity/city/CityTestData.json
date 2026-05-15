@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "city": {
+      "CITY00": {
+        "city": "s64",
+        "country": "s65",
+        "data": {},
+        "error": false,
+        "limit": "s68",
+        "msg": "s69",
+        "order": "s6a",
+        "order_by": "s6b",
+        "population_count": [],
+        "state": "s6d"
+      },
+      "CITY01": {
+        "city": "sc8",
+        "country": "sc9",
+        "data": {},
+        "error": false,
+        "limit": "scc",
+        "msg": "scd",
+        "order": "sce",
+        "order_by": "scf",
+        "population_count": [],
+        "state": "sd1"
+      },
+      "CITY02": {
+        "city": "s12c",
+        "country": "s12d",
+        "data": {},
+        "error": false,
+        "limit": "s130",
+        "msg": "s131",
+        "order": "s132",
+        "order_by": "s133",
+        "population_count": [],
+        "state": "s135"
+      }
+    }
+  },
+  "new": {
+    "city": {
+      "city_ref01": {
+        "city": "s190",
+        "country": "s191",
+        "data": {},
+        "error": false,
+        "limit": "s194",
+        "msg": "s195",
+        "order": "s196",
+        "order_by": "s197",
+        "population_count": [],
+        "state": "s199"
+      }
+    }
+  }
+}

@@ -1,0 +1,981 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Countries & Cities API",
+    "description": "Provides population and geographical data for countries and cities. Use it to get detailed information on populations, locations, flags, currencies, capitals, and more. Access endpoints to retrieve single city data, country codes, and other related details. No API key required.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://documenter.getpostman.com/view/1134062/T1LJjU52"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://countriesnow.space/api/v0.1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/countries": {
+      "get": {
+        "summary": "Get all countries",
+        "description": "Retrieve a list of all countries with basic information",
+        "operationId": "getAllCountries",
+        "tags": [
+          "Countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Country"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/population": {
+      "get": {
+        "summary": "Get country population data",
+        "description": "Retrieve population data for all countries",
+        "operationId": "getCountriesPopulation",
+        "tags": [
+          "Countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CountryPopulation"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Get specific country population",
+        "description": "Retrieve population data for a specific country",
+        "operationId": "getCountryPopulation",
+        "tags": [
+          "Countries"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  }
+                },
+                "required": [
+                  "country"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CountryPopulation"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/flag/images": {
+      "get": {
+        "summary": "Get all country flags",
+        "description": "Retrieve flag images for all countries",
+        "operationId": "getAllCountryFlags",
+        "tags": [
+          "Countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CountryFlag"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Get specific country flag",
+        "description": "Retrieve flag image for a specific country",
+        "operationId": "getCountryFlag",
+        "tags": [
+          "Countries"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  }
+                },
+                "required": [
+                  "country"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CountryFlag"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/capital": {
+      "post": {
+        "summary": "Get country capital",
+        "description": "Retrieve capital city for a specific country",
+        "operationId": "getCountryCapital",
+        "tags": [
+          "Countries"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  }
+                },
+                "required": [
+                  "country"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "capital": {
+                          "type": "string"
+                        },
+                        "iso2": {
+                          "type": "string"
+                        },
+                        "iso3": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/currency": {
+      "post": {
+        "summary": "Get country currency",
+        "description": "Retrieve currency information for a specific country",
+        "operationId": "getCountryCurrency",
+        "tags": [
+          "Countries"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  }
+                },
+                "required": [
+                  "country"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "currency": {
+                          "type": "string"
+                        },
+                        "iso2": {
+                          "type": "string"
+                        },
+                        "iso3": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/iso": {
+      "post": {
+        "summary": "Get country ISO codes",
+        "description": "Retrieve ISO codes for a specific country",
+        "operationId": "getCountryISO",
+        "tags": [
+          "Countries"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  }
+                },
+                "required": [
+                  "country"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "Iso2": {
+                          "type": "string"
+                        },
+                        "Iso3": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/codes": {
+      "get": {
+        "summary": "Get all country codes",
+        "description": "Retrieve ISO codes for all countries",
+        "operationId": "getAllCountryCodes",
+        "tags": [
+          "Countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "code": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/positions": {
+      "get": {
+        "summary": "Get all country positions",
+        "description": "Retrieve geographical positions (latitude/longitude) for all countries",
+        "operationId": "getAllCountryPositions",
+        "tags": [
+          "Countries"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CountryPosition"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Get specific country position",
+        "description": "Retrieve geographical position for a specific country",
+        "operationId": "getCountryPosition",
+        "tags": [
+          "Countries"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  }
+                },
+                "required": [
+                  "country"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CountryPosition"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/states": {
+      "post": {
+        "summary": "Get country states",
+        "description": "Retrieve states/provinces for a specific country",
+        "operationId": "getCountryStates",
+        "tags": [
+          "Countries",
+          "States"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  }
+                },
+                "required": [
+                  "country"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "iso3": {
+                          "type": "string"
+                        },
+                        "states": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "state_code": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/state/cities": {
+      "post": {
+        "summary": "Get cities in a state",
+        "description": "Retrieve cities for a specific state in a country",
+        "operationId": "getStateCities",
+        "tags": [
+          "Cities",
+          "States"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "country": {
+                    "type": "string",
+                    "example": "Nigeria"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "Lagos"
+                  }
+                },
+                "required": [
+                  "country",
+                  "state"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/population/cities": {
+      "get": {
+        "summary": "Get all cities population",
+        "description": "Retrieve population data for cities worldwide",
+        "operationId": "getAllCitiesPopulation",
+        "tags": [
+          "Cities"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CityPopulation"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Get specific city population",
+        "description": "Retrieve population data for a specific city",
+        "operationId": "getCityPopulation",
+        "tags": [
+          "Cities"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string",
+                    "example": "Lagos"
+                  }
+                },
+                "required": [
+                  "city"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/CityPopulation"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/population/cities/filter": {
+      "post": {
+        "summary": "Filter cities by population",
+        "description": "Filter cities based on population criteria",
+        "operationId": "filterCitiesByPopulation",
+        "tags": [
+          "Cities"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "order": {
+                    "type": "string",
+                    "enum": [
+                      "asc",
+                      "dsc"
+                    ],
+                    "example": "dsc"
+                  },
+                  "orderBy": {
+                    "type": "string",
+                    "example": "population"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CityPopulation"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Country": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "Country name"
+          },
+          "cities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of cities in the country"
+          }
+        }
+      },
+      "CountryPopulation": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "Country name"
+          },
+          "code": {
+            "type": "string",
+            "description": "Country code"
+          },
+          "iso3": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-3 code"
+          },
+          "populationCounts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "year": {
+                  "type": "integer"
+                },
+                "value": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "CountryFlag": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Country name"
+          },
+          "flag": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the country flag image"
+          },
+          "iso2": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 code"
+          },
+          "iso3": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-3 code"
+          }
+        }
+      },
+      "CountryPosition": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Country name"
+          },
+          "iso2": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 code"
+          },
+          "long": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude"
+          },
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude"
+          }
+        }
+      },
+      "CityPopulation": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "City name"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country name"
+          },
+          "populationCounts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "year": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "sex": {
+                  "type": "string"
+                },
+                "reliabilty": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Countries",
+      "description": "Endpoints related to country data"
+    },
+    {
+      "name": "Cities",
+      "description": "Endpoints related to city data"
+    },
+    {
+      "name": "States",
+      "description": "Endpoints related to state/province data"
+    }
+  ]
+}

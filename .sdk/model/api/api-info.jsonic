@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://documenter.getpostman.com/view/1134062/T1LJjU52"
+      }
+      description: "Provides population and geographical data for countries and cities. Use it to get detailed information on populations, locations, flags, currencies, capitals, and more. Access endpoints to retrieve single city data, country codes, and other related details. No API key required."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://countriesnow.space/api/v0.1"
+        }
+      ]
+      title: "Countries & Cities API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

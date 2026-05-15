@@ -1,0 +1,144 @@
+# Entity: city
+
+main: kit: entity: city: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "city"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "country"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "data"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "error"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "limit"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "msg"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "order"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "order_by"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "population_count"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "state"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "city"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/countries/population/cities"
+          parts: [
+            "countries"
+            "population"
+            "cities"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/population/cities/filter"
+          parts: [
+            "countries"
+            "population"
+            "cities"
+            "filter"
+          ]
+          select: {
+            "$action": "filter"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/countries/state/cities"
+          parts: [
+            "countries"
+            "state"
+            "cities"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/countries/population/cities"
+          parts: [
+            "countries"
+            "population"
+            "cities"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

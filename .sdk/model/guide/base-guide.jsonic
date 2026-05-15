@@ -1,0 +1,62 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 12
+  metrics: count: method: 16
+
+  entity: city: {
+    path: "/countries/population/cities": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/countries/population/cities/filter": {
+      action: "filter": {}
+      op: create: method: *POST
+    }
+    path: "/countries/state/cities": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: country: {
+    path: "/countries": {
+      op: list: method: *GET
+    }
+    path: "/countries/capital": {
+      action: "capital": {}
+      op: create: method: *POST
+    }
+    path: "/countries/codes": {
+      action: "code": {}
+      op: list: method: *GET
+    }
+    path: "/countries/currency": {
+      action: "currency": {}
+      op: create: method: *POST
+    }
+    path: "/countries/flag/images": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/countries/iso": {
+      action: "iso": {}
+      op: create: method: *POST
+    }
+    path: "/countries/population": {
+      action: "population": {}
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/countries/positions": {
+      action: "position": {}
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/countries/states": {
+      action: "state": {}
+      op: create: method: *POST
+    }
+  }
+
+}
