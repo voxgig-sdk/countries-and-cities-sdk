@@ -3,7 +3,7 @@ package core
 import (
 	"fmt"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/countries-and-cities-sdk/go/utility/struct"
 )
 
 type CountriesAndCitiesSDK struct {

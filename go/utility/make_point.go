@@ -3,9 +3,9 @@ package utility
 import (
 	"strings"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/countries-and-cities-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/countries-and-cities-sdk/core"
+	"github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
 )
 
 func makePointUtil(ctx *core.Context) (map[string]any, error) {

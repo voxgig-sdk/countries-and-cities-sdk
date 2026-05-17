@@ -3,7 +3,7 @@ package utility
 import (
 	"fmt"
 
-	"github.com/voxgig-sdk/countries-and-cities-sdk/core"
+	"github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
 )
 
 func resultBasicUtil(ctx *core.Context) *core.Result {

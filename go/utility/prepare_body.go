@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/countries-and-cities-sdk/core"
+import "github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
 
 func prepareBodyUtil(ctx *core.Context) any {
 	op := ctx.Op

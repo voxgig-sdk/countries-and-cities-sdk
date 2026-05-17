@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/countries-and-cities-sdk/core"
+	"github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/countries-and-cities-sdk/go/utility/struct"
 )
 
 type CountryEntity struct {

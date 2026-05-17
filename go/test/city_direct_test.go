@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/countries-and-cities-sdk"
-	"github.com/voxgig-sdk/countries-and-cities-sdk/core"
+	sdk "github.com/voxgig-sdk/countries-and-cities-sdk/go"
+	"github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
 )
 
 func TestCityDirect(t *testing.T) {

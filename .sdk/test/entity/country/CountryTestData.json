@@ -14,7 +14,8 @@
         "long": 139,
         "msg": "s8c",
         "name": "s8d",
-        "population_count": []
+        "population_count": [],
+        "id": "COUNTRY00"
       },
       "COUNTRY01": {
         "city": [],
@@ -29,7 +30,8 @@
         "long": 269,
         "msg": "s10e",
         "name": "s10f",
-        "population_count": []
+        "population_count": [],
+        "id": "COUNTRY01"
       },
       "COUNTRY02": {
         "city": [],
@@ -44,7 +46,8 @@
         "long": 399,
         "msg": "s190",
         "name": "s191",
-        "population_count": []
+        "population_count": [],
+        "id": "COUNTRY02"
       }
     }
   },

@@ -5,14 +5,14 @@ The Golang SDK for the CountriesAndCities API. Provides an entity-oriented inter
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/countries-and-cities-sdk
+go get github.com/voxgig-sdk/countries-and-cities-sdk/go
 ```
 
 If the module is not yet published to a registry, use a `replace` directive
 in your `go.mod` to point to a local checkout:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/countries-and-cities-sdk=../path/to/github.com/voxgig-sdk/countries-and-cities-sdk
+go mod edit -replace github.com/voxgig-sdk/countries-and-cities-sdk/go=../path/to/github.com/voxgig-sdk/countries-and-cities-sdk/go
 ```
 
 
@@ -30,8 +30,8 @@ import (
     "fmt"
     "os"
 
-    sdk "github.com/voxgig-sdk/countries-and-cities-sdk"
-    "github.com/voxgig-sdk/countries-and-cities-sdk/core"
+    sdk "github.com/voxgig-sdk/countries-and-cities-sdk/go"
+    "github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
 )
 
 func main() {
@@ -416,7 +416,7 @@ Use `core.ToMapAny()` to safely cast results and nested data.
 ### Package structure
 
 ```
-github.com/voxgig-sdk/countries-and-cities-sdk/
+github.com/voxgig-sdk/countries-and-cities-sdk/go/
 ├── countries-and-cities.go        # Root package — type aliases and constructors
 ├── core/               # SDK core — client, types, pipeline
 ├── entity/             # Entity implementations
@@ -425,7 +425,7 @@ github.com/voxgig-sdk/countries-and-cities-sdk/
 └── test/               # Test suites
 ```
 
-The root package (`github.com/voxgig-sdk/countries-and-cities-sdk`) re-exports everything needed
+The root package (`github.com/voxgig-sdk/countries-and-cities-sdk/go`) re-exports everything needed
 for normal use. Import sub-packages only when you need specific types
 like `core.ToMapAny`.
 

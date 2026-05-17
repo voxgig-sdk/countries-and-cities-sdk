@@ -11,7 +11,8 @@
         "order": "s6a",
         "order_by": "s6b",
         "population_count": [],
-        "state": "s6d"
+        "state": "s6d",
+        "id": "CITY00"
       },
       "CITY01": {
         "city": "sc8",
@@ -23,7 +24,8 @@
         "order": "sce",
         "order_by": "scf",
         "population_count": [],
-        "state": "sd1"
+        "state": "sd1",
+        "id": "CITY01"
       },
       "CITY02": {
         "city": "s12c",
@@ -35,7 +37,8 @@
         "order": "s132",
         "order_by": "s133",
         "population_count": [],
-        "state": "s135"
+        "state": "s135",
+        "id": "CITY02"
       }
     }
   },

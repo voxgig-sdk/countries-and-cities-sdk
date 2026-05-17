@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/countries-and-cities-sdk/core"
+import "github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
 
 func makeErrorUtil(ctx *core.Context, err error) (any, error) {
 	if ctx == nil {

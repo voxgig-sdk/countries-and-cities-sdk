@@ -1,10 +1,10 @@
 package voxgigcountriesandcitiessdk
 
 import (
-	"github.com/voxgig-sdk/countries-and-cities-sdk/core"
-	"github.com/voxgig-sdk/countries-and-cities-sdk/entity"
-	"github.com/voxgig-sdk/countries-and-cities-sdk/feature"
-	_ "github.com/voxgig-sdk/countries-and-cities-sdk/utility"
+	"github.com/voxgig-sdk/countries-and-cities-sdk/go/core"
+	"github.com/voxgig-sdk/countries-and-cities-sdk/go/entity"
+	"github.com/voxgig-sdk/countries-and-cities-sdk/go/feature"
+	_ "github.com/voxgig-sdk/countries-and-cities-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
