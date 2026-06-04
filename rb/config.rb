@@ -15,9 +15,6 @@ module CountriesAndCitiesConfig
       },
       "options" => {
         "base" => "https://countriesnow.space/api/v0.1",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

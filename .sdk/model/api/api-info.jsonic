@@ -16,8 +16,28 @@ main: {
       ]
       title: "Countries & Cities API"
       version: "1.0.0"
+      tagline: "Free JSON API for country and city data — populations, capitals, currencies, flags, and geolocation"
+      homepage: "https://countriesnow.space/"
+      docs_url: "https://documenter.getpostman.com/view/1134062/T1LJjU52"
+      license_short: "No explicit licence published; consult upstream before redistribution."
+      license_md: `- No licence is stated on the API homepage or community catalogue.
+- The service runs without authentication and is offered free of charge.
+- Confirm acceptable use with the upstream project before bundling the data into a product.`
+      about_md: `[CountriesNow](https://countriesnow.space/) is a community-run, open API that returns country- and city-level reference data as plain JSON. It is designed as a drop-in replacement for hardcoded country lookup tables in apps and dashboards.
+
+What you get from the API:
+
+- Country records with names, ISO codes, capitals, currencies and dial codes
+- Cities grouped by country, with state/region context where available
+- Population figures for countries and cities
+- Geographic data including latitude/longitude and flag images
+
+Operational notes: no API key is required and CORS is enabled, so the endpoints can be called directly from a browser. The community catalogue lists an average response time of around 745 ms with no published rate limit. Full endpoint reference is maintained as Postman documentation linked from the project homepage.`
+      entity_desc: {
+        city: "A populated place within a country, typically returned with its parent country and (where known) state/region, via paths such as `/countries/cities` and `/countries/population/cities`."
+        country: "A sovereign country record exposing names, ISO codes, capitals, currencies, dial codes, flags, populations and geolocation; served under paths such as `/countries`, `/countries/population`, `/countries/capital`, `/countries/currency` and `/countries/flag/images`."
+      }
+      auth: false
     }
   }
-}
-
 }

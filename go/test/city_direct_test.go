@@ -93,14 +93,12 @@ func cityDirectSetup(mockres any) *cityDirectSetupResult {
 	env := envOverride(map[string]any{
 		"COUNTRIESANDCITIES_TEST_CITY_ENTID": map[string]any{},
 		"COUNTRIESANDCITIES_TEST_LIVE":    "FALSE",
-		"COUNTRIESANDCITIES_APIKEY":       "NONE",
 	})
 
 	live := env["COUNTRIESANDCITIES_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["COUNTRIESANDCITIES_APIKEY"],
 		}
 		client := sdk.NewCountriesAndCitiesSDK(mergedOpts)
 
