@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'COUNTRIESANDCITIES_TEST_COUNTRY_ENTID': {},
     'COUNTRIESANDCITIES_TEST_LIVE': 'FALSE',
+    'COUNTRIESANDCITIES_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.COUNTRIESANDCITIES_TEST_LIVE
 
   if (live) {
     const client = new CountriesAndCitiesSDK({
+      apikey: env.COUNTRIESANDCITIES_APIKEY,
     })
 
     let idmap: any = env['COUNTRIESANDCITIES_TEST_COUNTRY_ENTID']

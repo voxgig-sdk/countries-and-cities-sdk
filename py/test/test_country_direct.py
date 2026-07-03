@@ -61,12 +61,14 @@ def _country_direct_setup(mockres):
     env = runner.env_override({
         "COUNTRIESANDCITIES_TEST_COUNTRY_ENTID": {},
         "COUNTRIESANDCITIES_TEST_LIVE": "FALSE",
+        "COUNTRIESANDCITIES_APIKEY": "NONE",
     })
 
     live = env.get("COUNTRIESANDCITIES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("COUNTRIESANDCITIES_APIKEY"),
         }
         client = CountriesAndCitiesSDK(merged_opts)
         return {

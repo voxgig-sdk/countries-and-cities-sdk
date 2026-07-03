@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://countriesnow.space/api/v0.1',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -58,6 +62,7 @@ class Config {
     "city": {
       "fields": [
         {
+          "active": true,
           "name": "city",
           "op": {
             "list": {
@@ -67,10 +72,10 @@ class Config {
           },
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "country",
           "op": {
             "list": {
@@ -80,72 +85,74 @@ class Config {
           },
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "data",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "error",
           "req": false,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "limit",
           "req": false,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "msg",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "order",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "order_by",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 7
         },
         {
+          "active": true,
           "name": "population_count",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 8
         },
         {
+          "active": true,
           "name": "state",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 9
         }
       ],
       "name": "city",
       "op": {
         "create": {
+          "input": "data",
           "name": "create",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/population/cities",
               "parts": [
@@ -153,16 +160,16 @@ class Config {
                 "population",
                 "cities"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/population/cities/filter",
               "parts": [
@@ -178,11 +185,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 1
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/state/cities",
               "parts": [
@@ -190,23 +197,23 @@ class Config {
                 "state",
                 "cities"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 2
             }
           ],
-          "input": "data",
           "key$": "create"
         },
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/countries/population/cities",
               "parts": [
@@ -214,17 +221,14 @@ class Config {
                 "population",
                 "cities"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },
@@ -235,20 +239,21 @@ class Config {
     "country": {
       "fields": [
         {
+          "active": true,
           "name": "city",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "code",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "country",
           "op": {
             "list": {
@@ -258,86 +263,88 @@ class Config {
           },
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "data",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "error",
           "req": false,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "flag",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "iso2",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "iso3",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 7
         },
         {
+          "active": true,
           "name": "lat",
           "req": false,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 8
         },
         {
+          "active": true,
           "name": "long",
           "req": false,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 9
         },
         {
+          "active": true,
           "name": "msg",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 10
         },
         {
+          "active": true,
           "name": "name",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 11
         },
         {
+          "active": true,
           "name": "population_count",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 12
         }
       ],
       "name": "country",
       "op": {
         "create": {
+          "input": "data",
           "name": "create",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/capital",
               "parts": [
@@ -351,11 +358,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 0
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/currency",
               "parts": [
@@ -369,11 +376,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 1
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/flag/images",
               "parts": [
@@ -381,16 +388,16 @@ class Config {
                 "flag",
                 "images"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 2
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/iso",
               "parts": [
@@ -404,11 +411,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 3
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/population",
               "parts": [
@@ -422,11 +429,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 4
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/positions",
               "parts": [
@@ -440,11 +447,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 5
             },
             {
+              "active": true,
+              "args": {},
               "method": "POST",
               "orig": "/countries/states",
               "parts": [
@@ -458,33 +465,33 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 6
             }
           ],
-          "input": "data",
           "key$": "create"
         },
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/countries",
               "parts": [
                 "countries"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/countries/codes",
               "parts": [
@@ -498,11 +505,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 1
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/countries/flag/images",
               "parts": [
@@ -510,16 +517,16 @@ class Config {
                 "flag",
                 "images"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 2
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/countries/population",
               "parts": [
@@ -533,11 +540,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 3
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/countries/positions",
               "parts": [
@@ -551,12 +558,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 4
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },

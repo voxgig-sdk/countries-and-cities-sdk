@@ -1,21 +1,8 @@
 # CountriesAndCities SDK
 
-Free JSON API for country and city data — populations, capitals, currencies, flags, and geolocation
+Countries & Cities API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Countries & Cities API
-
-[CountriesNow](https://countriesnow.space/) is a community-run, open API that returns country- and city-level reference data as plain JSON. It is designed as a drop-in replacement for hardcoded country lookup tables in apps and dashboards.
-
-What you get from the API:
-
-- Country records with names, ISO codes, capitals, currencies and dial codes
-- Cities grouped by country, with state/region context where available
-- Population figures for countries and cities
-- Geographic data including latitude/longitude and flag images
-
-Operational notes: no API key is required and CORS is enabled, so the endpoints can be called directly from a browser. The community catalogue lists an average response time of around 745 ms with no published rate limit. Full endpoint reference is maintained as Postman documentation linked from the project homepage.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install countries-and-cities-sdk
 luarocks install countries-and-cities-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CountriesAndCitiesSDK } from 'countries-and-cities'
 
-const client = new CountriesAndCitiesSDK({})
+const client = new CountriesAndCitiesSDK({
+  apikey: process.env.COUNTRIES-AND-CITIES_APIKEY,
+})
 
 // List all citys
 const citys = await client.City().list()
+console.log(citys.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **City** | A populated place within a country, typically returned with its parent country and (where known) state/region, via paths such as `/countries/cities` and `/countries/population/cities`. | `/countries/population/cities` |
-| **Country** | A sovereign country record exposing names, ISO codes, capitals, currencies, dial codes, flags, populations and geolocation; served under paths such as `/countries`, `/countries/population`, `/countries/capital`, `/countries/currency` and `/countries/flag/images`. | `/countries/capital` |
+| **City** |  | `/countries/population/cities` |
+| **Country** |  | `/countries/capital` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from countriesandcities_sdk import CountriesAndCitiesSDK
 
-client = CountriesAndCitiesSDK({})
+client = CountriesAndCitiesSDK({
+    "apikey": os.environ.get("COUNTRIES-AND-CITIES_APIKEY"),
+})
 
 # List all citys
-citys, err = client.City(None).list(None, None)
+citys, err = client.City().list()
+print(citys)
 ```
 
 ### PHP
@@ -126,10 +119,13 @@ citys, err = client.City(None).list(None, None)
 <?php
 require_once 'countriesandcities_sdk.php';
 
-$client = new CountriesAndCitiesSDK([]);
+$client = new CountriesAndCitiesSDK([
+    "apikey" => getenv("COUNTRIES-AND-CITIES_APIKEY"),
+]);
 
 // List all citys
-[$citys, $err] = $client->City(null)->list(null, null);
+[$citys, $err] = $client->City()->list();
+print_r($citys);
 ```
 
 ### Golang
@@ -137,10 +133,13 @@ $client = new CountriesAndCitiesSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/countries-and-cities-sdk/go"
 
-client := sdk.NewCountriesAndCitiesSDK(map[string]any{})
+client := sdk.NewCountriesAndCitiesSDK(map[string]any{
+    "apikey": os.Getenv("COUNTRIES-AND-CITIES_APIKEY"),
+})
 
 // List all citys
 citys, err := client.City(nil).List(nil, nil)
+fmt.Println(citys)
 ```
 
 ### Ruby
@@ -148,10 +147,13 @@ citys, err := client.City(nil).List(nil, nil)
 ```ruby
 require_relative "CountriesAndCities_sdk"
 
-client = CountriesAndCitiesSDK.new({})
+client = CountriesAndCitiesSDK.new({
+  "apikey" => ENV["COUNTRIES-AND-CITIES_APIKEY"],
+})
 
 # List all citys
-citys, err = client.City(nil).list(nil, nil)
+citys, err = client.City().list
+puts citys
 ```
 
 ### Lua
@@ -159,10 +161,13 @@ citys, err = client.City(nil).list(nil, nil)
 ```lua
 local sdk = require("countries-and-cities_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("COUNTRIES-AND-CITIES_APIKEY"),
+})
 
 -- List all citys
-local citys, err = client:City(nil):list(nil, nil)
+local citys, err = client:City():list()
+print(citys)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +186,21 @@ const result = await client.City().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CountriesAndCitiesSDK.test(None, None)
-result, err = client.City(None).load(
-    {"id": "test01"}, None
-)
+client = CountriesAndCitiesSDK.test()
+result, err = client.City().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CountriesAndCitiesSDK::test(null, null);
-[$result, $err] = $client->City(null)->load(
-    ["id" => "test01"], null
-);
+$client = CountriesAndCitiesSDK::test();
+[$result, $err] = $client->City()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.City(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +209,15 @@ result, err := client.City(nil).Load(
 ### Ruby
 
 ```ruby
-client = CountriesAndCitiesSDK.test(nil, nil)
-result, err = client.City(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CountriesAndCitiesSDK.test
+result, err = client.City().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:City(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:City():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,15 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Countries & Cities API
-
-- Upstream: [https://countriesnow.space/](https://countriesnow.space/)
-- API docs: [https://documenter.getpostman.com/view/1134062/T1LJjU52](https://documenter.getpostman.com/view/1134062/T1LJjU52)
-
-- No licence is stated on the API homepage or community catalogue.
-- The service runs without authentication and is offered free of charge.
-- Confirm acceptable use with the upstream project before bundling the data into a product.
 
 ---
 

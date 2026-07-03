@@ -99,6 +99,7 @@ def _city_basic_setup(extra):
         "COUNTRIESANDCITIES_TEST_CITY_ENTID": idmap,
         "COUNTRIESANDCITIES_TEST_LIVE": "FALSE",
         "COUNTRIESANDCITIES_TEST_EXPLAIN": "FALSE",
+        "COUNTRIESANDCITIES_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,6 +110,7 @@ def _city_basic_setup(extra):
     if env.get("COUNTRIESANDCITIES_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("COUNTRIESANDCITIES_APIKEY"),
             },
             extra or {},
         ])

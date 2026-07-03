@@ -127,6 +127,7 @@ func cityBasicSetup(extra map[string]any) *entityTestSetup {
 		"COUNTRIESANDCITIES_TEST_CITY_ENTID": idmap,
 		"COUNTRIESANDCITIES_TEST_LIVE":      "FALSE",
 		"COUNTRIESANDCITIES_TEST_EXPLAIN":   "FALSE",
+		"COUNTRIESANDCITIES_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["COUNTRIESANDCITIES_TEST_CITY_ENTID"])
@@ -137,6 +138,7 @@ func cityBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["COUNTRIESANDCITIES_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["COUNTRIESANDCITIES_APIKEY"],
 			},
 			extra,
 		})

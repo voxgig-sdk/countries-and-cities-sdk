@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://countriesnow.space/api/v0.1",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -27,6 +30,7 @@ def make_config():
       "city": {
         "fields": [
           {
+            "active": True,
             "name": "city",
             "op": {
               "list": {
@@ -36,10 +40,10 @@ def make_config():
             },
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "country",
             "op": {
               "list": {
@@ -49,72 +53,74 @@ def make_config():
             },
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "data",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "error",
             "req": False,
             "type": "`$BOOLEAN`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "limit",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 4,
           },
           {
+            "active": True,
             "name": "msg",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 5,
           },
           {
+            "active": True,
             "name": "order",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 6,
           },
           {
+            "active": True,
             "name": "order_by",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 7,
           },
           {
+            "active": True,
             "name": "population_count",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 8,
           },
           {
+            "active": True,
             "name": "state",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 9,
           },
         ],
         "name": "city",
         "op": {
           "create": {
+            "input": "data",
             "name": "create",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/population/cities",
                 "parts": [
@@ -122,16 +128,16 @@ def make_config():
                   "population",
                   "cities",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/population/cities/filter",
                 "parts": [
@@ -147,11 +153,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 1,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/state/cities",
                 "parts": [
@@ -159,23 +165,23 @@ def make_config():
                   "state",
                   "cities",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 2,
               },
             ],
-            "input": "data",
             "key$": "create",
           },
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/countries/population/cities",
                 "parts": [
@@ -183,17 +189,14 @@ def make_config():
                   "population",
                   "cities",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -204,20 +207,21 @@ def make_config():
       "country": {
         "fields": [
           {
+            "active": True,
             "name": "city",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "code",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "country",
             "op": {
               "list": {
@@ -227,86 +231,88 @@ def make_config():
             },
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "data",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "error",
             "req": False,
             "type": "`$BOOLEAN`",
-            "active": True,
             "index$": 4,
           },
           {
+            "active": True,
             "name": "flag",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 5,
           },
           {
+            "active": True,
             "name": "iso2",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 6,
           },
           {
+            "active": True,
             "name": "iso3",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 7,
           },
           {
+            "active": True,
             "name": "lat",
             "req": False,
             "type": "`$NUMBER`",
-            "active": True,
             "index$": 8,
           },
           {
+            "active": True,
             "name": "long",
             "req": False,
             "type": "`$NUMBER`",
-            "active": True,
             "index$": 9,
           },
           {
+            "active": True,
             "name": "msg",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 10,
           },
           {
+            "active": True,
             "name": "name",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 11,
           },
           {
+            "active": True,
             "name": "population_count",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 12,
           },
         ],
         "name": "country",
         "op": {
           "create": {
+            "input": "data",
             "name": "create",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/capital",
                 "parts": [
@@ -320,11 +326,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 0,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/currency",
                 "parts": [
@@ -338,11 +344,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 1,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/flag/images",
                 "parts": [
@@ -350,16 +356,16 @@ def make_config():
                   "flag",
                   "images",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 2,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/iso",
                 "parts": [
@@ -373,11 +379,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 3,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/population",
                 "parts": [
@@ -391,11 +397,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 4,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/positions",
                 "parts": [
@@ -409,11 +415,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 5,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/countries/states",
                 "parts": [
@@ -427,33 +433,33 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 6,
               },
             ],
-            "input": "data",
             "key$": "create",
           },
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/countries",
                 "parts": [
                   "countries",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/countries/codes",
                 "parts": [
@@ -467,11 +473,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 1,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/countries/flag/images",
                 "parts": [
@@ -479,16 +485,16 @@ def make_config():
                   "flag",
                   "images",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 2,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/countries/population",
                 "parts": [
@@ -502,11 +508,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 3,
               },
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/countries/positions",
                 "parts": [
@@ -520,12 +526,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 4,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },

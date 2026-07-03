@@ -1,6 +1,11 @@
 # CountriesAndCities PHP SDK
 
-The PHP SDK for the CountriesAndCities API. Provides an entity-oriented interface using PHP conventions.
+
+
+The PHP SDK for the CountriesAndCities API — an entity-oriented client using PHP conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -20,13 +25,15 @@ loading a specific record.
 <?php
 require_once 'countriesandcities_sdk.php';
 
-$client = new CountriesAndCitiesSDK([]);
+$client = new CountriesAndCitiesSDK([
+    "apikey" => getenv("COUNTRIES-AND-CITIES_APIKEY"),
+]);
 ```
 
 ### 2. List citys
 
 ```php
-[$result, $err] = $client->City(null)->list(null, null);
+[$result, $err] = $client->City()->list();
 if ($err) { throw new \Exception($err); }
 
 if (is_array($result)) {
@@ -41,7 +48,7 @@ if (is_array($result)) {
 
 ```php
 // Create
-[$created, $_] = $client->City(null)->create(["name" => "Example"], null);
+[$created, $_] = $client->City()->create(["name" => "Example"]);
 
 ```
 
@@ -86,11 +93,9 @@ print_r($fetchdef["headers"]);
 Create a mock client for unit testing — no server required:
 
 ```php
-$client = CountriesAndCitiesSDK::test(null, null);
+$client = CountriesAndCitiesSDK::test();
 
-[$result, $err] = $client->CountriesAndCities(null)->load(
-    ["id" => "test01"], null
-);
+[$result, $err] = $client->CountriesAndCities()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -125,6 +130,7 @@ Create a `.env.local` file at the project root:
 
 ```
 COUNTRIES-AND-CITIES_TEST_LIVE=TRUE
+COUNTRIES-AND-CITIES_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,6 +153,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
