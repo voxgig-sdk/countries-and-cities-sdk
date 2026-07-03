@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/countries-and-cities",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Countries & Cities public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "countries-and-cities"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/countries-and-cities-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/countries-and-cities-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/countries-and-cities-sdk/issues"
+  },
   "main": "dist/CountriesAndCitiesSDK.js",
   "type": "commonjs",
   "types": "dist/CountriesAndCitiesSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "CountriesAndCities",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

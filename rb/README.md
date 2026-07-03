@@ -10,13 +10,13 @@ The Ruby SDK for the CountriesAndCities API — an entity-oriented client using 
 
 ## Install
 ```bash
-gem install countries-and-cities-sdk
+gem install voxgig-sdk-countries-and-cities
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "countries-and-cities-sdk"
+gem "voxgig-sdk-countries-and-cities"
 ```
 
 Then run:

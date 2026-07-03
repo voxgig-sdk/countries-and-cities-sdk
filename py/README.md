@@ -10,7 +10,7 @@ The Python SDK for the CountriesAndCities API — an entity-oriented client foll
 
 ## Install
 ```bash
-pip install countries-and-cities-sdk
+pip install voxgig-sdk-countries-and-cities
 ```
 
 Or install from source:

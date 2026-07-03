@@ -10,7 +10,7 @@ The Lua SDK for the CountriesAndCities API — an entity-oriented client using L
 
 ## Install
 ```bash
-luarocks install countries-and-cities-sdk
+luarocks install voxgig-sdk-countries-and-cities
 ```
 
 If the module is not yet published, add the source directory to

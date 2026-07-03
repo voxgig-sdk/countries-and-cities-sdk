@@ -10,7 +10,7 @@ The PHP SDK for the CountriesAndCities API — an entity-oriented client using P
 
 ## Install
 ```bash
-composer require voxgig/countries-and-cities-sdk
+composer require voxgig-sdk/countries-and-cities
 ```
 
 

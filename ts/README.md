@@ -10,7 +10,7 @@ The TypeScript SDK for the CountriesAndCities API — a type-safe, entity-orient
 
 ## Install
 ```bash
-npm install countries-and-cities
+npm install @voxgig-sdk/countries-and-cities
 ```
 ## Tutorial: your first API call
 
