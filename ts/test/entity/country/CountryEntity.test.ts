@@ -121,7 +121,6 @@ function basicSetup(extra?: any) {
     'COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID': idmap,
     'COUNTRIES_AND_CITIES_TEST_LIVE': 'FALSE',
     'COUNTRIES_AND_CITIES_TEST_EXPLAIN': 'FALSE',
-    'COUNTRIES_AND_CITIES_APIKEY': 'NONE',
   })
 
   idmap = env['COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID']
@@ -131,7 +130,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CountriesAndCitiesSDK(merge([
       {
-        apikey: env.COUNTRIES_AND_CITIES_APIKEY,
       },
       extra
     ]))

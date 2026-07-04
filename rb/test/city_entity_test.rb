@@ -36,16 +36,14 @@ class CityEntityTest < Minitest::Test
     city_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.city"), "city_ref01"))
 
-    city_ref01_data_result, err = city_ref01_ent.create(city_ref01_data, nil)
-    assert_nil err
+    city_ref01_data_result = city_ref01_ent.create(city_ref01_data, nil)
     city_ref01_data = Helpers.to_map(city_ref01_data_result)
     assert !city_ref01_data.nil?
 
     # LIST
     city_ref01_match = {}
 
-    city_ref01_list_result, err = city_ref01_ent.list(city_ref01_match, nil)
-    assert_nil err
+    city_ref01_list_result = city_ref01_ent.list(city_ref01_match, nil)
     assert city_ref01_list_result.is_a?(Array)
 
     found_item = Vs.select(
@@ -89,7 +87,6 @@ def city_basic_setup(extra)
     "COUNTRIESANDCITIES_TEST_CITY_ENTID" => idmap,
     "COUNTRIESANDCITIES_TEST_LIVE" => "FALSE",
     "COUNTRIESANDCITIES_TEST_EXPLAIN" => "FALSE",
-    "COUNTRIESANDCITIES_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -101,7 +98,6 @@ def city_basic_setup(extra)
   if env["COUNTRIESANDCITIES_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["COUNTRIESANDCITIES_APIKEY"],
       },
       extra || {},
     ])

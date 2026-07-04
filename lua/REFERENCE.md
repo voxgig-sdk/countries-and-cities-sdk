@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## CityEntity
 
 ```lua
-local city = client:City(nil)
+local city = client:city(nil)
 ```
 
 ### Fields
@@ -128,7 +127,7 @@ local city = client:City(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:City():create({
+local result, err = client:city():create({
   city = --[[ `$STRING` ]],
   country = --[[ `$STRING` ]],
   state = --[[ `$STRING` ]],
@@ -140,7 +139,7 @@ local result, err = client:City():create({
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:City():list()
+local results, err = client:city():list()
 ```
 
 ### Common Methods
@@ -176,7 +175,7 @@ Return the entity name.
 ## CountryEntity
 
 ```lua
-local country = client:Country(nil)
+local country = client:country(nil)
 ```
 
 ### Fields
@@ -222,7 +221,7 @@ local country = client:Country(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:Country():create({
+local result, err = client:country():create({
   country = --[[ `$STRING` ]],
 })
 ```
@@ -232,7 +231,7 @@ local result, err = client:Country():create({
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Country():list()
+local results, err = client:country():list()
 ```
 
 ### Common Methods

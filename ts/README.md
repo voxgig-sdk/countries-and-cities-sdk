@@ -9,9 +9,12 @@ The TypeScript SDK for the CountriesAndCities API — a type-safe, entity-orient
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/countries-and-cities
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/countries-and-cities-sdk/releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CountriesAndCitiesSDK } from 'countries-and-cities'
+import { CountriesAndCitiesSDK } from '@voxgig-sdk/countries-and-cities'
 
-const client = new CountriesAndCitiesSDK({
-  apikey: process.env.COUNTRIES-AND-CITIES_APIKEY,
-})
+const client = new CountriesAndCitiesSDK()
 ```
 
 ### 2. List citys
 
 ```ts
-const result = await client.City().list()
+const result = await client.city.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -43,7 +44,7 @@ if (result.ok) {
 
 ```ts
 // Create
-const created = await client.City().create({
+const created = await client.city.create({
   name: 'Example',
 })
 
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CountriesAndCitiesSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.city.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new CountriesAndCitiesSDK({ apikey: '...' })
+const client = new CountriesAndCitiesSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.city
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new CountriesAndCitiesSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -145,8 +145,7 @@ const client = new CountriesAndCitiesSDK({
 Create a `.env.local` file at the project root:
 
 ```
-COUNTRIES-AND-CITIES_TEST_LIVE=TRUE
-COUNTRIES-AND-CITIES_APIKEY=<your-key>
+COUNTRIES_AND_CITIES_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new CountriesAndCitiesSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new CountriesAndCitiesSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -310,7 +307,7 @@ API path: `/countries/capital`
 
 ### City
 
-Create an instance: `const city = client.City()`
+Create an instance: `const city = client.city`
 
 #### Operations
 
@@ -337,13 +334,13 @@ Create an instance: `const city = client.City()`
 #### Example: List
 
 ```ts
-const citys = await client.City().list()
+const citys = await client.city.list()
 ```
 
 #### Example: Create
 
 ```ts
-const city = await client.City().create({
+const city = await client.city.create({
   city: /* `$STRING` */,
   country: /* `$STRING` */,
   state: /* `$STRING` */,
@@ -353,7 +350,7 @@ const city = await client.City().create({
 
 ### Country
 
-Create an instance: `const country = client.Country()`
+Create an instance: `const country = client.country`
 
 #### Operations
 
@@ -383,13 +380,13 @@ Create an instance: `const country = client.Country()`
 #### Example: List
 
 ```ts
-const countrys = await client.Country().list()
+const countrys = await client.country.list()
 ```
 
 #### Example: Create
 
 ```ts
-const country = await client.Country().create({
+const country = await client.country.create({
   country: /* `$STRING` */,
 })
 ```
@@ -452,7 +449,7 @@ countries-and-cities/
 Import the SDK from the package root:
 
 ```ts
-import { CountriesAndCitiesSDK } from 'countries-and-cities'
+import { CountriesAndCitiesSDK } from '@voxgig-sdk/countries-and-cities'
 ```
 
 ### Entity state
@@ -462,11 +459,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const city = client.city
+await city.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// city.data() now returns the loaded city data
+// city.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

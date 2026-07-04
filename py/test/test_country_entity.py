@@ -44,16 +44,13 @@ class TestCountryEntity:
         country_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.country"), "country_ref01"))
 
-        country_ref01_data_result, err = country_ref01_ent.create(country_ref01_data, None)
-        assert err is None
-        country_ref01_data = helpers.to_map(country_ref01_data_result)
+        country_ref01_data = helpers.to_map(country_ref01_ent.create(country_ref01_data, None))
         assert country_ref01_data is not None
 
         # LIST
         country_ref01_match = {}
 
-        country_ref01_list_result, err = country_ref01_ent.list(country_ref01_match, None)
-        assert err is None
+        country_ref01_list_result = country_ref01_ent.list(country_ref01_match, None)
         assert isinstance(country_ref01_list_result, list)
 
         found_item = vs.select(
@@ -99,7 +96,6 @@ def _country_basic_setup(extra):
         "COUNTRIESANDCITIES_TEST_COUNTRY_ENTID": idmap,
         "COUNTRIESANDCITIES_TEST_LIVE": "FALSE",
         "COUNTRIESANDCITIES_TEST_EXPLAIN": "FALSE",
-        "COUNTRIESANDCITIES_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -110,7 +106,6 @@ def _country_basic_setup(extra):
     if env.get("COUNTRIESANDCITIES_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("COUNTRIESANDCITIES_APIKEY"),
             },
             extra or {},
         ])

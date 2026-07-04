@@ -245,11 +245,17 @@ func (sdk *CountriesAndCitiesSDK) Direct(fetchargs map[string]any) (map[string]a
 }
 
 
+// City returns a City entity bound to this client.
+// Idiomatic usage: client.City(nil).List(nil, nil) or
+// client.City(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CountriesAndCitiesSDK) City(data map[string]any) CountriesAndCitiesEntity {
 	return NewCityEntityFunc(sdk, data)
 }
 
 
+// Country returns a Country entity bound to this client.
+// Idiomatic usage: client.Country(nil).List(nil, nil) or
+// client.Country(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CountriesAndCitiesSDK) Country(data map[string]any) CountriesAndCitiesEntity {
 	return NewCountryEntityFunc(sdk, data)
 }

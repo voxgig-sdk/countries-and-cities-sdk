@@ -9,12 +9,9 @@ The Lua SDK for the CountriesAndCities API — an entity-oriented client using L
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-countries-and-cities
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("countries-and-cities_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("COUNTRIES-AND-CITIES_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List citys
 
 ```lua
-local result, err = client:City():list()
+local result, err = client:city():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -54,7 +49,7 @@ end
 
 ```lua
 -- Create
-local created, _ = client:City():create({ name = "Example" })
+local created, _ = client:city():create({ name = "Example" })
 
 ```
 
@@ -101,7 +96,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:CountriesAndCities():load({ id = "test01" })
+local result, err = client:city():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -134,8 +129,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-COUNTRIES-AND-CITIES_TEST_LIVE=TRUE
-COUNTRIES-AND-CITIES_APIKEY=<your-key>
+COUNTRIES_AND_CITIES_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -158,7 +152,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -267,7 +260,7 @@ API path: `/countries/capital`
 
 ### City
 
-Create an instance: `const city = client.City()`
+Create an instance: `const city = client.city`
 
 #### Operations
 
@@ -294,13 +287,13 @@ Create an instance: `const city = client.City()`
 #### Example: List
 
 ```ts
-const citys = await client.City().list()
+const citys = await client.city.list()
 ```
 
 #### Example: Create
 
 ```ts
-const city = await client.City().create({
+const city = await client.city.create({
   city: /* `$STRING` */,
   country: /* `$STRING` */,
   state: /* `$STRING` */,
@@ -310,7 +303,7 @@ const city = await client.City().create({
 
 ### Country
 
-Create an instance: `const country = client.Country()`
+Create an instance: `const country = client.country`
 
 #### Operations
 
@@ -340,13 +333,13 @@ Create an instance: `const country = client.Country()`
 #### Example: List
 
 ```ts
-const countrys = await client.Country().list()
+const countrys = await client.country.list()
 ```
 
 #### Example: Create
 
 ```ts
-const country = await client.Country().create({
+const country = await client.country.create({
   country: /* `$STRING` */,
 })
 ```
@@ -423,11 +416,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local city = client:city()
+city:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- city:data_get() now returns the loaded city data
+-- city:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

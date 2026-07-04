@@ -3,6 +3,8 @@
 import { CityEntity } from './entity/CityEntity'
 import { CountryEntity } from './entity/CountryEntity'
 
+export type * from './CountriesAndCitiesTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class CountriesAndCitiesSDK {
 
 
 
+  _city?: CityEntity
+
+  // Idiomatic facade: `client.city.list()` / `client.city.load({ id })`.
+  get city(): CityEntity {
+    return (this._city ??= new CityEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.city` instead. */
   City(data?: any) {
     const self = this
     return new CityEntity(self,data)
   }
 
 
+  _country?: CountryEntity
+
+  // Idiomatic facade: `client.country.list()` / `client.country.load({ id })`.
+  get country(): CountryEntity {
+    return (this._country ??= new CountryEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.country` instead. */
   Country(data?: any) {
     const self = this
     return new CountryEntity(self,data)

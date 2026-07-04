@@ -43,16 +43,14 @@ class CityEntityTest extends TestCase
         $city_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.city"), "city_ref01"));
 
-        [$city_ref01_data_result, $err] = $city_ref01_ent->create($city_ref01_data, null);
-        $this->assertNull($err);
+        $city_ref01_data_result = $city_ref01_ent->create($city_ref01_data, null);
         $city_ref01_data = Helpers::to_map($city_ref01_data_result);
         $this->assertNotNull($city_ref01_data);
 
         // LIST
         $city_ref01_match = [];
 
-        [$city_ref01_list_result, $err] = $city_ref01_ent->list($city_ref01_match, null);
-        $this->assertNull($err);
+        $city_ref01_list_result = $city_ref01_ent->list($city_ref01_match, null);
         $this->assertIsArray($city_ref01_list_result);
 
         $found_item = sdk_select(
@@ -92,7 +90,6 @@ function city_basic_setup($extra)
         "COUNTRIESANDCITIES_TEST_CITY_ENTID" => $idmap,
         "COUNTRIESANDCITIES_TEST_LIVE" => "FALSE",
         "COUNTRIESANDCITIES_TEST_EXPLAIN" => "FALSE",
-        "COUNTRIESANDCITIES_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function city_basic_setup($extra)
     if ($env["COUNTRIESANDCITIES_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["COUNTRIESANDCITIES_APIKEY"],
             ],
             $extra ?? [],
         ]);

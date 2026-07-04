@@ -43,16 +43,14 @@ class CountryEntityTest extends TestCase
         $country_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.country"), "country_ref01"));
 
-        [$country_ref01_data_result, $err] = $country_ref01_ent->create($country_ref01_data, null);
-        $this->assertNull($err);
+        $country_ref01_data_result = $country_ref01_ent->create($country_ref01_data, null);
         $country_ref01_data = Helpers::to_map($country_ref01_data_result);
         $this->assertNotNull($country_ref01_data);
 
         // LIST
         $country_ref01_match = [];
 
-        [$country_ref01_list_result, $err] = $country_ref01_ent->list($country_ref01_match, null);
-        $this->assertNull($err);
+        $country_ref01_list_result = $country_ref01_ent->list($country_ref01_match, null);
         $this->assertIsArray($country_ref01_list_result);
 
         $found_item = sdk_select(
@@ -92,7 +90,6 @@ function country_basic_setup($extra)
         "COUNTRIESANDCITIES_TEST_COUNTRY_ENTID" => $idmap,
         "COUNTRIESANDCITIES_TEST_LIVE" => "FALSE",
         "COUNTRIESANDCITIES_TEST_EXPLAIN" => "FALSE",
-        "COUNTRIESANDCITIES_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function country_basic_setup($extra)
     if ($env["COUNTRIESANDCITIES_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["COUNTRIESANDCITIES_APIKEY"],
             ],
             $extra ?? [],
         ]);

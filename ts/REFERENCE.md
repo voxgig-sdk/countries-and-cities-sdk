@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `CountriesAndCitiesSDK.test()`.
 ## CityEntity
 
 ```ts
-const city = client.City()
+const city = client.city
 ```
 
 ### Fields
@@ -162,7 +161,7 @@ const city = client.City()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.City().create({
+const result = await client.city.create({
   city: /* `$STRING` */,
   country: /* `$STRING` */,
   state: /* `$STRING` */,
@@ -174,7 +173,7 @@ const result = await client.City().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.City().list()
+const results = await client.city.list()
 ```
 
 ### Common Methods
@@ -208,7 +207,7 @@ Return a copy of the entity options.
 ## CountryEntity
 
 ```ts
-const country = client.Country()
+const country = client.country
 ```
 
 ### Fields
@@ -254,7 +253,7 @@ const country = client.Country()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.Country().create({
+const result = await client.country.create({
   country: /* `$STRING` */,
 })
 ```
@@ -264,7 +263,7 @@ const result = await client.Country().create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Country().list()
+const results = await client.country.list()
 ```
 
 ### Common Methods

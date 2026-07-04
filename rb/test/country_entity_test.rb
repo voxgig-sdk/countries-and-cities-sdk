@@ -36,16 +36,14 @@ class CountryEntityTest < Minitest::Test
     country_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.country"), "country_ref01"))
 
-    country_ref01_data_result, err = country_ref01_ent.create(country_ref01_data, nil)
-    assert_nil err
+    country_ref01_data_result = country_ref01_ent.create(country_ref01_data, nil)
     country_ref01_data = Helpers.to_map(country_ref01_data_result)
     assert !country_ref01_data.nil?
 
     # LIST
     country_ref01_match = {}
 
-    country_ref01_list_result, err = country_ref01_ent.list(country_ref01_match, nil)
-    assert_nil err
+    country_ref01_list_result = country_ref01_ent.list(country_ref01_match, nil)
     assert country_ref01_list_result.is_a?(Array)
 
     found_item = Vs.select(
@@ -89,7 +87,6 @@ def country_basic_setup(extra)
     "COUNTRIESANDCITIES_TEST_COUNTRY_ENTID" => idmap,
     "COUNTRIESANDCITIES_TEST_LIVE" => "FALSE",
     "COUNTRIESANDCITIES_TEST_EXPLAIN" => "FALSE",
-    "COUNTRIESANDCITIES_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -101,7 +98,6 @@ def country_basic_setup(extra)
   if env["COUNTRIESANDCITIES_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["COUNTRIESANDCITIES_APIKEY"],
       },
       extra || {},
     ])

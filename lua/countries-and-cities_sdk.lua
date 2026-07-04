@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:city():list() / client:city():load({ id = ... })
+function CountriesAndCitiesSDK:city(data)
+  local EntityMod = require("entity.city_entity")
+  if data == nil then
+    if self._city == nil then
+      self._city = EntityMod.new(self, nil)
+    end
+    return self._city
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:city() instead.
 function CountriesAndCitiesSDK:City(data)
   local EntityMod = require("entity.city_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:country():list() / client:country():load({ id = ... })
+function CountriesAndCitiesSDK:country(data)
+  local EntityMod = require("entity.country_entity")
+  if data == nil then
+    if self._country == nil then
+      self._country = EntityMod.new(self, nil)
+    end
+    return self._country
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:country() instead.
 function CountriesAndCitiesSDK:Country(data)
   local EntityMod = require("entity.country_entity")
   return EntityMod.new(self, data)

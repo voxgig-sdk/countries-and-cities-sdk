@@ -55,6 +55,9 @@ class CityEntity
         return new CityEntity($this->_client, $opts);
     }
 
+    /**
+     * @param City|array $args City data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class CityEntity
         }
     }
 
+    /**
+     * @return City|array The current City data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of City fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class CityEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of City fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -86,7 +98,16 @@ class CityEntity
     
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List City items matching the given filter.
+     *
+     * @param CityListMatch|array|null $reqmatch Match filter (any subset
+     *   of City fields) as an assoc-array; CityListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return City[]|array A list of City items as assoc-arrays at
+     *   the SDK boundary; throws CountriesAndCitiesError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -109,7 +130,16 @@ class CityEntity
 
 
     
-    public function create($reqdata, $ctrl = null): array
+    /**
+     * Create a new City.
+     *
+     * @param CityCreateData|array|null $reqdata Body data as an assoc-array;
+     *   a typed CityCreateData names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return City|array The created City as an assoc-array at the
+     *   SDK boundary; throws CountriesAndCitiesError on failure (item-5 convention).
+     */
+    public function create(?array $reqdata = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -135,7 +165,7 @@ class CityEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

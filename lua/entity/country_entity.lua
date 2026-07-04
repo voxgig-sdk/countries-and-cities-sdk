@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch CountryListMatch
+---@param ctrl? table
+---@return Country[]
+---@return string? err
 function CountryEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -103,6 +107,10 @@ end
 
 
 
+---@param reqdata CountryCreateData
+---@param ctrl? table
+---@return Country
+---@return string? err
 function CountryEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

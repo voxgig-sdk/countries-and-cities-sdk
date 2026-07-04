@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         url: "https://documenter.getpostman.com/view/1134062/T1LJjU52"
       }

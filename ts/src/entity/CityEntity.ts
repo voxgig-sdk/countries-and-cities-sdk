@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  City,
+  CityListMatch,
+  CityCreateData,
+} from '../CountriesAndCitiesTypes'
 
 // TODO: needs Entity superclass
-class CityEntity extends CountriesAndCitiesEntityBase {
+class CityEntity extends CountriesAndCitiesEntityBase<City> {
 
   constructor(client: CountriesAndCitiesSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +38,7 @@ class CityEntity extends CountriesAndCitiesEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: CityListMatch, ctrl?: Control): Promise<City[]> {
 
     const utility = this._utility
 
@@ -133,14 +138,16 @@ class CityEntity extends CountriesAndCitiesEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<City[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: CityCreateData, ctrl?: Control): Promise<City> {
 
     const utility = this._utility
     const {
@@ -239,7 +246,9 @@ class CityEntity extends CountriesAndCitiesEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<City> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
