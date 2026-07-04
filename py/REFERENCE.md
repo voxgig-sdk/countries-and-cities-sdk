@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CityEntity
 
 ```python
-city = client.city
+city = client.City()
 ```
 
 ### Fields
@@ -124,10 +124,10 @@ city = client.city
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.city.create({
-    "city": # `$STRING`,
-    "country": # `$STRING`,
-    "state": # `$STRING`,
+result = client.City().create({
+    "city": ...,  # `$STRING`
+    "country": ...,  # `$STRING`
+    "state": ...,  # `$STRING`
 })
 ```
 
@@ -136,7 +136,9 @@ result = client.city.create({
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.city.list({})
+results = client.City().list({})
+for city in results:
+    print(city)
 ```
 
 ### Common Methods
@@ -171,7 +173,7 @@ Return the entity name.
 ## CountryEntity
 
 ```python
-country = client.country
+country = client.Country()
 ```
 
 ### Fields
@@ -217,8 +219,8 @@ country = client.country
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.country.create({
-    "country": # `$STRING`,
+result = client.Country().create({
+    "country": ...,  # `$STRING`
 })
 ```
 
@@ -227,7 +229,9 @@ result = client.country.create({
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.country.list({})
+results = client.Country().list({})
+for country in results:
+    print(country)
 ```
 
 ### Common Methods

@@ -31,14 +31,16 @@ from countriesandcities_sdk import CountriesAndCitiesSDK
 client = CountriesAndCitiesSDK()
 ```
 
-### 2. List citys
+### 2. List city records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.city.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    citys = client.City().list({})
+    for city in citys:
+        print(city)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -46,8 +48,8 @@ except Exception as err:
 ### 4. Create, update, and remove
 
 ```python
-# Create
-created = client.city.create({"name": "Example"})
+# Create — returns the bare created record (a dict)
+created = client.City().create({"name": "Example"})
 
 ```
 
@@ -94,8 +96,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CountriesAndCitiesSDK.test()
 
-result = client.city.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+city = client.City().load({"id": "test01"})
+# city contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -260,7 +263,7 @@ API path: `/countries/capital`
 
 ### City
 
-Create an instance: `const city = client.city`
+Create an instance: `city = client.City()`
 
 #### Operations
 
@@ -286,24 +289,24 @@ Create an instance: `const city = client.city`
 
 #### Example: List
 
-```ts
-const citys = await client.city.list()
+```python
+citys = client.City().list({})
 ```
 
 #### Example: Create
 
-```ts
-const city = await client.city.create({
-  city: /* `$STRING` */,
-  country: /* `$STRING` */,
-  state: /* `$STRING` */,
+```python
+city = client.City().create({
+    "city": ...,  # `$STRING`
+    "country": ...,  # `$STRING`
+    "state": ...,  # `$STRING`
 })
 ```
 
 
 ### Country
 
-Create an instance: `const country = client.country`
+Create an instance: `country = client.Country()`
 
 #### Operations
 
@@ -332,15 +335,15 @@ Create an instance: `const country = client.country`
 
 #### Example: List
 
-```ts
-const countrys = await client.country.list()
+```python
+countrys = client.Country().list({})
 ```
 
 #### Example: Create
 
-```ts
-const country = await client.country.create({
-  country: /* `$STRING` */,
+```python
+country = client.Country().create({
+    "country": ...,  # `$STRING`
 })
 ```
 
@@ -415,7 +418,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-city = client.city
+city = client.City()
 city.load({"id": "example_id"})
 
 # city.data_get() now returns the loaded city data

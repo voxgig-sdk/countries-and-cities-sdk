@@ -208,26 +208,14 @@ class CountriesAndCitiesSDK
   end
 
 
-  # Idiomatic facade: client.city.list / client.city.load({ "id" => ... })
-  def city
-    require_relative 'entity/city_entity'
-    @city ||= CityEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.city instead.
+  # Canonical facade: client.City.list / client.City.load({ "id" => ... })
   def City(data = nil)
     require_relative 'entity/city_entity'
     CityEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.country.list / client.country.load({ "id" => ... })
-  def country
-    require_relative 'entity/country_entity'
-    @country ||= CountryEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.country instead.
+  # Canonical facade: client.Country.list / client.Country.load({ "id" => ... })
   def Country(data = nil)
     require_relative 'entity/country_entity'
     CountryEntity.new(self, data)

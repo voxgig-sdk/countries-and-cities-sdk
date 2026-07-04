@@ -29,18 +29,16 @@ require_once 'countriesandcities_sdk.php';
 $client = new CountriesAndCitiesSDK();
 ```
 
-### 2. List citys
+### 2. List city records
 
 ```php
 try {
-    $result = $client->city()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of City records — iterate directly.
+    $citys = $client->City()->list();
+    foreach ($citys as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -48,8 +46,8 @@ try {
 ### 4. Create, update, and remove
 
 ```php
-// Create
-$created = $client->city()->create(["name" => "Example"]);
+// create() returns the bare created City record.
+$created = $client->City()->create(["name" => "Example"]);
 
 ```
 
@@ -94,13 +92,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CountriesAndCitiesSDK::test();
+$client = CountriesAndCitiesSDK::test([
+    "entity" => ["city" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->city()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$city = $client->City()->load(["id" => "test01"]);
+print_r($city);
 ```
 
 ### Use a custom fetch function
@@ -268,7 +270,7 @@ API path: `/countries/capital`
 
 ### City
 
-Create an instance: `const city = client.city`
+Create an instance: `$city = $client->City();`
 
 #### Operations
 
@@ -294,24 +296,25 @@ Create an instance: `const city = client.city`
 
 #### Example: List
 
-```ts
-const citys = await client.city.list()
+```php
+// list() returns an array of City records (throws on error).
+$citys = $client->City()->list();
 ```
 
 #### Example: Create
 
-```ts
-const city = await client.city.create({
-  city: /* `$STRING` */,
-  country: /* `$STRING` */,
-  state: /* `$STRING` */,
-})
+```php
+$city = $client->City()->create([
+    "city" => null, // `$STRING`
+    "country" => null, // `$STRING`
+    "state" => null, // `$STRING`
+]);
 ```
 
 
 ### Country
 
-Create an instance: `const country = client.country`
+Create an instance: `$country = $client->Country();`
 
 #### Operations
 
@@ -340,16 +343,17 @@ Create an instance: `const country = client.country`
 
 #### Example: List
 
-```ts
-const countrys = await client.country.list()
+```php
+// list() returns an array of Country records (throws on error).
+$countrys = $client->Country()->list();
 ```
 
 #### Example: Create
 
-```ts
-const country = await client.country.create({
-  country: /* `$STRING` */,
-})
+```php
+$country = $client->Country()->create([
+    "country" => null, // `$STRING`
+]);
 ```
 
 
@@ -424,7 +428,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$city = $client->city();
+$city = $client->City();
 $city->load(["id" => "example_id"]);
 
 // $city->dataGet() now returns the loaded city data

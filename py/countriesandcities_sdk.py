@@ -220,41 +220,21 @@ class CountriesAndCitiesSDK:
         }
 
 
-    @property
-    def city(self):
-        """Idiomatic facade: client.city.list() / client.city.load({"id": ...})."""
-        from entity.city_entity import CityEntity
-        cached = getattr(self, "_city", None)
-        if cached is None:
-            cached = CityEntity(self, None)
-            self._city = cached
-        return cached
-
-    def City(self, data=None):
-        # Deprecated: use client.city instead.
+    def City(self, data=None) -> "CityEntity":
+        """Entity factory: client.City().list({}) / client.City().load({"id": ...})."""
         from entity.city_entity import CityEntity
         return CityEntity(self, data)
 
 
-    @property
-    def country(self):
-        """Idiomatic facade: client.country.list() / client.country.load({"id": ...})."""
-        from entity.country_entity import CountryEntity
-        cached = getattr(self, "_country", None)
-        if cached is None:
-            cached = CountryEntity(self, None)
-            self._country = cached
-        return cached
-
-    def Country(self, data=None):
-        # Deprecated: use client.country instead.
+    def Country(self, data=None) -> "CountryEntity":
+        """Entity factory: client.Country().list({}) / client.Country().load({"id": ...})."""
         from entity.country_entity import CountryEntity
         return CountryEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CountriesAndCitiesSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class CountriesAndCitiesSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.city_entity import CityEntity
+    from entity.country_entity import CountryEntity

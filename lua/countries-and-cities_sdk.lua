@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:city():list() / client:city():load({ id = ... })
-function CountriesAndCitiesSDK:city(data)
+-- Idiomatic facade: client:City():list() / client:City():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CountriesAndCitiesSDK:City(data)
   local EntityMod = require("entity.city_entity")
   if data == nil then
     if self._city == nil then
@@ -256,15 +257,10 @@ function CountriesAndCitiesSDK:city(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:city() instead.
-function CountriesAndCitiesSDK:City(data)
-  local EntityMod = require("entity.city_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:country():list() / client:country():load({ id = ... })
-function CountriesAndCitiesSDK:country(data)
+-- Idiomatic facade: client:Country():list() / client:Country():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CountriesAndCitiesSDK:Country(data)
   local EntityMod = require("entity.country_entity")
   if data == nil then
     if self._country == nil then
@@ -272,12 +268,6 @@ function CountriesAndCitiesSDK:country(data)
     end
     return self._country
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:country() instead.
-function CountriesAndCitiesSDK:Country(data)
-  local EntityMod = require("entity.country_entity")
   return EntityMod.new(self, data)
 end
 

@@ -31,17 +31,17 @@ local sdk = require("countries-and-cities_sdk")
 local client = sdk.new()
 ```
 
-### 2. List citys
+### 2. List city records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:city():list()
+local citys, err = client:City():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(citys) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -49,7 +49,8 @@ end
 
 ```lua
 -- Create
-local created, _ = client:city():create({ name = "Example" })
+local created, err = client:City():create({ name = "Example" })
+if err then error(err) end
 
 ```
 
@@ -96,8 +97,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:city():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:City():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -198,17 +199,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local city, err = client:City():load({ id = "example_id" })
+    if err then error(err) end
+    -- city is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -260,7 +266,7 @@ API path: `/countries/capital`
 
 ### City
 
-Create an instance: `const city = client.city`
+Create an instance: `local city = client:City(nil)`
 
 #### Operations
 
@@ -286,24 +292,24 @@ Create an instance: `const city = client.city`
 
 #### Example: List
 
-```ts
-const citys = await client.city.list()
+```lua
+local citys, err = client:City():list()
 ```
 
 #### Example: Create
 
-```ts
-const city = await client.city.create({
-  city: /* `$STRING` */,
-  country: /* `$STRING` */,
-  state: /* `$STRING` */,
+```lua
+local city, err = client:City():create({
+  city = nil, -- `$STRING`
+  country = nil, -- `$STRING`
+  state = nil, -- `$STRING`
 })
 ```
 
 
 ### Country
 
-Create an instance: `const country = client.country`
+Create an instance: `local country = client:Country(nil)`
 
 #### Operations
 
@@ -332,15 +338,15 @@ Create an instance: `const country = client.country`
 
 #### Example: List
 
-```ts
-const countrys = await client.country.list()
+```lua
+local countrys, err = client:Country():list()
 ```
 
 #### Example: Create
 
-```ts
-const country = await client.country.create({
-  country: /* `$STRING` */,
+```lua
+local country, err = client:Country():create({
+  country = nil, -- `$STRING`
 })
 ```
 
@@ -416,7 +422,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local city = client:city()
+local city = client:City()
 city:load({ id = "example_id" })
 
 -- city:data_get() now returns the loaded city data

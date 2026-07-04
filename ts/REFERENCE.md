@@ -121,7 +121,7 @@ Alias for `CountriesAndCitiesSDK.test()`.
 ## CityEntity
 
 ```ts
-const city = client.city
+const city = client.City()
 ```
 
 ### Fields
@@ -161,7 +161,7 @@ const city = client.city
 Create a new entity with the given data.
 
 ```ts
-const result = await client.city.create({
+const result = await client.City().create({
   city: /* `$STRING` */,
   country: /* `$STRING` */,
   state: /* `$STRING` */,
@@ -173,7 +173,7 @@ const result = await client.city.create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.city.list()
+const results = await client.City().list()
 ```
 
 ### Common Methods
@@ -207,7 +207,7 @@ Return a copy of the entity options.
 ## CountryEntity
 
 ```ts
-const country = client.country
+const country = client.Country()
 ```
 
 ### Fields
@@ -253,7 +253,7 @@ const country = client.country
 Create a new entity with the given data.
 
 ```ts
-const result = await client.country.create({
+const result = await client.Country().create({
   country: /* `$STRING` */,
 })
 ```
@@ -263,7 +263,7 @@ const result = await client.country.create({
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.country.list()
+const results = await client.Country().list()
 ```
 
 ### Common Methods

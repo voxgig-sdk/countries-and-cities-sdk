@@ -233,10 +233,10 @@ class CountriesAndCitiesSDK
 
     private $_city = null;
 
-    // Idiomatic facade: $client->city()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias City() (PHP method
-    // names are case-insensitive).
-    public function city($data = null)
+    // Canonical facade: $client->City()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->city()
+    // resolves here too.
+    public function City($data = null)
     {
         require_once __DIR__ . '/entity/city_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class CountriesAndCitiesSDK
 
     private $_country = null;
 
-    // Idiomatic facade: $client->country()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Country() (PHP method
-    // names are case-insensitive).
-    public function country($data = null)
+    // Canonical facade: $client->Country()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->country()
+    // resolves here too.
+    public function Country($data = null)
     {
         require_once __DIR__ . '/entity/country_entity.php';
         if ($data === null) {

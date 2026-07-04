@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## CityEntity
 
 ```ruby
-city = client.city
+city = client.City
 ```
 
 ### Fields
@@ -130,7 +130,7 @@ city = client.city
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.city.create({
+result = client.City.create({
   "city" => # `$STRING`,
   "country" => # `$STRING`,
   "state" => # `$STRING`,
@@ -142,7 +142,7 @@ result = client.city.create({
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.city.list(nil)
+results = client.City.list(nil)
 ```
 
 ### Common Methods
@@ -178,7 +178,7 @@ Return the entity name.
 ## CountryEntity
 
 ```ruby
-country = client.country
+country = client.Country
 ```
 
 ### Fields
@@ -224,7 +224,7 @@ country = client.country
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.country.create({
+result = client.Country.create({
   "country" => # `$STRING`,
 })
 ```
@@ -234,7 +234,7 @@ result = client.country.create({
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.country.list(nil)
+results = client.Country.list(nil)
 ```
 
 ### Common Methods

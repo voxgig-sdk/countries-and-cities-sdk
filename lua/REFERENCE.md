@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## CityEntity
 
 ```lua
-local city = client:city(nil)
+local city = client:City(nil)
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ local city = client:city(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:city():create({
+local result, err = client:City():create({
   city = --[[ `$STRING` ]],
   country = --[[ `$STRING` ]],
   state = --[[ `$STRING` ]],
@@ -139,7 +139,7 @@ local result, err = client:city():create({
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:city():list()
+local results, err = client:City():list()
 ```
 
 ### Common Methods
@@ -175,7 +175,7 @@ Return the entity name.
 ## CountryEntity
 
 ```lua
-local country = client:country(nil)
+local country = client:Country(nil)
 ```
 
 ### Fields
@@ -221,7 +221,7 @@ local country = client:country(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:country():create({
+local result, err = client:Country():create({
   country = --[[ `$STRING` ]],
 })
 ```
@@ -231,7 +231,7 @@ local result, err = client:country():create({
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:country():list()
+local results, err = client:Country():list()
 ```
 
 ### Common Methods

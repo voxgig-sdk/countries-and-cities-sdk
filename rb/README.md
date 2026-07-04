@@ -28,16 +28,14 @@ require_relative "CountriesAndCities_sdk"
 client = CountriesAndCitiesSDK.new
 ```
 
-### 2. List citys
+### 2. List city records
 
 ```ruby
 begin
-  result = client.city.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of City records — iterate directly.
+  citys = client.City.list
+  citys.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -47,8 +45,8 @@ end
 ### 4. Create, update, and remove
 
 ```ruby
-# Create
-created = client.city.create({ "name" => "Example" })
+# create returns the bare created City record.
+created = client.City.create({ "name" => "Example" })
 
 ```
 
@@ -93,13 +91,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CountriesAndCitiesSDK.test
+client = CountriesAndCitiesSDK.test({
+  "entity" => { "city" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.city.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+city = client.City.load({ "id" => "test01" })
+puts city
 ```
 
 ### Use a custom fetch function
@@ -263,7 +265,7 @@ API path: `/countries/capital`
 
 ### City
 
-Create an instance: `const city = client.city`
+Create an instance: `city = client.City`
 
 #### Operations
 
@@ -289,24 +291,25 @@ Create an instance: `const city = client.city`
 
 #### Example: List
 
-```ts
-const citys = await client.city.list()
+```ruby
+# list returns an Array of City records (raises on error).
+citys = client.City.list
 ```
 
 #### Example: Create
 
-```ts
-const city = await client.city.create({
-  city: /* `$STRING` */,
-  country: /* `$STRING` */,
-  state: /* `$STRING` */,
+```ruby
+city = client.City.create({
+  "city" => nil, # `$STRING`
+  "country" => nil, # `$STRING`
+  "state" => nil, # `$STRING`
 })
 ```
 
 
 ### Country
 
-Create an instance: `const country = client.country`
+Create an instance: `country = client.Country`
 
 #### Operations
 
@@ -335,15 +338,16 @@ Create an instance: `const country = client.country`
 
 #### Example: List
 
-```ts
-const countrys = await client.country.list()
+```ruby
+# list returns an Array of Country records (raises on error).
+countrys = client.Country.list
 ```
 
 #### Example: Create
 
-```ts
-const country = await client.country.create({
-  country: /* `$STRING` */,
+```ruby
+country = client.Country.create({
+  "country" => nil, # `$STRING`
 })
 ```
 
@@ -419,7 +423,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-city = client.city
+city = client.City
 city.load({ "id" => "example_id" })
 
 # city.data_get now returns the loaded city data

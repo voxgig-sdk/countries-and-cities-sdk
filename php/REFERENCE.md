@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CityEntity
 
 ```php
-$city = $client->city();
+$city = $client->City();
 ```
 
 ### Fields
@@ -129,7 +129,7 @@ $city = $client->city();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->city()->create([
+$result = $client->City()->create([
   "city" => /* `$STRING` */,
   "country" => /* `$STRING` */,
   "state" => /* `$STRING` */,
@@ -141,7 +141,7 @@ $result = $client->city()->create([
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->city()->list([]);
+$results = $client->City()->list([]);
 ```
 
 ### Common Methods
@@ -177,7 +177,7 @@ Return the entity name.
 ## CountryEntity
 
 ```php
-$country = $client->country();
+$country = $client->Country();
 ```
 
 ### Fields
@@ -223,7 +223,7 @@ $country = $client->country();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->country()->create([
+$result = $client->Country()->create([
   "country" => /* `$STRING` */,
 ]);
 ```
@@ -233,7 +233,7 @@ $result = $client->country()->create([
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->country()->list([]);
+$results = $client->Country()->list([]);
 ```
 
 ### Common Methods
