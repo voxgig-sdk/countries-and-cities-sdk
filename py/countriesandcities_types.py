@@ -45,9 +45,13 @@ class CityListMatch(TypedDict, total=False):
     state: str
 
 
-class CityCreateData(TypedDict, total=False):
+class CityCreateDataRequired(TypedDict):
     city: str
     country: str
+    state: str
+
+
+class CityCreateData(CityCreateDataRequired, total=False):
     data: dict
     error: bool
     limit: int
@@ -55,7 +59,6 @@ class CityCreateData(TypedDict, total=False):
     order: str
     order_by: str
     population_count: list
-    state: str
 
 
 class CountryRequired(TypedDict):
@@ -93,10 +96,13 @@ class CountryListMatch(TypedDict, total=False):
     population_count: list
 
 
-class CountryCreateData(TypedDict, total=False):
+class CountryCreateDataRequired(TypedDict):
+    country: str
+
+
+class CountryCreateData(CountryCreateDataRequired, total=False):
     city: list
     code: str
-    country: str
     data: dict
     error: bool
     flag: str

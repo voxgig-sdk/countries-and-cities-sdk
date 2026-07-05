@@ -221,13 +221,13 @@ class CountriesAndCitiesSDK:
 
 
     def City(self, data=None) -> "CityEntity":
-        """Entity factory: client.City().list({}) / client.City().load({"id": ...})."""
+        """Entity factory: client.City().list() / client.City().load({"id": ...})."""
         from entity.city_entity import CityEntity
         return CityEntity(self, data)
 
 
     def Country(self, data=None) -> "CountryEntity":
-        """Entity factory: client.Country().list({}) / client.Country().load({"id": ...})."""
+        """Entity factory: client.Country().list() / client.Country().load({"id": ...})."""
         from entity.country_entity import CountryEntity
         return CountryEntity(self, data)
 

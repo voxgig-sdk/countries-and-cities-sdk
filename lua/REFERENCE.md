@@ -94,31 +94,31 @@ local city = client:City(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `order` | ``$STRING`` | No |  |
-| `order_by` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
-| `state` | ``$STRING`` | Yes |  |
+| `city` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `data` | `table` | No |  |
+| `error` | `boolean` | No |  |
+| `limit` | `number` | No |  |
+| `msg` | `string` | No |  |
+| `order` | `string` | No |  |
+| `order_by` | `string` | No |  |
+| `population_count` | `table` | No |  |
+| `state` | `string` | Yes |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | Yes | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `limit` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `order` | - | - | - | - | - |
-| `order_by` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
-| `state` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | Yes | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `limit` | - | - |
+| `msg` | - | - |
+| `order` | - | - |
+| `order_by` | - | - |
+| `population_count` | - | - |
+| `state` | - | - |
 
 ### Operations
 
@@ -128,9 +128,9 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:City():create({
-  city = --[[ `$STRING` ]],
-  country = --[[ `$STRING` ]],
-  state = --[[ `$STRING` ]],
+  city = --[[ string ]],
+  country = --[[ string ]],
+  state = --[[ string ]],
 })
 ```
 
@@ -182,37 +182,37 @@ local country = client:Country(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$ARRAY`` | No |  |
-| `code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `flag` | ``$STRING`` | No |  |
-| `iso2` | ``$STRING`` | No |  |
-| `iso3` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `long` | ``$NUMBER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
+| `city` | `table` | No |  |
+| `code` | `string` | No |  |
+| `country` | `string` | Yes |  |
+| `data` | `table` | No |  |
+| `error` | `boolean` | No |  |
+| `flag` | `string` | No |  |
+| `iso2` | `string` | No |  |
+| `iso3` | `string` | No |  |
+| `lat` | `number` | No |  |
+| `long` | `number` | No |  |
+| `msg` | `string` | No |  |
+| `name` | `string` | No |  |
+| `population_count` | `table` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | - | - | - | - |
-| `code` | - | - | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `flag` | - | - | - | - | - |
-| `iso2` | - | - | - | - | - |
-| `iso3` | - | - | - | - | - |
-| `lat` | - | - | - | - | - |
-| `long` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `name` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | - | - |
+| `code` | - | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `flag` | - | - |
+| `iso2` | - | - |
+| `iso3` | - | - |
+| `lat` | - | - |
+| `long` | - | - |
+| `msg` | - | - |
+| `name` | - | - |
+| `population_count` | - | - |
 
 ### Operations
 
@@ -222,7 +222,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:Country():create({
-  country = --[[ `$STRING` ]],
+  country = --[[ string ]],
 })
 ```
 

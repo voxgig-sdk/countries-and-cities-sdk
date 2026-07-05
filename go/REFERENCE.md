@@ -101,31 +101,31 @@ city := client.City(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `order` | ``$STRING`` | No |  |
-| `order_by` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
-| `state` | ``$STRING`` | Yes |  |
+| `city` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `data` | `map[string]any` | No |  |
+| `error` | `bool` | No |  |
+| `limit` | `int` | No |  |
+| `msg` | `string` | No |  |
+| `order` | `string` | No |  |
+| `order_by` | `string` | No |  |
+| `population_count` | `[]any` | No |  |
+| `state` | `string` | Yes |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | Yes | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `limit` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `order` | - | - | - | - | - |
-| `order_by` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
-| `state` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | Yes | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `limit` | - | - |
+| `msg` | - | - |
+| `order` | - | - |
+| `order_by` | - | - |
+| `population_count` | - | - |
+| `state` | - | - |
 
 ### Operations
 
@@ -135,9 +135,9 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.City(nil).Create(map[string]any{
-    "city": /* `$STRING` */,
-    "country": /* `$STRING` */,
-    "state": /* `$STRING` */,
+    "city": /* string */,
+    "country": /* string */,
+    "state": /* string */,
 }, nil)
 ```
 
@@ -183,37 +183,37 @@ country := client.Country(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$ARRAY`` | No |  |
-| `code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `flag` | ``$STRING`` | No |  |
-| `iso2` | ``$STRING`` | No |  |
-| `iso3` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `long` | ``$NUMBER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
+| `city` | `[]any` | No |  |
+| `code` | `string` | No |  |
+| `country` | `string` | Yes |  |
+| `data` | `map[string]any` | No |  |
+| `error` | `bool` | No |  |
+| `flag` | `string` | No |  |
+| `iso2` | `string` | No |  |
+| `iso3` | `string` | No |  |
+| `lat` | `float64` | No |  |
+| `long` | `float64` | No |  |
+| `msg` | `string` | No |  |
+| `name` | `string` | No |  |
+| `population_count` | `[]any` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | - | - | - | - |
-| `code` | - | - | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `flag` | - | - | - | - | - |
-| `iso2` | - | - | - | - | - |
-| `iso3` | - | - | - | - | - |
-| `lat` | - | - | - | - | - |
-| `long` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `name` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | - | - |
+| `code` | - | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `flag` | - | - |
+| `iso2` | - | - |
+| `iso3` | - | - |
+| `lat` | - | - |
+| `long` | - | - |
+| `msg` | - | - |
+| `name` | - | - |
+| `population_count` | - | - |
 
 ### Operations
 
@@ -223,7 +223,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.Country(nil).Create(map[string]any{
-    "country": /* `$STRING` */,
+    "country": /* string */,
 }, nil)
 ```
 

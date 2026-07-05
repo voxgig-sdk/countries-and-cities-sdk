@@ -8,7 +8,7 @@ Complete API reference for the CountriesAndCities Python SDK.
 ### Constructor
 
 ```python
-from countries-and-cities_sdk import CountriesAndCitiesSDK
+from countriesandcities_sdk import CountriesAndCitiesSDK
 
 client = CountriesAndCitiesSDK(options)
 ```
@@ -91,31 +91,31 @@ city = client.City()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `order` | ``$STRING`` | No |  |
-| `order_by` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
-| `state` | ``$STRING`` | Yes |  |
+| `city` | `str` | Yes |  |
+| `country` | `str` | Yes |  |
+| `data` | `dict` | No |  |
+| `error` | `bool` | No |  |
+| `limit` | `int` | No |  |
+| `msg` | `str` | No |  |
+| `order` | `str` | No |  |
+| `order_by` | `str` | No |  |
+| `population_count` | `list` | No |  |
+| `state` | `str` | Yes |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | Yes | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `limit` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `order` | - | - | - | - | - |
-| `order_by` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
-| `state` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | Yes | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `limit` | - | - |
+| `msg` | - | - |
+| `order` | - | - |
+| `order_by` | - | - |
+| `population_count` | - | - |
+| `state` | - | - |
 
 ### Operations
 
@@ -125,18 +125,18 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.City().create({
-    "city": ...,  # `$STRING`
-    "country": ...,  # `$STRING`
-    "state": ...,  # `$STRING`
+    "city": "example",  # str
+    "country": "example",  # str
+    "state": "example",  # str
 })
 ```
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.City().list({})
+results = client.City().list()
 for city in results:
     print(city)
 ```
@@ -180,37 +180,37 @@ country = client.Country()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$ARRAY`` | No |  |
-| `code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `flag` | ``$STRING`` | No |  |
-| `iso2` | ``$STRING`` | No |  |
-| `iso3` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `long` | ``$NUMBER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
+| `city` | `list` | No |  |
+| `code` | `str` | No |  |
+| `country` | `str` | Yes |  |
+| `data` | `dict` | No |  |
+| `error` | `bool` | No |  |
+| `flag` | `str` | No |  |
+| `iso2` | `str` | No |  |
+| `iso3` | `str` | No |  |
+| `lat` | `float` | No |  |
+| `long` | `float` | No |  |
+| `msg` | `str` | No |  |
+| `name` | `str` | No |  |
+| `population_count` | `list` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | - | - | - | - |
-| `code` | - | - | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `flag` | - | - | - | - | - |
-| `iso2` | - | - | - | - | - |
-| `iso3` | - | - | - | - | - |
-| `lat` | - | - | - | - | - |
-| `long` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `name` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | - | - |
+| `code` | - | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `flag` | - | - |
+| `iso2` | - | - |
+| `iso3` | - | - |
+| `lat` | - | - |
+| `long` | - | - |
+| `msg` | - | - |
+| `name` | - | - |
+| `population_count` | - | - |
 
 ### Operations
 
@@ -220,16 +220,16 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Country().create({
-    "country": ...,  # `$STRING`
+    "country": "example",  # str
 })
 ```
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Country().list({})
+results = client.Country().list()
 for country in results:
     print(country)
 ```

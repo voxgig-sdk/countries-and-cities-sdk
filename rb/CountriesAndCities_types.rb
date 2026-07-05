@@ -53,7 +53,7 @@ City = Struct.new(
   keyword_init: true
 )
 
-# Match filter for City#list (any subset of City fields).
+# Request payload for City#list.
 #
 # @!attribute [rw] city
 #   @return [String, nil]
@@ -98,13 +98,13 @@ CityListMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for City#create (any subset of City fields).
+# Request payload for City#create.
 #
 # @!attribute [rw] city
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] country
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]
@@ -128,7 +128,7 @@ CityListMatch = Struct.new(
 #   @return [Array, nil]
 #
 # @!attribute [rw] state
-#   @return [String, nil]
+#   @return [String]
 CityCreateData = Struct.new(
   :city,
   :country,
@@ -200,7 +200,7 @@ Country = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Country#list (any subset of Country fields).
+# Request payload for Country#list.
 #
 # @!attribute [rw] city
 #   @return [Array, nil]
@@ -257,7 +257,7 @@ CountryListMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Country#create (any subset of Country fields).
+# Request payload for Country#create.
 #
 # @!attribute [rw] city
 #   @return [Array, nil]
@@ -266,7 +266,7 @@ CountryListMatch = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] country
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]

@@ -27,7 +27,7 @@ class City
     public string $state;
 }
 
-/** Match filter for City#list (any subset of City fields). */
+/** Request payload for City#list. */
 class CityListMatch
 {
     public ?string $city = null;
@@ -42,11 +42,11 @@ class CityListMatch
     public ?string $state = null;
 }
 
-/** Match filter for City#create (any subset of City fields). */
+/** Request payload for City#create. */
 class CityCreateData
 {
-    public ?string $city = null;
-    public ?string $country = null;
+    public string $city;
+    public string $country;
     public ?array $data = null;
     public ?bool $error = null;
     public ?int $limit = null;
@@ -54,7 +54,7 @@ class CityCreateData
     public ?string $order = null;
     public ?string $order_by = null;
     public ?array $population_count = null;
-    public ?string $state = null;
+    public string $state;
 }
 
 /** Country entity data model. */
@@ -75,7 +75,7 @@ class Country
     public ?array $population_count = null;
 }
 
-/** Match filter for Country#list (any subset of Country fields). */
+/** Request payload for Country#list. */
 class CountryListMatch
 {
     public ?array $city = null;
@@ -93,12 +93,12 @@ class CountryListMatch
     public ?array $population_count = null;
 }
 
-/** Match filter for Country#create (any subset of Country fields). */
+/** Request payload for Country#create. */
 class CountryCreateData
 {
     public ?array $city = null;
     public ?string $code = null;
-    public ?string $country = null;
+    public string $country;
     public ?array $data = null;
     public ?bool $error = null;
     public ?string $flag = null;

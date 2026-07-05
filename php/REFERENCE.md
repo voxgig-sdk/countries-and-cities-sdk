@@ -8,7 +8,7 @@ Complete API reference for the CountriesAndCities PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/countries-and-cities_sdk.php';
+require_once __DIR__ . '/countriesandcities_sdk.php';
 
 $client = new CountriesAndCitiesSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `CityEntity` instance. Pass `null` for no initial data.
 
 Create a new `CountryEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): CountriesAndCitiesUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,31 +96,31 @@ $city = $client->City();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `order` | ``$STRING`` | No |  |
-| `order_by` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
-| `state` | ``$STRING`` | Yes |  |
+| `city` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `data` | `array` | No |  |
+| `error` | `bool` | No |  |
+| `limit` | `int` | No |  |
+| `msg` | `string` | No |  |
+| `order` | `string` | No |  |
+| `order_by` | `string` | No |  |
+| `population_count` | `array` | No |  |
+| `state` | `string` | Yes |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | Yes | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `limit` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `order` | - | - | - | - | - |
-| `order_by` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
-| `state` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | Yes | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `limit` | - | - |
+| `msg` | - | - |
+| `order` | - | - |
+| `order_by` | - | - |
+| `population_count` | - | - |
+| `state` | - | - |
 
 ### Operations
 
@@ -130,35 +130,35 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->City()->create([
-  "city" => /* `$STRING` */,
-  "country" => /* `$STRING` */,
-  "state" => /* `$STRING` */,
+  "city" => null, // string
+  "country" => null, // string
+  "state" => null, // string
 ]);
 ```
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->City()->list([]);
+$results = $client->City()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -167,7 +167,7 @@ Set the entity match criteria.
 Create a new `CityEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -184,37 +184,37 @@ $country = $client->Country();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$ARRAY`` | No |  |
-| `code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `flag` | ``$STRING`` | No |  |
-| `iso2` | ``$STRING`` | No |  |
-| `iso3` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `long` | ``$NUMBER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
+| `city` | `array` | No |  |
+| `code` | `string` | No |  |
+| `country` | `string` | Yes |  |
+| `data` | `array` | No |  |
+| `error` | `bool` | No |  |
+| `flag` | `string` | No |  |
+| `iso2` | `string` | No |  |
+| `iso3` | `string` | No |  |
+| `lat` | `float` | No |  |
+| `long` | `float` | No |  |
+| `msg` | `string` | No |  |
+| `name` | `string` | No |  |
+| `population_count` | `array` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | - | - | - | - |
-| `code` | - | - | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `flag` | - | - | - | - | - |
-| `iso2` | - | - | - | - | - |
-| `iso3` | - | - | - | - | - |
-| `lat` | - | - | - | - | - |
-| `long` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `name` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | - | - |
+| `code` | - | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `flag` | - | - |
+| `iso2` | - | - |
+| `iso3` | - | - |
+| `lat` | - | - |
+| `long` | - | - |
+| `msg` | - | - |
+| `name` | - | - |
+| `population_count` | - | - |
 
 ### Operations
 
@@ -224,33 +224,33 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->Country()->create([
-  "country" => /* `$STRING` */,
+  "country" => null, // string
 ]);
 ```
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Country()->list([]);
+$results = $client->Country()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -259,7 +259,7 @@ Set the entity match criteria.
 Create a new `CountryEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

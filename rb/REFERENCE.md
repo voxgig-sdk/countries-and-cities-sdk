@@ -8,7 +8,7 @@ Complete API reference for the CountriesAndCities Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'countries-and-cities_sdk'
+require_relative 'CountriesAndCities_sdk'
 
 client = CountriesAndCitiesSDK.new(options)
 ```
@@ -97,31 +97,31 @@ city = client.City
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `limit` | ``$INTEGER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `order` | ``$STRING`` | No |  |
-| `order_by` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
-| `state` | ``$STRING`` | Yes |  |
+| `city` | `String` | Yes |  |
+| `country` | `String` | Yes |  |
+| `data` | `Hash` | No |  |
+| `error` | `Boolean` | No |  |
+| `limit` | `Integer` | No |  |
+| `msg` | `String` | No |  |
+| `order` | `String` | No |  |
+| `order_by` | `String` | No |  |
+| `population_count` | `Array` | No |  |
+| `state` | `String` | Yes |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | Yes | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `limit` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `order` | - | - | - | - | - |
-| `order_by` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
-| `state` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | Yes | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `limit` | - | - |
+| `msg` | - | - |
+| `order` | - | - |
+| `order_by` | - | - |
+| `population_count` | - | - |
+| `state` | - | - |
 
 ### Operations
 
@@ -131,18 +131,18 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.City.create({
-  "city" => # `$STRING`,
-  "country" => # `$STRING`,
-  "state" => # `$STRING`,
+  "city" => "example", # String
+  "country" => "example", # String
+  "state" => "example", # String
 })
 ```
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.City.list(nil)
+results = client.City.list
 ```
 
 ### Common Methods
@@ -185,37 +185,37 @@ country = client.Country
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$ARRAY`` | No |  |
-| `code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | Yes |  |
-| `data` | ``$OBJECT`` | No |  |
-| `error` | ``$BOOLEAN`` | No |  |
-| `flag` | ``$STRING`` | No |  |
-| `iso2` | ``$STRING`` | No |  |
-| `iso3` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `long` | ``$NUMBER`` | No |  |
-| `msg` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `population_count` | ``$ARRAY`` | No |  |
+| `city` | `Array` | No |  |
+| `code` | `String` | No |  |
+| `country` | `String` | Yes |  |
+| `data` | `Hash` | No |  |
+| `error` | `Boolean` | No |  |
+| `flag` | `String` | No |  |
+| `iso2` | `String` | No |  |
+| `iso3` | `String` | No |  |
+| `lat` | `Float` | No |  |
+| `long` | `Float` | No |  |
+| `msg` | `String` | No |  |
+| `name` | `String` | No |  |
+| `population_count` | `Array` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `city` | - | - | - | - | - |
-| `code` | - | - | - | - | - |
-| `country` | - | Yes | - | - | - |
-| `data` | - | - | - | - | - |
-| `error` | - | - | - | - | - |
-| `flag` | - | - | - | - | - |
-| `iso2` | - | - | - | - | - |
-| `iso3` | - | - | - | - | - |
-| `lat` | - | - | - | - | - |
-| `long` | - | - | - | - | - |
-| `msg` | - | - | - | - | - |
-| `name` | - | - | - | - | - |
-| `population_count` | - | - | - | - | - |
+| Field | list | create |
+| --- | --- | --- |
+| `city` | - | - |
+| `code` | - | - |
+| `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
+| `flag` | - | - |
+| `iso2` | - | - |
+| `iso3` | - | - |
+| `lat` | - | - |
+| `long` | - | - |
+| `msg` | - | - |
+| `name` | - | - |
+| `population_count` | - | - |
 
 ### Operations
 
@@ -225,16 +225,16 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Country.create({
-  "country" => # `$STRING`,
+  "country" => "example", # String
 })
 ```
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Country.list(nil)
+results = client.Country.list
 ```
 
 ### Common Methods

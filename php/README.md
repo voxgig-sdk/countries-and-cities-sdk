@@ -4,6 +4,8 @@
 
 The PHP SDK for the CountriesAndCities API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->City()` — with named operations (`list`/`create`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -36,7 +38,7 @@ try {
     // list() returns an array of City records — iterate directly.
     $citys = $client->City()->list();
     foreach ($citys as $item) {
-        echo $item["id"] . " " . $item["name"] . "\n";
+        echo $item["city"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -47,8 +49,39 @@ try {
 
 ```php
 // create() returns the bare created City record.
-$created = $client->City()->create(["name" => "Example"]);
+$created = $client->City()->create(["city" => "example", "country" => "example", "state" => "example"]);
 
+```
+
+
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $citys = $client->City()->list();
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
+}
 ```
 
 
@@ -71,7 +104,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -92,16 +128,13 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = CountriesAndCitiesSDK::test([
-    "entity" => ["city" => ["test01" => ["id" => "test01"]]],
-]);
+$client = CountriesAndCitiesSDK::test();
 
-// load() returns the bare mock record (throws on error).
-$city = $client->City()->load(["id" => "test01"]);
+// Entity ops return the bare mock record (throws on error).
+$city = $client->City()->list();
 print_r($city);
 ```
 
@@ -190,11 +223,8 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
+| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -283,16 +313,16 @@ Create an instance: `$city = $client->City();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | ``$STRING`` |  |
-| `country` | ``$STRING`` |  |
-| `data` | ``$OBJECT`` |  |
-| `error` | ``$BOOLEAN`` |  |
-| `limit` | ``$INTEGER`` |  |
-| `msg` | ``$STRING`` |  |
-| `order` | ``$STRING`` |  |
-| `order_by` | ``$STRING`` |  |
-| `population_count` | ``$ARRAY`` |  |
-| `state` | ``$STRING`` |  |
+| `city` | `string` |  |
+| `country` | `string` |  |
+| `data` | `array` |  |
+| `error` | `bool` |  |
+| `limit` | `int` |  |
+| `msg` | `string` |  |
+| `order` | `string` |  |
+| `order_by` | `string` |  |
+| `population_count` | `array` |  |
+| `state` | `string` |  |
 
 #### Example: List
 
@@ -305,9 +335,9 @@ $citys = $client->City()->list();
 
 ```php
 $city = $client->City()->create([
-    "city" => null, // `$STRING`
-    "country" => null, // `$STRING`
-    "state" => null, // `$STRING`
+    "city" => null, // string
+    "country" => null, // string
+    "state" => null, // string
 ]);
 ```
 
@@ -327,19 +357,19 @@ Create an instance: `$country = $client->Country();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | ``$ARRAY`` |  |
-| `code` | ``$STRING`` |  |
-| `country` | ``$STRING`` |  |
-| `data` | ``$OBJECT`` |  |
-| `error` | ``$BOOLEAN`` |  |
-| `flag` | ``$STRING`` |  |
-| `iso2` | ``$STRING`` |  |
-| `iso3` | ``$STRING`` |  |
-| `lat` | ``$NUMBER`` |  |
-| `long` | ``$NUMBER`` |  |
-| `msg` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `population_count` | ``$ARRAY`` |  |
+| `city` | `array` |  |
+| `code` | `string` |  |
+| `country` | `string` |  |
+| `data` | `array` |  |
+| `error` | `bool` |  |
+| `flag` | `string` |  |
+| `iso2` | `string` |  |
+| `iso3` | `string` |  |
+| `lat` | `float` |  |
+| `long` | `float` |  |
+| `msg` | `string` |  |
+| `name` | `string` |  |
+| `population_count` | `array` |  |
 
 #### Example: List
 
@@ -352,17 +382,21 @@ $countrys = $client->Country()->list();
 
 ```php
 $country = $client->Country()->create([
-    "country" => null, // `$STRING`
+    "country" => null, // string
 ]);
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -379,8 +413,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -424,15 +459,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
 $city = $client->City();
-$city->load(["id" => "example_id"]);
+$city->list();
 
-// $city->dataGet() now returns the loaded city data
-// $city->matchGet() returns the last match criteria
+// $city->data_get() now returns the city data from the last list
+// $city->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

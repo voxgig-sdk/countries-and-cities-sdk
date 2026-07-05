@@ -4,6 +4,8 @@
 
 The Golang SDK for the CountriesAndCities API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.City(nil)` — each with the same small set of operations (`List`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -58,12 +60,41 @@ func main() {
     }
 
     // Create a city.
-    created, err := client.City(nil).Create(map[string]any{"name": "Example"}, nil)
+    created, err := client.City(nil).Create(map[string]any{"city": "example", "country": "example", "state": "example"}, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(created)
 }
+```
+
+
+## Error handling
+
+Every entity operation returns `(value, error)`. Check `err` before
+using the value — there is no exception to catch:
+
+```go
+citys, err := client.City(nil).List(nil, nil)
+if err != nil {
+    // handle err
+    return
+}
+_ = citys
+```
+
+`Direct` follows the same `(value, error)` convention:
+
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
+    "method": "GET",
+    "params": map[string]any{"id": "example_id"},
+})
+if err != nil {
+    // handle err
+}
+_ = result
 ```
 
 
@@ -113,13 +144,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-city, err := client.City(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+city, err := client.City(nil).List(
+    nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(city) // the loaded mock data
+fmt.Println(city) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -205,11 +236,8 @@ All entities implement the `CountriesAndCitiesEntity` interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
 | `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
 | `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
-| `Update` | `(reqdata, ctrl map[string]any) (any, error)` | Update an existing entity. |
-| `Remove` | `(reqmatch, ctrl map[string]any) (any, error)` | Remove an entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -222,16 +250,16 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `Create` | the entity record (`map[string]any`) |
 | `List` | a `[]any` of entity records |
 
 Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    city, err := client.City(nil).Load(map[string]any{"id": "example_id"}, nil)
+    city, err := client.City(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // city is the loaded record
+    // city is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -299,16 +327,16 @@ Create an instance: `city := client.City(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | ``$STRING`` |  |
-| `country` | ``$STRING`` |  |
-| `data` | ``$OBJECT`` |  |
-| `error` | ``$BOOLEAN`` |  |
-| `limit` | ``$INTEGER`` |  |
-| `msg` | ``$STRING`` |  |
-| `order` | ``$STRING`` |  |
-| `order_by` | ``$STRING`` |  |
-| `population_count` | ``$ARRAY`` |  |
-| `state` | ``$STRING`` |  |
+| `city` | `string` |  |
+| `country` | `string` |  |
+| `data` | `map[string]any` |  |
+| `error` | `bool` |  |
+| `limit` | `int` |  |
+| `msg` | `string` |  |
+| `order` | `string` |  |
+| `order_by` | `string` |  |
+| `population_count` | `[]any` |  |
+| `state` | `string` |  |
 
 #### Example: List
 
@@ -324,9 +352,9 @@ fmt.Println(citys) // the array of records
 
 ```go
 result, err := client.City(nil).Create(map[string]any{
-    "city": /* `$STRING` */,
-    "country": /* `$STRING` */,
-    "state": /* `$STRING` */,
+    "city": /* string */,
+    "country": /* string */,
+    "state": /* string */,
 }, nil)
 ```
 
@@ -346,19 +374,19 @@ Create an instance: `country := client.Country(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | ``$ARRAY`` |  |
-| `code` | ``$STRING`` |  |
-| `country` | ``$STRING`` |  |
-| `data` | ``$OBJECT`` |  |
-| `error` | ``$BOOLEAN`` |  |
-| `flag` | ``$STRING`` |  |
-| `iso2` | ``$STRING`` |  |
-| `iso3` | ``$STRING`` |  |
-| `lat` | ``$NUMBER`` |  |
-| `long` | ``$NUMBER`` |  |
-| `msg` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `population_count` | ``$ARRAY`` |  |
+| `city` | `[]any` |  |
+| `code` | `string` |  |
+| `country` | `string` |  |
+| `data` | `map[string]any` |  |
+| `error` | `bool` |  |
+| `flag` | `string` |  |
+| `iso2` | `string` |  |
+| `iso3` | `string` |  |
+| `lat` | `float64` |  |
+| `long` | `float64` |  |
+| `msg` | `string` |  |
+| `name` | `string` |  |
+| `population_count` | `[]any` |  |
 
 #### Example: List
 
@@ -374,17 +402,21 @@ fmt.Println(countrys) // the array of records
 
 ```go
 result, err := client.Country(nil).Create(map[string]any{
-    "country": /* `$STRING` */,
+    "country": /* string */,
 }, nil)
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -401,9 +433,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller. An unexpected panic triggers the
-`PreUnexpected` hook.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -444,14 +476,14 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `Load`, the entity
+Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
 city := client.City(nil)
-city.Load(map[string]any{"id": "example_id"}, nil)
+city.List(nil, nil)
 
-// city.Data() now returns the loaded city data
+// city.Data() now returns the city data from the last list
 // city.Match() returns the last match criteria
 ```
 

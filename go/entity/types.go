@@ -22,8 +22,7 @@ type City struct {
 	State string `json:"state"`
 }
 
-// CityListMatch mirrors the city fields as an all-optional match
-// filter (Go analog of Partial<City>).
+// CityListMatch is the typed request payload for City.ListTyped.
 type CityListMatch struct {
 	City *string `json:"city,omitempty"`
 	Country *string `json:"country,omitempty"`
@@ -37,11 +36,10 @@ type CityListMatch struct {
 	State *string `json:"state,omitempty"`
 }
 
-// CityCreateData mirrors the city fields as an all-optional match
-// filter (Go analog of Partial<City>).
+// CityCreateData is the typed request payload for City.CreateTyped.
 type CityCreateData struct {
-	City *string `json:"city,omitempty"`
-	Country *string `json:"country,omitempty"`
+	City string `json:"city"`
+	Country string `json:"country"`
 	Data *map[string]any `json:"data,omitempty"`
 	Error *bool `json:"error,omitempty"`
 	Limit *int `json:"limit,omitempty"`
@@ -49,7 +47,7 @@ type CityCreateData struct {
 	Order *string `json:"order,omitempty"`
 	OrderBy *string `json:"order_by,omitempty"`
 	PopulationCount *[]any `json:"population_count,omitempty"`
-	State *string `json:"state,omitempty"`
+	State string `json:"state"`
 }
 
 // Country is the typed data model for the country entity.
@@ -69,8 +67,7 @@ type Country struct {
 	PopulationCount *[]any `json:"population_count,omitempty"`
 }
 
-// CountryListMatch mirrors the country fields as an all-optional match
-// filter (Go analog of Partial<Country>).
+// CountryListMatch is the typed request payload for Country.ListTyped.
 type CountryListMatch struct {
 	City *[]any `json:"city,omitempty"`
 	Code *string `json:"code,omitempty"`
@@ -87,12 +84,11 @@ type CountryListMatch struct {
 	PopulationCount *[]any `json:"population_count,omitempty"`
 }
 
-// CountryCreateData mirrors the country fields as an all-optional match
-// filter (Go analog of Partial<Country>).
+// CountryCreateData is the typed request payload for Country.CreateTyped.
 type CountryCreateData struct {
 	City *[]any `json:"city,omitempty"`
 	Code *string `json:"code,omitempty"`
-	Country *string `json:"country,omitempty"`
+	Country string `json:"country"`
 	Data *map[string]any `json:"data,omitempty"`
 	Error *bool `json:"error,omitempty"`
 	Flag *string `json:"flag,omitempty"`
