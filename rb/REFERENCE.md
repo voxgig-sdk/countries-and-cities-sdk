@@ -131,9 +131,9 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.City.create({
-  "city" => "example", # String
-  "country" => "example", # String
-  "state" => "example", # String
+  "city" => "example_city", # String
+  "country" => "example_country", # String
+  "state" => "example_state", # String
 })
 ```
 
@@ -225,7 +225,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.Country.create({
-  "country" => "example", # String
+  "country" => "example_country", # String
 })
 ```
 

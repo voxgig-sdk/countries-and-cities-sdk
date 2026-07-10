@@ -60,7 +60,7 @@ func main() {
     }
 
     // Create a city.
-    created, err := client.City(nil).Create(map[string]any{"city": "example", "country": "example", "state": "example"}, nil)
+    created, err := client.City(nil).Create(map[string]any{"city": "example_city", "country": "example_country", "state": "example_state"}, nil)
     if err != nil {
         panic(err)
     }
@@ -320,8 +320,8 @@ Create an instance: `city := client.City(nil)`
 
 | Method | Description |
 | --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
 | `List(match, ctrl)` | List entities matching the criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
 
 #### Fields
 
@@ -352,10 +352,14 @@ fmt.Println(citys) // the array of records
 
 ```go
 result, err := client.City(nil).Create(map[string]any{
-    "city": /* string */,
-    "country": /* string */,
-    "state": /* string */,
+    "city": "example_city",
+    "country": "example_country",
+    "state": "example_state",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
@@ -367,8 +371,8 @@ Create an instance: `country := client.Country(nil)`
 
 | Method | Description |
 | --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
 | `List(match, ctrl)` | List entities matching the criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
 
 #### Fields
 
@@ -402,8 +406,12 @@ fmt.Println(countrys) // the array of records
 
 ```go
 result, err := client.Country(nil).Create(map[string]any{
-    "country": /* string */,
+    "country": "example_country",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 

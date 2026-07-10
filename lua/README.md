@@ -51,7 +51,7 @@ end
 
 ```lua
 -- Create
-local created, err = client:City():create({ city = "example", country = "example", state = "example" })
+local created, err = client:City():create({ city = "example_city", country = "example_country", state = "example_state" })
 if err then error(err) end
 
 ```
@@ -321,9 +321,9 @@ local citys, err = client:City():list()
 
 ```lua
 local city, err = client:City():create({
-  city = nil, -- string
-  country = nil, -- string
-  state = nil, -- string
+  city = "example_city", -- string
+  country = "example_country", -- string
+  state = "example_state", -- string
 })
 ```
 
@@ -367,7 +367,7 @@ local countrys, err = client:Country():list()
 
 ```lua
 local country, err = client:Country():create({
-  country = nil, -- string
+  country = "example_country", -- string
 })
 ```
 

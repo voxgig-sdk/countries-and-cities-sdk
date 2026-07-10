@@ -125,9 +125,9 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.City().create({
-    "city": "example",  # str
-    "country": "example",  # str
-    "state": "example",  # str
+    "city": "example_city",  # str
+    "country": "example_country",  # str
+    "state": "example_state",  # str
 })
 ```
 
@@ -220,7 +220,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.Country().create({
-    "country": "example",  # str
+    "country": "example_country",  # str
 })
 ```
 

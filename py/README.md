@@ -54,7 +54,7 @@ except Exception as err:
 
 ```python
 # Create — returns the bare created record (a dict)
-created = client.City().create({"city": "example", "country": "example", "state": "example"})
+created = client.City().create({"city": "example_city", "country": "example_country", "state": "example_state"})
 
 ```
 
@@ -330,9 +330,9 @@ citys = client.City().list()
 
 ```python
 city = client.City().create({
-    "city": "example",  # str
-    "country": "example",  # str
-    "state": "example",  # str
+    "city": "example_city",  # str
+    "country": "example_country",  # str
+    "state": "example_state",  # str
 })
 ```
 
@@ -376,7 +376,7 @@ countrys = client.Country().list()
 
 ```python
 country = client.Country().create({
-    "country": "example",  # str
+    "country": "example_country",  # str
 })
 ```
 

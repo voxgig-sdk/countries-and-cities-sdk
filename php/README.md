@@ -49,7 +49,7 @@ try {
 
 ```php
 // create() returns the bare created City record.
-$created = $client->City()->create(["city" => "example", "country" => "example", "state" => "example"]);
+$created = $client->City()->create(["city" => "example_city", "country" => "example_country", "state" => "example_state"]);
 
 ```
 

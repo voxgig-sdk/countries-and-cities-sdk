@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 city := client.City(nil)
+fmt.Println(city.GetName()) // "city"
 ```
 
 ### Fields
@@ -129,24 +130,32 @@ city := client.City(nil)
 
 ### Operations
 
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.City(nil).Create(map[string]any{
-    "city": /* string */,
-    "country": /* string */,
-    "state": /* string */,
-}, nil)
-```
-
 #### `List(reqmatch, ctrl map[string]any) (any, error)`
 
 List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.City(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.City(nil).Create(map[string]any{
+    "city": "example_city",
+    "country": "example_country",
+    "state": "example_state",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -177,6 +186,7 @@ Return the entity name.
 
 ```go
 country := client.Country(nil)
+fmt.Println(country.GetName()) // "country"
 ```
 
 ### Fields
@@ -217,22 +227,30 @@ country := client.Country(nil)
 
 ### Operations
 
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.Country(nil).Create(map[string]any{
-    "country": /* string */,
-}, nil)
-```
-
 #### `List(reqmatch, ctrl map[string]any) (any, error)`
 
 List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Country(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Country(nil).Create(map[string]any{
+    "country": "example_country",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

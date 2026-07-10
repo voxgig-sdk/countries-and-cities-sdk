@@ -377,9 +377,9 @@ const citys = await client.City().list()
 
 ```ts
 const city = await client.City().create({
-  city: /* string */,
-  country: /* string */,
-  state: /* string */,
+  city: 'example_city',
+  country: 'example_country',
+  state: 'example_state',
 })
 ```
 
@@ -423,7 +423,7 @@ const countrys = await client.Country().list()
 
 ```ts
 const country = await client.Country().create({
-  country: /* string */,
+  country: 'example_country',
 })
 ```
 

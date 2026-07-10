@@ -162,9 +162,9 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.City().create({
-  city: /* string */,
-  country: /* string */,
-  state: /* string */,
+  city: 'example_city',
+  country: 'example_country',
+  state: 'example_state',
 })
 ```
 
@@ -254,7 +254,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.Country().create({
-  country: /* string */,
+  country: 'example_country',
 })
 ```
 

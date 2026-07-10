@@ -48,7 +48,7 @@ end
 
 ```ruby
 # create returns the bare created City record.
-created = client.City.create({ "city" => "example", "country" => "example", "state" => "example" })
+created = client.City.create({ "city" => "example_city", "country" => "example_country", "state" => "example_state" })
 
 ```
 
@@ -325,9 +325,9 @@ citys = client.City.list
 
 ```ruby
 city = client.City.create({
-  "city" => "example", # String
-  "country" => "example", # String
-  "state" => "example", # String
+  "city" => "example_city", # String
+  "country" => "example_country", # String
+  "state" => "example_state", # String
 })
 ```
 
@@ -372,7 +372,7 @@ countrys = client.Country.list
 
 ```ruby
 country = client.Country.create({
-  "country" => "example", # String
+  "country" => "example_country", # String
 })
 ```
 
