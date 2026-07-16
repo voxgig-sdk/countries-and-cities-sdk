@@ -27,7 +27,20 @@ func main() {
 }
 
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
-	client := sdk.NewCountriesAndCitiesSDK(nil)
+	// Configure from the environment: COUNTRIES_AND_CITIES_APIKEY carries the API key and
+	// COUNTRIES_AND_CITIES_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("COUNTRIES_AND_CITIES_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("COUNTRIES_AND_CITIES_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewCountriesAndCitiesSDK(opts)
 
 	r, err := eng.NewRegistry()
 	if err != nil {
