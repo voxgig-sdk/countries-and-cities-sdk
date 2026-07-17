@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- CountriesAndCities SDK exists test
 
 local sdk = require("countries-and-cities_sdk")
 
