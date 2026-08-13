@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CountriesAndCitiesSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CountriesAndCitiesSDK.test({
+  entity: {
+    city: {
+      test01: { id: 'test01', state: 'example_state' },
+    },
+  },
+})
 const citys = await client.City().list()
-// citys is an array of bare City records populated with mock data
+// citys is an array of City entities, populated with mock data
+// — call citys[0].data() for the record itself
 console.log(citys)
 ```
 
@@ -110,7 +119,7 @@ import { CountriesAndCitiesSDK } from '@voxgig-sdk/countries-and-cities'
 
 const client = new CountriesAndCitiesSDK()
 
-// List all citys (returns City[])
+// List all citys (returns CityEntity[] — .data() for the record)
 const citys = await client.City().list()
 for (const city of citys) {
   console.log(city)
@@ -156,7 +165,7 @@ The API exposes 2 entities:
 | Entity | Description | API path |
 | --- | --- | --- |
 | **City** | The City entity (create, list). | `/countries/population/cities` |
-| **Country** | The Country entity (create, list). | `/countries/capital` |
+| **Country** | The Country entity (create, list). | `/countries` |
 
 The operations available across these entities are **list**, **create** — see each entity's
 own list above for exactly which it supports.
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://documenter.getpostman.com/view/1134062/T1LJjU52](https://documenter.getpostman.com/view/1134062/T1LJjU52)
 

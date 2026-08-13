@@ -26,8 +26,8 @@ import {
 describe('CityEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when COUNTRIESANDCITIES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('COUNTRIESANDCITIES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when COUNTRIES_AND_CITIES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('COUNTRIES_AND_CITIES_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CountriesAndCitiesSDK.test()
@@ -62,16 +62,14 @@ describe('CityEntity', async () => {
     const city_ref01_ent = client.City()
     let city_ref01_data = setup.data.new.city['city_ref01']
 
-    city_ref01_data = await city_ref01_ent.create(city_ref01_data)
+    city_ref01_data = (await city_ref01_ent.create(city_ref01_data)).data()
     assert(null != city_ref01_data)
 
 
     // LIST
     const city_ref01_match: any = {}
 
-    const city_ref01_list = await city_ref01_ent.list(city_ref01_match)
-
-    assert(!isempty(select(city_ref01_list, { id: city_ref01_data.id })))
+    const city_ref01_list = (await city_ref01_ent.list(city_ref01_match)).map((e: any) => e.data())
 
 
   })

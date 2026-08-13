@@ -16,11 +16,11 @@
 import pytest
 
 from countriesandcities_sdk import CountriesAndCitiesSDK
-from core.error import CountriesAndCitiesError
-from core.result import CountriesAndCitiesResult
-from core.response import CountriesAndCitiesResponse
-from core.spec import CountriesAndCitiesSpec
-from feature.base_feature import CountriesAndCitiesBaseFeature
+from countriesandcities_sdk.core.error import CountriesAndCitiesError
+from countriesandcities_sdk.core.result import CountriesAndCitiesResult
+from countriesandcities_sdk.core.response import CountriesAndCitiesResponse
+from countriesandcities_sdk.core.spec import CountriesAndCitiesSpec
+from countriesandcities_sdk.feature.base_feature import CountriesAndCitiesBaseFeature
 
 
 def _client():

@@ -102,30 +102,30 @@ fmt.Println(city.GetName()) // "city"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | Yes |  |
-| `country` | `string` | Yes |  |
-| `data` | `map[string]any` | No |  |
+| `city` | `string` | No |  |
+| `country` | `string` | No |  |
+| `data` | `[]any` | No |  |
 | `error` | `bool` | No |  |
 | `limit` | `int` | No |  |
 | `msg` | `string` | No |  |
 | `order` | `string` | No |  |
-| `order_by` | `string` | No |  |
-| `population_count` | `[]any` | No |  |
+| `orderBy` | `string` | No |  |
+| `populationCounts` | `[]any` | No |  |
 | `state` | `string` | Yes |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | Yes | - |
-| `country` | Yes | - |
+| `city` | - | Yes |
+| `country` | - | Yes |
 | `data` | - | - |
 | `error` | - | - |
 | `limit` | - | - |
 | `msg` | - | - |
 | `order` | - | - |
-| `order_by` | - | - |
-| `population_count` | - | - |
+| `orderBy` | - | - |
+| `populationCounts` | - | - |
 | `state` | - | - |
 
 ### Operations
@@ -148,8 +148,6 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.City(nil).Create(map[string]any{
-    "city": "example_city",
-    "country": "example_country",
     "state": "example_state",
 }, nil)
 if err != nil {
@@ -193,37 +191,41 @@ fmt.Println(country.GetName()) // "country"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `[]any` | No |  |
+| `Iso2` | `string` | No |  |
+| `Iso3` | `string` | No |  |
+| `capital` | `string` | No |  |
+| `cities` | `[]any` | No |  |
 | `code` | `string` | No |  |
 | `country` | `string` | Yes |  |
-| `data` | `map[string]any` | No |  |
-| `error` | `bool` | No |  |
+| `currency` | `string` | No |  |
 | `flag` | `string` | No |  |
 | `iso2` | `string` | No |  |
 | `iso3` | `string` | No |  |
 | `lat` | `float64` | No |  |
 | `long` | `float64` | No |  |
-| `msg` | `string` | No |  |
 | `name` | `string` | No |  |
-| `population_count` | `[]any` | No |  |
+| `populationCounts` | `[]any` | No |  |
+| `states` | `[]any` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | - |
+| `Iso2` | - | - |
+| `Iso3` | - | - |
+| `capital` | - | - |
+| `cities` | - | - |
 | `code` | - | - |
-| `country` | Yes | - |
-| `data` | - | - |
-| `error` | - | - |
+| `country` | Yes | Yes |
+| `currency` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
 | `lat` | - | - |
 | `long` | - | - |
-| `msg` | - | - |
 | `name` | - | - |
-| `population_count` | - | - |
+| `populationCounts` | - | - |
+| `states` | - | - |
 
 ### Operations
 

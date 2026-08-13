@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from countriesandcities_sdk.utility.voxgig_struct import voxgig_struct as vs
 from countriesandcities_sdk import CountriesAndCitiesSDK
-from core import helpers
+from countriesandcities_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _city_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "COUNTRIESANDCITIES_TEST_CITY_ENTID": {},
-        "COUNTRIESANDCITIES_TEST_LIVE": "FALSE",
+        "COUNTRIES_AND_CITIES_TEST_CITY_ENTID": {},
+        "COUNTRIES_AND_CITIES_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("COUNTRIESANDCITIES_TEST_LIVE") == "TRUE"
+    live = env.get("COUNTRIES_AND_CITIES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

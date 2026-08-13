@@ -47,8 +47,8 @@ end
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created City record.
-created = client.City.create({ "city" => "example_city", "country" => "example_country", "state" => "example_state" })
+# create returns the ENTITY — call data_get for the created City record.
+created = client.City.create({ "state" => "example_state" })
 
 ```
 
@@ -127,7 +127,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CountriesAndCitiesSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 city = client.City.list()
 puts city
 ```
@@ -253,8 +254,8 @@ returns a result `Hash` with these keys:
 | `limit` |  |
 | `msg` |  |
 | `order` |  |
-| `order_by` |  |
-| `population_count` |  |
+| `orderBy` |  |
+| `populationCounts` |  |
 | `state` |  |
 
 Operations: Create, List.
@@ -265,19 +266,21 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
+| `Iso2` |  |
+| `Iso3` |  |
+| `capital` |  |
+| `cities` |  |
 | `code` |  |
 | `country` |  |
-| `data` |  |
-| `error` |  |
+| `currency` |  |
 | `flag` |  |
 | `iso2` |  |
 | `iso3` |  |
 | `lat` |  |
 | `long` |  |
-| `msg` |  |
 | `name` |  |
-| `population_count` |  |
+| `populationCounts` |  |
+| `states` |  |
 
 Operations: Create, List.
 
@@ -305,13 +308,13 @@ Create an instance: `city = client.City`
 | --- | --- | --- |
 | `city` | `String` |  |
 | `country` | `String` |  |
-| `data` | `Hash` |  |
+| `data` | `Array` |  |
 | `error` | `Boolean` |  |
 | `limit` | `Integer` |  |
 | `msg` | `String` |  |
 | `order` | `String` |  |
-| `order_by` | `String` |  |
-| `population_count` | `Array` |  |
+| `orderBy` | `String` |  |
+| `populationCounts` | `Array` |  |
 | `state` | `String` |  |
 
 #### Example: List
@@ -325,8 +328,6 @@ citys = client.City.list
 
 ```ruby
 city = client.City.create({
-  "city" => "example_city", # String
-  "country" => "example_country", # String
   "state" => "example_state", # String
 })
 ```
@@ -347,19 +348,21 @@ Create an instance: `country = client.Country`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `Array` |  |
+| `Iso2` | `String` |  |
+| `Iso3` | `String` |  |
+| `capital` | `String` |  |
+| `cities` | `Array` |  |
 | `code` | `String` |  |
 | `country` | `String` |  |
-| `data` | `Hash` |  |
-| `error` | `Boolean` |  |
+| `currency` | `String` |  |
 | `flag` | `String` |  |
 | `iso2` | `String` |  |
 | `iso3` | `String` |  |
 | `lat` | `Float` |  |
 | `long` | `Float` |  |
-| `msg` | `String` |  |
 | `name` | `String` |  |
-| `population_count` | `Array` |  |
+| `populationCounts` | `Array` |  |
+| `states` | `Array` |  |
 
 #### Example: List
 

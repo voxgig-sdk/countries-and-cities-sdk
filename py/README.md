@@ -53,8 +53,8 @@ except Exception as err:
 ### 4. Create, update, and remove
 
 ```python
-# Create — returns the bare created record (a dict)
-created = client.City().create({"city": "example_city", "country": "example_country", "state": "example_state"})
+# Create — returns the ENTITY (call data_get() for the record)
+created = client.City().create({"state": "example_state"})
 
 ```
 
@@ -132,7 +132,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CountriesAndCitiesSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 city = client.City().list()
 # city contains the mock response record
 ```
@@ -230,7 +231,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -259,8 +260,8 @@ On error, `ok` is `False` and `err` contains the error value.
 | `limit` |  |
 | `msg` |  |
 | `order` |  |
-| `order_by` |  |
-| `population_count` |  |
+| `orderBy` |  |
+| `populationCounts` |  |
 | `state` |  |
 
 Operations: Create, List.
@@ -271,19 +272,21 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
+| `Iso2` |  |
+| `Iso3` |  |
+| `capital` |  |
+| `cities` |  |
 | `code` |  |
 | `country` |  |
-| `data` |  |
-| `error` |  |
+| `currency` |  |
 | `flag` |  |
 | `iso2` |  |
 | `iso3` |  |
 | `lat` |  |
 | `long` |  |
-| `msg` |  |
 | `name` |  |
-| `population_count` |  |
+| `populationCounts` |  |
+| `states` |  |
 
 Operations: Create, List.
 
@@ -311,13 +314,13 @@ Create an instance: `city = client.City()`
 | --- | --- | --- |
 | `city` | `str` |  |
 | `country` | `str` |  |
-| `data` | `dict` |  |
+| `data` | `list` |  |
 | `error` | `bool` |  |
 | `limit` | `int` |  |
 | `msg` | `str` |  |
 | `order` | `str` |  |
-| `order_by` | `str` |  |
-| `population_count` | `list` |  |
+| `orderBy` | `str` |  |
+| `populationCounts` | `list` |  |
 | `state` | `str` |  |
 
 #### Example: List
@@ -330,8 +333,6 @@ citys = client.City().list()
 
 ```python
 city = client.City().create({
-    "city": "example_city",  # str
-    "country": "example_country",  # str
     "state": "example_state",  # str
 })
 ```
@@ -352,19 +353,21 @@ Create an instance: `country = client.Country()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `list` |  |
+| `Iso2` | `str` |  |
+| `Iso3` | `str` |  |
+| `capital` | `str` |  |
+| `cities` | `list` |  |
 | `code` | `str` |  |
 | `country` | `str` |  |
-| `data` | `dict` |  |
-| `error` | `bool` |  |
+| `currency` | `str` |  |
 | `flag` | `str` |  |
 | `iso2` | `str` |  |
 | `iso3` | `str` |  |
 | `lat` | `float` |  |
 | `long` | `float` |  |
-| `msg` | `str` |  |
 | `name` | `str` |  |
-| `population_count` | `list` |  |
+| `populationCounts` | `list` |  |
+| `states` | `list` |  |
 
 #### Example: List
 

@@ -61,11 +61,11 @@ function city_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["COUNTRIESANDCITIES_TEST_CITY_ENTID"] = {},
-    ["COUNTRIESANDCITIES_TEST_LIVE"] = "FALSE",
+    ["COUNTRIES_AND_CITIES_TEST_CITY_ENTID"] = {},
+    ["COUNTRIES_AND_CITIES_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["COUNTRIESANDCITIES_TEST_LIVE"] == "TRUE"
+  local live = env["COUNTRIES_AND_CITIES_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

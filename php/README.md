@@ -48,8 +48,8 @@ try {
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created City record.
-$created = $client->City()->create(["city" => "example_city", "country" => "example_country", "state" => "example_state"]);
+// create() returns the ENTITY — call data_get() for the created City record.
+$created = $client->City()->create(["state" => "example_state"]);
 
 ```
 
@@ -133,7 +133,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CountriesAndCitiesSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $city = $client->City()->list();
 print_r($city);
 ```
@@ -234,7 +235,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -263,8 +264,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `limit` |  |
 | `msg` |  |
 | `order` |  |
-| `order_by` |  |
-| `population_count` |  |
+| `orderBy` |  |
+| `populationCounts` |  |
 | `state` |  |
 
 Operations: Create, List.
@@ -275,19 +276,21 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
+| `Iso2` |  |
+| `Iso3` |  |
+| `capital` |  |
+| `cities` |  |
 | `code` |  |
 | `country` |  |
-| `data` |  |
-| `error` |  |
+| `currency` |  |
 | `flag` |  |
 | `iso2` |  |
 | `iso3` |  |
 | `lat` |  |
 | `long` |  |
-| `msg` |  |
 | `name` |  |
-| `population_count` |  |
+| `populationCounts` |  |
+| `states` |  |
 
 Operations: Create, List.
 
@@ -320,8 +323,8 @@ Create an instance: `$city = $client->City();`
 | `limit` | `int` |  |
 | `msg` | `string` |  |
 | `order` | `string` |  |
-| `order_by` | `string` |  |
-| `population_count` | `array` |  |
+| `orderBy` | `string` |  |
+| `populationCounts` | `array` |  |
 | `state` | `string` |  |
 
 #### Example: List
@@ -335,8 +338,6 @@ $citys = $client->City()->list();
 
 ```php
 $city = $client->City()->create([
-    "city" => null, // string
-    "country" => null, // string
     "state" => null, // string
 ]);
 ```
@@ -357,19 +358,21 @@ Create an instance: `$country = $client->Country();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `array` |  |
+| `Iso2` | `string` |  |
+| `Iso3` | `string` |  |
+| `capital` | `string` |  |
+| `cities` | `array` |  |
 | `code` | `string` |  |
 | `country` | `string` |  |
-| `data` | `array` |  |
-| `error` | `bool` |  |
+| `currency` | `string` |  |
 | `flag` | `string` |  |
 | `iso2` | `string` |  |
 | `iso3` | `string` |  |
 | `lat` | `float` |  |
 | `long` | `float` |  |
-| `msg` | `string` |  |
 | `name` | `string` |  |
-| `population_count` | `array` |  |
+| `populationCounts` | `array` |  |
+| `states` | `array` |  |
 
 #### Example: List
 

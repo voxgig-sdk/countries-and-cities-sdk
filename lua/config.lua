@@ -29,12 +29,12 @@ local function make_config()
             ["active"] = true,
             ["name"] = "city",
             ["op"] = {
-              ["list"] = {
-                ["req"] = false,
+              ["create"] = {
+                ["req"] = true,
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = true,
+            ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
           },
@@ -42,12 +42,12 @@ local function make_config()
             ["active"] = true,
             ["name"] = "country",
             ["op"] = {
-              ["list"] = {
-                ["req"] = false,
+              ["create"] = {
+                ["req"] = true,
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = true,
+            ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
           },
@@ -55,7 +55,7 @@ local function make_config()
             ["active"] = true,
             ["name"] = "data",
             ["req"] = false,
-            ["type"] = "`$OBJECT`",
+            ["type"] = "`$ARRAY`",
             ["index$"] = 2,
           },
           {
@@ -88,14 +88,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "order_by",
+            ["name"] = "orderBy",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 7,
           },
           {
             ["active"] = true,
-            ["name"] = "population_count",
+            ["name"] = "populationCounts",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 8,
@@ -117,6 +117,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/population/cities",
                 ["parts"] = {
@@ -126,14 +127,17 @@ local function make_config()
                 },
                 ["select"] = {},
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["city"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/population/cities/filter",
                 ["parts"] = {
@@ -154,6 +158,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/state/cities",
                 ["parts"] = {
@@ -178,6 +183,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/population/cities",
                 ["parts"] = {
@@ -188,7 +194,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },
@@ -204,22 +210,47 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "city",
+            ["name"] = "Iso2",
             ["req"] = false,
-            ["type"] = "`$ARRAY`",
+            ["type"] = "`$STRING`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "code",
+            ["name"] = "Iso3",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
           },
           {
             ["active"] = true,
+            ["name"] = "capital",
+            ["req"] = false,
+            ["type"] = "`$STRING`",
+            ["index$"] = 2,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "cities",
+            ["req"] = false,
+            ["type"] = "`$ARRAY`",
+            ["index$"] = 3,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "code",
+            ["req"] = false,
+            ["type"] = "`$STRING`",
+            ["index$"] = 4,
+          },
+          {
+            ["active"] = true,
             ["name"] = "country",
             ["op"] = {
+              ["create"] = {
+                ["req"] = false,
+                ["type"] = "`$STRING`",
+              },
               ["list"] = {
                 ["req"] = false,
                 ["type"] = "`$STRING`",
@@ -227,77 +258,70 @@ local function make_config()
             },
             ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "data",
-            ["req"] = false,
-            ["type"] = "`$OBJECT`",
-            ["index$"] = 3,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "error",
-            ["req"] = false,
-            ["type"] = "`$BOOLEAN`",
-            ["index$"] = 4,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "flag",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
             ["index$"] = 5,
           },
           {
             ["active"] = true,
-            ["name"] = "iso2",
+            ["name"] = "currency",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 6,
           },
           {
             ["active"] = true,
-            ["name"] = "iso3",
+            ["name"] = "flag",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 7,
           },
           {
             ["active"] = true,
+            ["name"] = "iso2",
+            ["req"] = false,
+            ["type"] = "`$STRING`",
+            ["index$"] = 8,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "iso3",
+            ["req"] = false,
+            ["type"] = "`$STRING`",
+            ["index$"] = 9,
+          },
+          {
+            ["active"] = true,
             ["name"] = "lat",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 8,
+            ["index$"] = 10,
           },
           {
             ["active"] = true,
             ["name"] = "long",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 9,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "msg",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
-            ["index$"] = 10,
+            ["index$"] = 11,
           },
           {
             ["active"] = true,
             ["name"] = "name",
             ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 11,
+            ["index$"] = 12,
           },
           {
             ["active"] = true,
-            ["name"] = "population_count",
+            ["name"] = "populationCounts",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
-            ["index$"] = 12,
+            ["index$"] = 13,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "states",
+            ["req"] = false,
+            ["type"] = "`$ARRAY`",
+            ["index$"] = 14,
           },
         },
         ["name"] = "country",
@@ -309,6 +333,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/capital",
                 ["parts"] = {
@@ -319,14 +344,17 @@ local function make_config()
                   ["$action"] = "capital",
                 },
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["country"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/currency",
                 ["parts"] = {
@@ -337,14 +365,17 @@ local function make_config()
                   ["$action"] = "currency",
                 },
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["country"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 1,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/flag/images",
                 ["parts"] = {
@@ -354,14 +385,17 @@ local function make_config()
                 },
                 ["select"] = {},
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["country"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 2,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/iso",
                 ["parts"] = {
@@ -372,14 +406,17 @@ local function make_config()
                   ["$action"] = "iso",
                 },
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["country"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 3,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/population",
                 ["parts"] = {
@@ -390,14 +427,17 @@ local function make_config()
                   ["$action"] = "population",
                 },
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["country"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 4,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/positions",
                 ["parts"] = {
@@ -408,14 +448,17 @@ local function make_config()
                   ["$action"] = "position",
                 },
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["country"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 5,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/countries/states",
                 ["parts"] = {
@@ -426,8 +469,10 @@ local function make_config()
                   ["$action"] = "state",
                 },
                 ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["req"] = {
+                    ["country"] = "`reqdata`",
+                  },
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 6,
               },
@@ -441,6 +486,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries",
                 ["parts"] = {
@@ -449,13 +495,14 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/codes",
                 ["parts"] = {
@@ -467,13 +514,14 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 1,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/flag/images",
                 ["parts"] = {
@@ -484,13 +532,14 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 2,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/population",
                 ["parts"] = {
@@ -502,13 +551,14 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 3,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/countries/positions",
                 ["parts"] = {
@@ -520,7 +570,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 4,
               },

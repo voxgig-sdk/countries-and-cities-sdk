@@ -23,8 +23,8 @@ module CountriesAndCitiesTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("COUNTRIESANDCITIES_TEST_LIVE")
-    override = getenv("COUNTRIESANDCITIES_TEST_OVERRIDE")
+    live = getenv("COUNTRIES_AND_CITIES_TEST_LIVE")
+    override = getenv("COUNTRIES_AND_CITIES_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CountriesAndCitiesTestRunner
       end
     end
 
-    explain = getenv("COUNTRIESANDCITIES_TEST_EXPLAIN")
-    m["COUNTRIESANDCITIES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("COUNTRIES_AND_CITIES_TEST_EXPLAIN")
+    m["COUNTRIES_AND_CITIES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

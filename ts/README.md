@@ -35,7 +35,9 @@ const client = new CountriesAndCitiesSDK()
 
 ### 2. List city records
 
-`list()` resolves to an array of City objects — iterate it directly:
+`list()` resolves to an array of City ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const citys = await client.City().list()
@@ -48,10 +50,8 @@ for (const city of citys) {
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created City
+// Create — returns the created City ENTITY (.data() for the record)
 const created = await client.City().create({
-  city: 'example_city',
-  country: 'example_country',
   state: 'example_state',
 })
 
@@ -132,7 +132,8 @@ Create a mock client for unit testing — no server required:
 const client = CountriesAndCitiesSDK.test()
 
 const city = await client.City().list()
-// city is a bare entity populated with mock response data
+// city is the entity, populated with mock response data
+// — call city.data() for the record itself
 console.log(city)
 ```
 
@@ -306,8 +307,8 @@ The `prepare()` method returns:
 | `limit` |  |
 | `msg` |  |
 | `order` |  |
-| `order_by` |  |
-| `population_count` |  |
+| `orderBy` |  |
+| `populationCounts` |  |
 | `state` |  |
 
 Operations: create, list.
@@ -318,19 +319,21 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
+| `Iso2` |  |
+| `Iso3` |  |
+| `capital` |  |
+| `cities` |  |
 | `code` |  |
 | `country` |  |
-| `data` |  |
-| `error` |  |
+| `currency` |  |
 | `flag` |  |
 | `iso2` |  |
 | `iso3` |  |
 | `lat` |  |
 | `long` |  |
-| `msg` |  |
 | `name` |  |
-| `population_count` |  |
+| `populationCounts` |  |
+| `states` |  |
 
 Operations: create, list.
 
@@ -358,13 +361,13 @@ Create an instance: `const city = client.City()`
 | --- | --- | --- |
 | `city` | `string` |  |
 | `country` | `string` |  |
-| `data` | `Record<string, any>` |  |
+| `data` | `any[]` |  |
 | `error` | `boolean` |  |
 | `limit` | `number` |  |
 | `msg` | `string` |  |
 | `order` | `string` |  |
-| `order_by` | `string` |  |
-| `population_count` | `any[]` |  |
+| `orderBy` | `string` |  |
+| `populationCounts` | `any[]` |  |
 | `state` | `string` |  |
 
 #### Example: List
@@ -377,8 +380,6 @@ const citys = await client.City().list()
 
 ```ts
 const city = await client.City().create({
-  city: 'example_city',
-  country: 'example_country',
   state: 'example_state',
 })
 ```
@@ -399,19 +400,21 @@ Create an instance: `const country = client.Country()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `any[]` |  |
+| `Iso2` | `string` |  |
+| `Iso3` | `string` |  |
+| `capital` | `string` |  |
+| `cities` | `any[]` |  |
 | `code` | `string` |  |
 | `country` | `string` |  |
-| `data` | `Record<string, any>` |  |
-| `error` | `boolean` |  |
+| `currency` | `string` |  |
 | `flag` | `string` |  |
 | `iso2` | `string` |  |
 | `iso3` | `string` |  |
 | `lat` | `number` |  |
 | `long` | `number` |  |
-| `msg` | `string` |  |
 | `name` | `string` |  |
-| `population_count` | `any[]` |  |
+| `populationCounts` | `any[]` |  |
+| `states` | `any[]` |  |
 
 #### Example: List
 

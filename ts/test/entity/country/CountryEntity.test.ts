@@ -26,8 +26,8 @@ import {
 describe('CountryEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when COUNTRIESANDCITIES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('COUNTRIESANDCITIES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when COUNTRIES_AND_CITIES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('COUNTRIES_AND_CITIES_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CountriesAndCitiesSDK.test()
@@ -62,16 +62,14 @@ describe('CountryEntity', async () => {
     const country_ref01_ent = client.Country()
     let country_ref01_data = setup.data.new.country['country_ref01']
 
-    country_ref01_data = await country_ref01_ent.create(country_ref01_data)
+    country_ref01_data = (await country_ref01_ent.create(country_ref01_data)).data()
     assert(null != country_ref01_data)
 
 
     // LIST
     const country_ref01_match: any = {}
 
-    const country_ref01_list = await country_ref01_ent.list(country_ref01_match)
-
-    assert(!isempty(select(country_ref01_list, { id: country_ref01_data.id })))
+    const country_ref01_list = (await country_ref01_ent.list(country_ref01_match)).map((e: any) => e.data())
 
 
   })

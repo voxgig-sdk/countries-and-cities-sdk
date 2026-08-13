@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CountriesAndCitiesUtility.registrar = ->(u) {
   u.prepare_params = CountriesAndCitiesUtilities::PrepareParams
   u.prepare_path = CountriesAndCitiesUtilities::PreparePath
   u.prepare_query = CountriesAndCitiesUtilities::PrepareQuery
+  u.graphql_body = CountriesAndCitiesUtilities::GraphqlBody
+  u.graphql_errors = CountriesAndCitiesUtilities::GraphqlErrors
   u.result_basic = CountriesAndCitiesUtilities::ResultBasic
   u.result_body = CountriesAndCitiesUtilities::ResultBody
   u.result_headers = CountriesAndCitiesUtilities::ResultHeaders

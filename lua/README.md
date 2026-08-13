@@ -51,7 +51,7 @@ end
 
 ```lua
 -- Create
-local created, err = client:City():create({ city = "example_city", country = "example_country", state = "example_state" })
+local created, err = client:City():create({ state = "example_state" })
 if err then error(err) end
 
 ```
@@ -230,9 +230,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local city, err = client:City():load()
+    local city, err = client:City():list()
     if err then error(err) end
-    -- city is the loaded record
+    -- city is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -250,8 +250,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `limit` |  |
 | `msg` |  |
 | `order` |  |
-| `order_by` |  |
-| `population_count` |  |
+| `orderBy` |  |
+| `populationCounts` |  |
 | `state` |  |
 
 Operations: Create, List.
@@ -262,19 +262,21 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
+| `Iso2` |  |
+| `Iso3` |  |
+| `capital` |  |
+| `cities` |  |
 | `code` |  |
 | `country` |  |
-| `data` |  |
-| `error` |  |
+| `currency` |  |
 | `flag` |  |
 | `iso2` |  |
 | `iso3` |  |
 | `lat` |  |
 | `long` |  |
-| `msg` |  |
 | `name` |  |
-| `population_count` |  |
+| `populationCounts` |  |
+| `states` |  |
 
 Operations: Create, List.
 
@@ -307,8 +309,8 @@ Create an instance: `local city = client:City(nil)`
 | `limit` | `number` |  |
 | `msg` | `string` |  |
 | `order` | `string` |  |
-| `order_by` | `string` |  |
-| `population_count` | `table` |  |
+| `orderBy` | `string` |  |
+| `populationCounts` | `table` |  |
 | `state` | `string` |  |
 
 #### Example: List
@@ -321,8 +323,6 @@ local citys, err = client:City():list()
 
 ```lua
 local city, err = client:City():create({
-  city = "example_city", -- string
-  country = "example_country", -- string
   state = "example_state", -- string
 })
 ```
@@ -343,19 +343,21 @@ Create an instance: `local country = client:Country(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `table` |  |
+| `Iso2` | `string` |  |
+| `Iso3` | `string` |  |
+| `capital` | `string` |  |
+| `cities` | `table` |  |
 | `code` | `string` |  |
 | `country` | `string` |  |
-| `data` | `table` |  |
-| `error` | `boolean` |  |
+| `currency` | `string` |  |
 | `flag` | `string` |  |
 | `iso2` | `string` |  |
 | `iso3` | `string` |  |
 | `lat` | `number` |  |
 | `long` | `number` |  |
-| `msg` | `string` |  |
 | `name` | `string` |  |
-| `population_count` | `table` |  |
+| `populationCounts` | `table` |  |
+| `states` | `table` |  |
 
 #### Example: List
 

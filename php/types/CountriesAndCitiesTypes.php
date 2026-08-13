@@ -15,15 +15,15 @@ declare(strict_types=1);
 /** City entity data model. */
 class City
 {
-    public string $city;
-    public string $country;
+    public ?string $city = null;
+    public ?string $country = null;
     public ?array $data = null;
     public ?bool $error = null;
     public ?int $limit = null;
     public ?string $msg = null;
     public ?string $order = null;
-    public ?string $order_by = null;
-    public ?array $population_count = null;
+    public ?string $orderBy = null;
+    public ?array $populationCounts = null;
     public string $state;
 }
 
@@ -37,77 +37,83 @@ class CityListMatch
     public ?int $limit = null;
     public ?string $msg = null;
     public ?string $order = null;
-    public ?string $order_by = null;
-    public ?array $population_count = null;
+    public ?string $orderBy = null;
+    public ?array $populationCounts = null;
     public ?string $state = null;
 }
 
 /** Request payload for City#create. */
 class CityCreateData
 {
-    public string $city;
-    public string $country;
+    public ?string $city = null;
+    public ?string $country = null;
     public ?array $data = null;
     public ?bool $error = null;
     public ?int $limit = null;
     public ?string $msg = null;
     public ?string $order = null;
-    public ?string $order_by = null;
-    public ?array $population_count = null;
+    public ?string $orderBy = null;
+    public ?array $populationCounts = null;
     public string $state;
 }
 
 /** Country entity data model. */
 class Country
 {
-    public ?array $city = null;
+    public ?string $Iso2 = null;
+    public ?string $Iso3 = null;
+    public ?string $capital = null;
+    public ?array $cities = null;
     public ?string $code = null;
     public string $country;
-    public ?array $data = null;
-    public ?bool $error = null;
+    public ?string $currency = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
     public ?float $lat = null;
     public ?float $long = null;
-    public ?string $msg = null;
     public ?string $name = null;
-    public ?array $population_count = null;
+    public ?array $populationCounts = null;
+    public ?array $states = null;
 }
 
 /** Request payload for Country#list. */
 class CountryListMatch
 {
-    public ?array $city = null;
+    public ?string $Iso2 = null;
+    public ?string $Iso3 = null;
+    public ?string $capital = null;
+    public ?array $cities = null;
     public ?string $code = null;
     public ?string $country = null;
-    public ?array $data = null;
-    public ?bool $error = null;
+    public ?string $currency = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
     public ?float $lat = null;
     public ?float $long = null;
-    public ?string $msg = null;
     public ?string $name = null;
-    public ?array $population_count = null;
+    public ?array $populationCounts = null;
+    public ?array $states = null;
 }
 
 /** Request payload for Country#create. */
 class CountryCreateData
 {
-    public ?array $city = null;
+    public ?string $Iso2 = null;
+    public ?string $Iso3 = null;
+    public ?string $capital = null;
+    public ?array $cities = null;
     public ?string $code = null;
     public string $country;
-    public ?array $data = null;
-    public ?bool $error = null;
+    public ?string $currency = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
     public ?float $lat = null;
     public ?float $long = null;
-    public ?string $msg = null;
     public ?string $name = null;
-    public ?array $population_count = null;
+    public ?array $populationCounts = null;
+    public ?array $states = null;
 }
 

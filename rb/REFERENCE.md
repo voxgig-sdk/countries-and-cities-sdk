@@ -97,30 +97,30 @@ city = client.City
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `String` | Yes |  |
-| `country` | `String` | Yes |  |
-| `data` | `Hash` | No |  |
+| `city` | `String` | No |  |
+| `country` | `String` | No |  |
+| `data` | `Array` | No |  |
 | `error` | `Boolean` | No |  |
 | `limit` | `Integer` | No |  |
 | `msg` | `String` | No |  |
 | `order` | `String` | No |  |
-| `order_by` | `String` | No |  |
-| `population_count` | `Array` | No |  |
+| `orderBy` | `String` | No |  |
+| `populationCounts` | `Array` | No |  |
 | `state` | `String` | Yes |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | Yes | - |
-| `country` | Yes | - |
+| `city` | - | Yes |
+| `country` | - | Yes |
 | `data` | - | - |
 | `error` | - | - |
 | `limit` | - | - |
 | `msg` | - | - |
 | `order` | - | - |
-| `order_by` | - | - |
-| `population_count` | - | - |
+| `orderBy` | - | - |
+| `populationCounts` | - | - |
 | `state` | - | - |
 
 ### Operations
@@ -131,8 +131,6 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.City.create({
-  "city" => "example_city", # String
-  "country" => "example_country", # String
   "state" => "example_state", # String
 })
 ```
@@ -185,37 +183,41 @@ country = client.Country
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `Array` | No |  |
+| `Iso2` | `String` | No |  |
+| `Iso3` | `String` | No |  |
+| `capital` | `String` | No |  |
+| `cities` | `Array` | No |  |
 | `code` | `String` | No |  |
 | `country` | `String` | Yes |  |
-| `data` | `Hash` | No |  |
-| `error` | `Boolean` | No |  |
+| `currency` | `String` | No |  |
 | `flag` | `String` | No |  |
 | `iso2` | `String` | No |  |
 | `iso3` | `String` | No |  |
 | `lat` | `Float` | No |  |
 | `long` | `Float` | No |  |
-| `msg` | `String` | No |  |
 | `name` | `String` | No |  |
-| `population_count` | `Array` | No |  |
+| `populationCounts` | `Array` | No |  |
+| `states` | `Array` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | - |
+| `Iso2` | - | - |
+| `Iso3` | - | - |
+| `capital` | - | - |
+| `cities` | - | - |
 | `code` | - | - |
-| `country` | Yes | - |
-| `data` | - | - |
-| `error` | - | - |
+| `country` | Yes | Yes |
+| `currency` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
 | `lat` | - | - |
 | `long` | - | - |
-| `msg` | - | - |
 | `name` | - | - |
-| `population_count` | - | - |
+| `populationCounts` | - | - |
+| `states` | - | - |
 
 ### Operations
 

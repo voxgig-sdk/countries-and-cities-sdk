@@ -8,29 +8,29 @@ main: kit: entity: city: {
     {
       name: "city"
       op: {
-        list: {
-          req: false
+        create: {
+          req: true
           type: "`$STRING`"
         }
       }
-      req: true
+      req: false
       type: "`$STRING`"
     }
     {
       name: "country"
       op: {
-        list: {
-          req: false
+        create: {
+          req: true
           type: "`$STRING`"
         }
       }
-      req: true
+      req: false
       type: "`$STRING`"
     }
     {
       name: "data"
       req: false
-      type: "`$OBJECT`"
+      type: "`$ARRAY`"
     }
     {
       name: "error"
@@ -53,12 +53,12 @@ main: kit: entity: city: {
       type: "`$STRING`"
     }
     {
-      name: "order_by"
+      name: "orderBy"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "population_count"
+      name: "populationCounts"
       req: false
       type: "`$ARRAY`"
     }
@@ -83,8 +83,10 @@ main: kit: entity: city: {
             "cities"
           ]
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              city: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
         {
@@ -132,7 +134,7 @@ main: kit: entity: city: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

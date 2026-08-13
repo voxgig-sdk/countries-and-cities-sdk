@@ -43,8 +43,8 @@ class CountriesAndCitiesTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('COUNTRIESANDCITIES_TEST_LIVE');
-        $override = self::getenv('COUNTRIESANDCITIES_TEST_OVERRIDE');
+        $live = self::getenv('COUNTRIES_AND_CITIES_TEST_LIVE');
+        $override = self::getenv('COUNTRIES_AND_CITIES_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CountriesAndCitiesTestRunner
             }
         }
 
-        $explain = self::getenv('COUNTRIESANDCITIES_TEST_EXPLAIN');
+        $explain = self::getenv('COUNTRIES_AND_CITIES_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['COUNTRIESANDCITIES_TEST_EXPLAIN'] = $explain;
+            $m['COUNTRIES_AND_CITIES_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

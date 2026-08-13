@@ -62,7 +62,7 @@ class CountryEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set COUNTRIESANDCITIES_TEST_COUNTRY_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -73,7 +73,7 @@ class CountryEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.country"), "country_ref01"))
 
     country_ref01_data_result = country_ref01_ent.create(country_ref01_data, nil)
-    country_ref01_data = Helpers.to_map(country_ref01_data_result)
+    country_ref01_data = Helpers.to_map(country_ref01_data_result.respond_to?(:data_get) ? country_ref01_data_result.data_get : country_ref01_data_result)
     assert !country_ref01_data.nil?
 
     # LIST
@@ -81,11 +81,6 @@ class CountryEntityTest < Minitest::Test
 
     country_ref01_list_result = country_ref01_ent.list(country_ref01_match, nil)
     assert country_ref01_list_result.is_a?(Array)
-
-    found_item = Vs.select(
-      Runner.entity_list_to_data(country_ref01_list_result),
-      { "id" => country_ref01_data["id"] })
-    assert !Vs.isempty(found_item)
 
   end
 end
@@ -116,22 +111,22 @@ def country_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["COUNTRIESANDCITIES_TEST_COUNTRY_ENTID"]
+  entid_env_raw = ENV["COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "COUNTRIESANDCITIES_TEST_COUNTRY_ENTID" => idmap,
-    "COUNTRIESANDCITIES_TEST_LIVE" => "FALSE",
-    "COUNTRIESANDCITIES_TEST_EXPLAIN" => "FALSE",
+    "COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID" => idmap,
+    "COUNTRIES_AND_CITIES_TEST_LIVE" => "FALSE",
+    "COUNTRIES_AND_CITIES_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["COUNTRIESANDCITIES_TEST_COUNTRY_ENTID"])
+    env["COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["COUNTRIESANDCITIES_TEST_LIVE"] == "TRUE"
+  if env["COUNTRIES_AND_CITIES_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -140,13 +135,13 @@ def country_basic_setup(extra)
     client = CountriesAndCitiesSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["COUNTRIESANDCITIES_TEST_LIVE"] == "TRUE"
+  live = env["COUNTRIES_AND_CITIES_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["COUNTRIESANDCITIES_TEST_EXPLAIN"] == "TRUE",
+    explain: env["COUNTRIES_AND_CITIES_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

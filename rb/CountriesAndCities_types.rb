@@ -11,13 +11,13 @@
 # City entity data model.
 #
 # @!attribute [rw] city
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] country
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] data
-#   @return [Hash, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] error
 #   @return [Boolean, nil]
@@ -31,10 +31,10 @@
 # @!attribute [rw] order
 #   @return [String, nil]
 #
-# @!attribute [rw] order_by
+# @!attribute [rw] orderBy
 #   @return [String, nil]
 #
-# @!attribute [rw] population_count
+# @!attribute [rw] populationCounts
 #   @return [Array, nil]
 #
 # @!attribute [rw] state
@@ -47,8 +47,8 @@ City = Struct.new(
   :limit,
   :msg,
   :order,
-  :order_by,
-  :population_count,
+  :orderBy,
+  :populationCounts,
   :state,
   keyword_init: true
 )
@@ -62,7 +62,7 @@ City = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] data
-#   @return [Hash, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] error
 #   @return [Boolean, nil]
@@ -76,10 +76,10 @@ City = Struct.new(
 # @!attribute [rw] order
 #   @return [String, nil]
 #
-# @!attribute [rw] order_by
+# @!attribute [rw] orderBy
 #   @return [String, nil]
 #
-# @!attribute [rw] population_count
+# @!attribute [rw] populationCounts
 #   @return [Array, nil]
 #
 # @!attribute [rw] state
@@ -92,8 +92,8 @@ CityListMatch = Struct.new(
   :limit,
   :msg,
   :order,
-  :order_by,
-  :population_count,
+  :orderBy,
+  :populationCounts,
   :state,
   keyword_init: true
 )
@@ -101,13 +101,13 @@ CityListMatch = Struct.new(
 # Request payload for City#create.
 #
 # @!attribute [rw] city
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] country
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] data
-#   @return [Hash, nil]
+#   @return [Array, nil]
 #
 # @!attribute [rw] error
 #   @return [Boolean, nil]
@@ -121,10 +121,10 @@ CityListMatch = Struct.new(
 # @!attribute [rw] order
 #   @return [String, nil]
 #
-# @!attribute [rw] order_by
+# @!attribute [rw] orderBy
 #   @return [String, nil]
 #
-# @!attribute [rw] population_count
+# @!attribute [rw] populationCounts
 #   @return [Array, nil]
 #
 # @!attribute [rw] state
@@ -137,15 +137,24 @@ CityCreateData = Struct.new(
   :limit,
   :msg,
   :order,
-  :order_by,
-  :population_count,
+  :orderBy,
+  :populationCounts,
   :state,
   keyword_init: true
 )
 
 # Country entity data model.
 #
-# @!attribute [rw] city
+# @!attribute [rw] Iso2
+#   @return [String, nil]
+#
+# @!attribute [rw] Iso3
+#   @return [String, nil]
+#
+# @!attribute [rw] capital
+#   @return [String, nil]
+#
+# @!attribute [rw] cities
 #   @return [Array, nil]
 #
 # @!attribute [rw] code
@@ -154,11 +163,8 @@ CityCreateData = Struct.new(
 # @!attribute [rw] country
 #   @return [String]
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] error
-#   @return [Boolean, nil]
+# @!attribute [rw] currency
+#   @return [String, nil]
 #
 # @!attribute [rw] flag
 #   @return [String, nil]
@@ -175,34 +181,45 @@ CityCreateData = Struct.new(
 # @!attribute [rw] long
 #   @return [Float, nil]
 #
-# @!attribute [rw] msg
-#   @return [String, nil]
-#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] population_count
+# @!attribute [rw] populationCounts
+#   @return [Array, nil]
+#
+# @!attribute [rw] states
 #   @return [Array, nil]
 Country = Struct.new(
-  :city,
+  :Iso2,
+  :Iso3,
+  :capital,
+  :cities,
   :code,
   :country,
-  :data,
-  :error,
+  :currency,
   :flag,
   :iso2,
   :iso3,
   :lat,
   :long,
-  :msg,
   :name,
-  :population_count,
+  :populationCounts,
+  :states,
   keyword_init: true
 )
 
 # Request payload for Country#list.
 #
-# @!attribute [rw] city
+# @!attribute [rw] Iso2
+#   @return [String, nil]
+#
+# @!attribute [rw] Iso3
+#   @return [String, nil]
+#
+# @!attribute [rw] capital
+#   @return [String, nil]
+#
+# @!attribute [rw] cities
 #   @return [Array, nil]
 #
 # @!attribute [rw] code
@@ -211,11 +228,8 @@ Country = Struct.new(
 # @!attribute [rw] country
 #   @return [String, nil]
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] error
-#   @return [Boolean, nil]
+# @!attribute [rw] currency
+#   @return [String, nil]
 #
 # @!attribute [rw] flag
 #   @return [String, nil]
@@ -232,34 +246,45 @@ Country = Struct.new(
 # @!attribute [rw] long
 #   @return [Float, nil]
 #
-# @!attribute [rw] msg
-#   @return [String, nil]
-#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] population_count
+# @!attribute [rw] populationCounts
+#   @return [Array, nil]
+#
+# @!attribute [rw] states
 #   @return [Array, nil]
 CountryListMatch = Struct.new(
-  :city,
+  :Iso2,
+  :Iso3,
+  :capital,
+  :cities,
   :code,
   :country,
-  :data,
-  :error,
+  :currency,
   :flag,
   :iso2,
   :iso3,
   :lat,
   :long,
-  :msg,
   :name,
-  :population_count,
+  :populationCounts,
+  :states,
   keyword_init: true
 )
 
 # Request payload for Country#create.
 #
-# @!attribute [rw] city
+# @!attribute [rw] Iso2
+#   @return [String, nil]
+#
+# @!attribute [rw] Iso3
+#   @return [String, nil]
+#
+# @!attribute [rw] capital
+#   @return [String, nil]
+#
+# @!attribute [rw] cities
 #   @return [Array, nil]
 #
 # @!attribute [rw] code
@@ -268,11 +293,8 @@ CountryListMatch = Struct.new(
 # @!attribute [rw] country
 #   @return [String]
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] error
-#   @return [Boolean, nil]
+# @!attribute [rw] currency
+#   @return [String, nil]
 #
 # @!attribute [rw] flag
 #   @return [String, nil]
@@ -289,28 +311,30 @@ CountryListMatch = Struct.new(
 # @!attribute [rw] long
 #   @return [Float, nil]
 #
-# @!attribute [rw] msg
-#   @return [String, nil]
-#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] population_count
+# @!attribute [rw] populationCounts
+#   @return [Array, nil]
+#
+# @!attribute [rw] states
 #   @return [Array, nil]
 CountryCreateData = Struct.new(
-  :city,
+  :Iso2,
+  :Iso3,
+  :capital,
+  :cities,
   :code,
   :country,
-  :data,
-  :error,
+  :currency,
   :flag,
   :iso2,
   :iso3,
   :lat,
   :long,
-  :msg,
   :name,
-  :population_count,
+  :populationCounts,
+  :states,
   keyword_init: true
 )
 

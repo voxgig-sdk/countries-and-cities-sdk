@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CountriesAndCitiesControl
-from core.error import CountriesAndCitiesError
-from core.result import CountriesAndCitiesResult
-from core.spec import CountriesAndCitiesSpec
+from countriesandcities_sdk.config import make_config
+from countriesandcities_sdk.features import _make_feature
+from countriesandcities_sdk.core.control import CountriesAndCitiesControl
+from countriesandcities_sdk.core.error import CountriesAndCitiesError
+from countriesandcities_sdk.core.result import CountriesAndCitiesResult
+from countriesandcities_sdk.core.spec import CountriesAndCitiesSpec
 
 
 # True when this SDK was generated with the named feature.

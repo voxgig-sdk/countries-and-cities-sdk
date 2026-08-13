@@ -19,11 +19,15 @@ import {
 describe('CountryDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when COUNTRIESANDCITIES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('COUNTRIESANDCITIES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when COUNTRIES_AND_CITIES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('COUNTRIES_AND_CITIES_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new CountriesAndCitiesSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'COUNTRIESANDCITIES_TEST_COUNTRY_ENTID': {},
-    'COUNTRIESANDCITIES_TEST_LIVE': 'FALSE',
+    'COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID': {},
+    'COUNTRIES_AND_CITIES_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.COUNTRIESANDCITIES_TEST_LIVE
+  const live = 'TRUE' === env.COUNTRIES_AND_CITIES_TEST_LIVE
 
   if (live) {
     const client = new CountriesAndCitiesSDK({
     })
 
-    let idmap: any = env['COUNTRIESANDCITIES_TEST_COUNTRY_ENTID']
+    let idmap: any = env['COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

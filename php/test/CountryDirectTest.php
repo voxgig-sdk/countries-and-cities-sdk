@@ -66,11 +66,11 @@ function country_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "COUNTRIESANDCITIES_TEST_COUNTRY_ENTID" => [],
-        "COUNTRIESANDCITIES_TEST_LIVE" => "FALSE",
+        "COUNTRIES_AND_CITIES_TEST_COUNTRY_ENTID" => [],
+        "COUNTRIES_AND_CITIES_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["COUNTRIESANDCITIES_TEST_LIVE"] === "TRUE";
+    $live = $env["COUNTRIES_AND_CITIES_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

@@ -60,7 +60,7 @@ func main() {
     }
 
     // Create a city.
-    created, err := client.City(nil).Create(map[string]any{"city": "example_city", "country": "example_country", "state": "example_state"}, nil)
+    created, err := client.City(nil).Create(map[string]any{"state": "example_state"}, nil)
     if err != nil {
         panic(err)
     }
@@ -277,8 +277,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"limit"` |  |
 | `"msg"` |  |
 | `"order"` |  |
-| `"order_by"` |  |
-| `"population_count"` |  |
+| `"orderBy"` |  |
+| `"populationCounts"` |  |
 | `"state"` |  |
 
 Operations: Create, List.
@@ -289,19 +289,21 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `"city"` |  |
+| `"Iso2"` |  |
+| `"Iso3"` |  |
+| `"capital"` |  |
+| `"cities"` |  |
 | `"code"` |  |
 | `"country"` |  |
-| `"data"` |  |
-| `"error"` |  |
+| `"currency"` |  |
 | `"flag"` |  |
 | `"iso2"` |  |
 | `"iso3"` |  |
 | `"lat"` |  |
 | `"long"` |  |
-| `"msg"` |  |
 | `"name"` |  |
-| `"population_count"` |  |
+| `"populationCounts"` |  |
+| `"states"` |  |
 
 Operations: Create, List.
 
@@ -329,13 +331,13 @@ Create an instance: `city := client.City(nil)`
 | --- | --- | --- |
 | `city` | `string` |  |
 | `country` | `string` |  |
-| `data` | `map[string]any` |  |
+| `data` | `[]any` |  |
 | `error` | `bool` |  |
 | `limit` | `int` |  |
 | `msg` | `string` |  |
 | `order` | `string` |  |
-| `order_by` | `string` |  |
-| `population_count` | `[]any` |  |
+| `orderBy` | `string` |  |
+| `populationCounts` | `[]any` |  |
 | `state` | `string` |  |
 
 #### Example: List
@@ -352,8 +354,6 @@ fmt.Println(citys) // the array of records
 
 ```go
 result, err := client.City(nil).Create(map[string]any{
-    "city": "example_city",
-    "country": "example_country",
     "state": "example_state",
 }, nil)
 if err != nil {
@@ -378,19 +378,21 @@ Create an instance: `country := client.Country(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `[]any` |  |
+| `Iso2` | `string` |  |
+| `Iso3` | `string` |  |
+| `capital` | `string` |  |
+| `cities` | `[]any` |  |
 | `code` | `string` |  |
 | `country` | `string` |  |
-| `data` | `map[string]any` |  |
-| `error` | `bool` |  |
+| `currency` | `string` |  |
 | `flag` | `string` |  |
 | `iso2` | `string` |  |
 | `iso3` | `string` |  |
 | `lat` | `float64` |  |
 | `long` | `float64` |  |
-| `msg` | `string` |  |
 | `name` | `string` |  |
-| `population_count` | `[]any` |  |
+| `populationCounts` | `[]any` |  |
+| `states` | `[]any` |  |
 
 #### Example: List
 

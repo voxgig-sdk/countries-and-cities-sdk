@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CountriesAndCities SDK exists test
 
 import pytest
 from countriesandcities_sdk import CountriesAndCitiesSDK

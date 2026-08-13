@@ -96,30 +96,30 @@ $city = $client->City();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | Yes |  |
-| `country` | `string` | Yes |  |
+| `city` | `string` | No |  |
+| `country` | `string` | No |  |
 | `data` | `array` | No |  |
 | `error` | `bool` | No |  |
 | `limit` | `int` | No |  |
 | `msg` | `string` | No |  |
 | `order` | `string` | No |  |
-| `order_by` | `string` | No |  |
-| `population_count` | `array` | No |  |
+| `orderBy` | `string` | No |  |
+| `populationCounts` | `array` | No |  |
 | `state` | `string` | Yes |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | Yes | - |
-| `country` | Yes | - |
+| `city` | - | Yes |
+| `country` | - | Yes |
 | `data` | - | - |
 | `error` | - | - |
 | `limit` | - | - |
 | `msg` | - | - |
 | `order` | - | - |
-| `order_by` | - | - |
-| `population_count` | - | - |
+| `orderBy` | - | - |
+| `populationCounts` | - | - |
 | `state` | - | - |
 
 ### Operations
@@ -130,8 +130,6 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->City()->create([
-  "city" => null, // string
-  "country" => null, // string
   "state" => null, // string
 ]);
 ```
@@ -184,37 +182,41 @@ $country = $client->Country();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `array` | No |  |
+| `Iso2` | `string` | No |  |
+| `Iso3` | `string` | No |  |
+| `capital` | `string` | No |  |
+| `cities` | `array` | No |  |
 | `code` | `string` | No |  |
 | `country` | `string` | Yes |  |
-| `data` | `array` | No |  |
-| `error` | `bool` | No |  |
+| `currency` | `string` | No |  |
 | `flag` | `string` | No |  |
 | `iso2` | `string` | No |  |
 | `iso3` | `string` | No |  |
 | `lat` | `float` | No |  |
 | `long` | `float` | No |  |
-| `msg` | `string` | No |  |
 | `name` | `string` | No |  |
-| `population_count` | `array` | No |  |
+| `populationCounts` | `array` | No |  |
+| `states` | `array` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | - |
+| `Iso2` | - | - |
+| `Iso3` | - | - |
+| `capital` | - | - |
+| `cities` | - | - |
 | `code` | - | - |
-| `country` | Yes | - |
-| `data` | - | - |
-| `error` | - | - |
+| `country` | Yes | Yes |
+| `currency` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
 | `lat` | - | - |
 | `long` | - | - |
-| `msg` | - | - |
 | `name` | - | - |
-| `population_count` | - | - |
+| `populationCounts` | - | - |
+| `states` | - | - |
 
 ### Operations
 

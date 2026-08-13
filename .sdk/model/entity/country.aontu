@@ -6,7 +6,22 @@ main: kit: entity: country: {
 
   fields: [
     {
-      name: "city"
+      name: "Iso2"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "Iso3"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "capital"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cities"
       req: false
       type: "`$ARRAY`"
     }
@@ -18,6 +33,10 @@ main: kit: entity: country: {
     {
       name: "country"
       op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
         list: {
           req: false
           type: "`$STRING`"
@@ -27,14 +46,9 @@ main: kit: entity: country: {
       type: "`$STRING`"
     }
     {
-      name: "data"
+      name: "currency"
       req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "error"
-      req: false
-      type: "`$BOOLEAN`"
+      type: "`$STRING`"
     }
     {
       name: "flag"
@@ -62,17 +76,17 @@ main: kit: entity: country: {
       type: "`$NUMBER`"
     }
     {
-      name: "msg"
-      req: false
-      type: "`$STRING`"
-    }
-    {
       name: "name"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "population_count"
+      name: "populationCounts"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "states"
       req: false
       type: "`$ARRAY`"
     }
@@ -94,8 +108,10 @@ main: kit: entity: country: {
             "$action": "capital"
           }
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
         {
@@ -109,8 +125,10 @@ main: kit: entity: country: {
             "$action": "currency"
           }
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
         {
@@ -122,8 +140,10 @@ main: kit: entity: country: {
             "images"
           ]
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
         {
@@ -137,8 +157,10 @@ main: kit: entity: country: {
             "$action": "iso"
           }
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
         {
@@ -152,8 +174,10 @@ main: kit: entity: country: {
             "$action": "population"
           }
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
         {
@@ -167,8 +191,10 @@ main: kit: entity: country: {
             "$action": "position"
           }
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
         {
@@ -182,8 +208,10 @@ main: kit: entity: country: {
             "$action": "state"
           }
           transform: {
-            req: "`reqdata`"
-            res: "`body`"
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
           }
         }
       ]
@@ -199,7 +227,7 @@ main: kit: entity: country: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -214,7 +242,7 @@ main: kit: entity: country: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -227,7 +255,7 @@ main: kit: entity: country: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -242,7 +270,7 @@ main: kit: entity: country: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -257,7 +285,7 @@ main: kit: entity: country: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

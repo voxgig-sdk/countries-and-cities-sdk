@@ -128,31 +128,51 @@ const city = client.City()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | Yes |  |
-| `country` | `string` | Yes |  |
-| `data` | `Record<string, any>` | No |  |
+| `city` | `string` | No |  |
+| `country` | `string` | No |  |
+| `data` | `any[]` | No |  |
 | `error` | `boolean` | No |  |
 | `limit` | `number` | No |  |
 | `msg` | `string` | No |  |
 | `order` | `string` | No |  |
-| `order_by` | `string` | No |  |
-| `population_count` | `any[]` | No |  |
+| `orderBy` | `string` | No |  |
+| `populationCounts` | `any[]` | No |  |
 | `state` | `string` | Yes |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | Yes | - |
-| `country` | Yes | - |
+| `city` | - | Yes |
+| `country` | - | Yes |
 | `data` | - | - |
 | `error` | - | - |
 | `limit` | - | - |
 | `msg` | - | - |
 | `order` | - | - |
-| `order_by` | - | - |
-| `population_count` | - | - |
+| `orderBy` | - | - |
+| `populationCounts` | - | - |
 | `state` | - | - |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `filter` | `/countries/population/cities/filter` | `client.City().create({ $action: 'filter', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+City record — check the API definition for its shape.
+
+```ts
+const result = await client.City().create({
+  $action: 'filter',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -162,8 +182,6 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.City().create({
-  city: 'example_city',
-  country: 'example_country',
   state: 'example_state',
 })
 ```
@@ -214,37 +232,69 @@ const country = client.Country()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `any[]` | No |  |
+| `Iso2` | `string` | No |  |
+| `Iso3` | `string` | No |  |
+| `capital` | `string` | No |  |
+| `cities` | `any[]` | No |  |
 | `code` | `string` | No |  |
 | `country` | `string` | Yes |  |
-| `data` | `Record<string, any>` | No |  |
-| `error` | `boolean` | No |  |
+| `currency` | `string` | No |  |
 | `flag` | `string` | No |  |
 | `iso2` | `string` | No |  |
 | `iso3` | `string` | No |  |
 | `lat` | `number` | No |  |
 | `long` | `number` | No |  |
-| `msg` | `string` | No |  |
 | `name` | `string` | No |  |
-| `population_count` | `any[]` | No |  |
+| `populationCounts` | `any[]` | No |  |
+| `states` | `any[]` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | - |
+| `Iso2` | - | - |
+| `Iso3` | - | - |
+| `capital` | - | - |
+| `cities` | - | - |
 | `code` | - | - |
-| `country` | Yes | - |
-| `data` | - | - |
-| `error` | - | - |
+| `country` | Yes | Yes |
+| `currency` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
 | `lat` | - | - |
 | `long` | - | - |
-| `msg` | - | - |
 | `name` | - | - |
-| `population_count` | - | - |
+| `populationCounts` | - | - |
+| `states` | - | - |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `capital` | `/countries/capital` | `client.Country().create({ $action: 'capital', ... })` |
+| `currency` | `/countries/currency` | `client.Country().create({ $action: 'currency', ... })` |
+| `iso` | `/countries/iso` | `client.Country().create({ $action: 'iso', ... })` |
+| `population` | `/countries/population` | `client.Country().create({ $action: 'population', ... })` |
+| `position` | `/countries/positions` | `client.Country().create({ $action: 'position', ... })` |
+| `state` | `/countries/states` | `client.Country().create({ $action: 'state', ... })` |
+| `code` | `/countries/codes` | `client.Country().list({ $action: 'code', ... })` |
+| `population` | `/countries/population` | `client.Country().list({ $action: 'population', ... })` |
+| `position` | `/countries/positions` | `client.Country().list({ $action: 'position', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Country record — check the API definition for its shape.
+
+```ts
+const result = await client.Country().create({
+  $action: 'capital',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

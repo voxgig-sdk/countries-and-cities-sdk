@@ -7,15 +7,15 @@
 -- edit by hand.
 
 ---@class City
----@field city string
----@field country string
+---@field city? string
+---@field country? string
 ---@field data? table
 ---@field error? boolean
 ---@field limit? number
 ---@field msg? string
 ---@field order? string
----@field order_by? string
----@field population_count? table
+---@field orderBy? string
+---@field populationCounts? table
 ---@field state string
 
 ---@class CityListMatch
@@ -26,66 +26,72 @@
 ---@field limit? number
 ---@field msg? string
 ---@field order? string
----@field order_by? string
----@field population_count? table
+---@field orderBy? string
+---@field populationCounts? table
 ---@field state? string
 
 ---@class CityCreateData
----@field city string
----@field country string
+---@field city? string
+---@field country? string
 ---@field data? table
 ---@field error? boolean
 ---@field limit? number
 ---@field msg? string
 ---@field order? string
----@field order_by? string
----@field population_count? table
+---@field orderBy? string
+---@field populationCounts? table
 ---@field state string
 
 ---@class Country
----@field city? table
+---@field Iso2? string
+---@field Iso3? string
+---@field capital? string
+---@field cities? table
 ---@field code? string
 ---@field country string
----@field data? table
----@field error? boolean
+---@field currency? string
 ---@field flag? string
 ---@field iso2? string
 ---@field iso3? string
 ---@field lat? number
 ---@field long? number
----@field msg? string
 ---@field name? string
----@field population_count? table
+---@field populationCounts? table
+---@field states? table
 
 ---@class CountryListMatch
----@field city? table
+---@field Iso2? string
+---@field Iso3? string
+---@field capital? string
+---@field cities? table
 ---@field code? string
 ---@field country? string
----@field data? table
----@field error? boolean
+---@field currency? string
 ---@field flag? string
 ---@field iso2? string
 ---@field iso3? string
 ---@field lat? number
 ---@field long? number
----@field msg? string
 ---@field name? string
----@field population_count? table
+---@field populationCounts? table
+---@field states? table
 
 ---@class CountryCreateData
----@field city? table
+---@field Iso2? string
+---@field Iso3? string
+---@field capital? string
+---@field cities? table
 ---@field code? string
 ---@field country string
----@field data? table
----@field error? boolean
+---@field currency? string
 ---@field flag? string
 ---@field iso2? string
 ---@field iso3? string
 ---@field lat? number
 ---@field long? number
----@field msg? string
 ---@field name? string
----@field population_count? table
+---@field populationCounts? table
+---@field states? table
 
 local M = {}
 
