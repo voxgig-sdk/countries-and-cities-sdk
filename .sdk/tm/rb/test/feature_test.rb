@@ -15,7 +15,7 @@ require_relative "../CountriesAndCities_sdk"
 module CountriesAndCitiesFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = CountriesAndCitiesConfig.make_config["feature"]
+    f = CountriesAndCitiesConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

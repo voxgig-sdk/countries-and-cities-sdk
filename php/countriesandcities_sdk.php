@@ -40,7 +40,7 @@ class CountriesAndCitiesSDK
         $utility = new CountriesAndCitiesUtility();
         $this->_utility = $utility;
 
-        $config = CountriesAndCitiesConfig::make_config();
+        $config = CountriesAndCitiesConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

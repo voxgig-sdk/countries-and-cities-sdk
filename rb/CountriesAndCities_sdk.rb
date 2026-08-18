@@ -28,7 +28,7 @@ class CountriesAndCitiesSDK
     utility = CountriesAndCitiesUtility.new
     @_utility = utility
 
-    config = CountriesAndCitiesConfig.make_config
+    config = CountriesAndCitiesConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

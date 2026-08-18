@@ -23,6 +23,7 @@ build = {
   modules = {
     ["countries-and-cities_sdk"] = "countries-and-cities_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

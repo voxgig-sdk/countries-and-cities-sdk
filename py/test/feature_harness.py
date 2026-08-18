@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from countriesandcities_sdk.config import make_config
+from countriesandcities_sdk.config import shared_config
 from countriesandcities_sdk.features import _make_feature
 from countriesandcities_sdk.core.control import CountriesAndCitiesControl
 from countriesandcities_sdk.core.error import CountriesAndCitiesError
@@ -24,7 +24,7 @@ from countriesandcities_sdk.core.spec import CountriesAndCitiesSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
