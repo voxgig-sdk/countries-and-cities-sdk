@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CountriesAndCities",
+			"slug": "countries-and-cities",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -40,6 +43,7 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "City name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -50,6 +54,7 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "Country name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -190,10 +195,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "cities",
+						"short": "List of cities in the country",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "code",
+						"short": "Country code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -207,6 +214,7 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "Country name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -215,26 +223,32 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "flag",
+						"short": "URL to the country flag image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "iso2",
+						"short": "ISO 3166-1 alpha-2 code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "iso3",
+						"short": "ISO 3166-1 alpha-3 code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lat",
+						"short": "Latitude",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "long",
+						"short": "Longitude",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Country name",
 						"type": "`$STRING`",
 					},
 					map[string]any{

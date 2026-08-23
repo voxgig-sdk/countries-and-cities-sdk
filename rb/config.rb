@@ -19,6 +19,9 @@ module CountriesAndCitiesConfig
     {
       "main" => {
         "name" => "CountriesAndCities",
+        "slug" => "countries-and-cities",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -48,6 +51,7 @@ module CountriesAndCitiesConfig
                   "type" => "`$STRING`",
                 },
               },
+              "short" => "City name",
               "type" => "`$STRING`",
             },
             {
@@ -58,6 +62,7 @@ module CountriesAndCitiesConfig
                   "type" => "`$STRING`",
                 },
               },
+              "short" => "Country name",
               "type" => "`$STRING`",
             },
             {
@@ -198,10 +203,12 @@ module CountriesAndCitiesConfig
             },
             {
               "name" => "cities",
+              "short" => "List of cities in the country",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "code",
+              "short" => "Country code",
               "type" => "`$STRING`",
             },
             {
@@ -215,6 +222,7 @@ module CountriesAndCitiesConfig
                 },
               },
               "req" => true,
+              "short" => "Country name",
               "type" => "`$STRING`",
             },
             {
@@ -223,26 +231,32 @@ module CountriesAndCitiesConfig
             },
             {
               "name" => "flag",
+              "short" => "URL to the country flag image",
               "type" => "`$STRING`",
             },
             {
               "name" => "iso2",
+              "short" => "ISO 3166-1 alpha-2 code",
               "type" => "`$STRING`",
             },
             {
               "name" => "iso3",
+              "short" => "ISO 3166-1 alpha-3 code",
               "type" => "`$STRING`",
             },
             {
               "name" => "lat",
+              "short" => "Latitude",
               "type" => "`$NUMBER`",
             },
             {
               "name" => "long",
+              "short" => "Longitude",
               "type" => "`$NUMBER`",
             },
             {
               "name" => "name",
+              "short" => "Country name",
               "type" => "`$STRING`",
             },
             {

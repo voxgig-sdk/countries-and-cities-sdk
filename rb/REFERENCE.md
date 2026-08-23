@@ -97,8 +97,8 @@ city = client.City
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `String` | No |  |
-| `country` | `String` | No |  |
+| `city` | `String` | No | City name |
+| `country` | `String` | No | Country name |
 | `data` | `Array` | No |  |
 | `error` | `Boolean` | No |  |
 | `limit` | `Integer` | No |  |
@@ -186,16 +186,16 @@ country = client.Country
 | `Iso2` | `String` | No |  |
 | `Iso3` | `String` | No |  |
 | `capital` | `String` | No |  |
-| `cities` | `Array` | No |  |
-| `code` | `String` | No |  |
-| `country` | `String` | Yes |  |
+| `cities` | `Array` | No | List of cities in the country |
+| `code` | `String` | No | Country code |
+| `country` | `String` | Yes | Country name |
 | `currency` | `String` | No |  |
-| `flag` | `String` | No |  |
-| `iso2` | `String` | No |  |
-| `iso3` | `String` | No |  |
-| `lat` | `Float` | No |  |
-| `long` | `Float` | No |  |
-| `name` | `String` | No |  |
+| `flag` | `String` | No | URL to the country flag image |
+| `iso2` | `String` | No | ISO 3166-1 alpha-2 code |
+| `iso3` | `String` | No | ISO 3166-1 alpha-3 code |
+| `lat` | `Float` | No | Latitude |
+| `long` | `Float` | No | Longitude |
+| `name` | `String` | No | Country name |
 | `populationCounts` | `Array` | No |  |
 | `states` | `Array` | No |  |
 

@@ -94,8 +94,8 @@ local city = client:City(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | No |  |
-| `country` | `string` | No |  |
+| `city` | `string` | No | City name |
+| `country` | `string` | No | Country name |
 | `data` | `table` | No |  |
 | `error` | `boolean` | No |  |
 | `limit` | `number` | No |  |
@@ -183,16 +183,16 @@ local country = client:Country(nil)
 | `Iso2` | `string` | No |  |
 | `Iso3` | `string` | No |  |
 | `capital` | `string` | No |  |
-| `cities` | `table` | No |  |
-| `code` | `string` | No |  |
-| `country` | `string` | Yes |  |
+| `cities` | `table` | No | List of cities in the country |
+| `code` | `string` | No | Country code |
+| `country` | `string` | Yes | Country name |
 | `currency` | `string` | No |  |
-| `flag` | `string` | No |  |
-| `iso2` | `string` | No |  |
-| `iso3` | `string` | No |  |
-| `lat` | `number` | No |  |
-| `long` | `number` | No |  |
-| `name` | `string` | No |  |
+| `flag` | `string` | No | URL to the country flag image |
+| `iso2` | `string` | No | ISO 3166-1 alpha-2 code |
+| `iso3` | `string` | No | ISO 3166-1 alpha-3 code |
+| `lat` | `number` | No | Latitude |
+| `long` | `number` | No | Longitude |
+| `name` | `string` | No | Country name |
 | `populationCounts` | `table` | No |  |
 | `states` | `table` | No |  |
 

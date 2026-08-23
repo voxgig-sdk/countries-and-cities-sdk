@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "CountriesAndCities",
+      slug = "countries-and-cities",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -36,6 +39,7 @@ local function make_config()
                 ["type"] = "`$STRING`",
               },
             },
+            ["short"] = "City name",
             ["type"] = "`$STRING`",
           },
           {
@@ -46,6 +50,7 @@ local function make_config()
                 ["type"] = "`$STRING`",
               },
             },
+            ["short"] = "Country name",
             ["type"] = "`$STRING`",
           },
           {
@@ -186,10 +191,12 @@ local function make_config()
           },
           {
             ["name"] = "cities",
+            ["short"] = "List of cities in the country",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "code",
+            ["short"] = "Country code",
             ["type"] = "`$STRING`",
           },
           {
@@ -203,6 +210,7 @@ local function make_config()
               },
             },
             ["req"] = true,
+            ["short"] = "Country name",
             ["type"] = "`$STRING`",
           },
           {
@@ -211,26 +219,32 @@ local function make_config()
           },
           {
             ["name"] = "flag",
+            ["short"] = "URL to the country flag image",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "iso2",
+            ["short"] = "ISO 3166-1 alpha-2 code",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "iso3",
+            ["short"] = "ISO 3166-1 alpha-3 code",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "lat",
+            ["short"] = "Latitude",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "long",
+            ["short"] = "Longitude",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "name",
+            ["short"] = "Country name",
             ["type"] = "`$STRING`",
           },
           {

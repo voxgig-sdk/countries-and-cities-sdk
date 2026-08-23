@@ -257,8 +257,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
-| `country` |  |
+| `city` | City name |
+| `country` | Country name |
 | `data` |  |
 | `error` |  |
 | `limit` |  |
@@ -279,16 +279,16 @@ API path: `/countries/population/cities`
 | `Iso2` |  |
 | `Iso3` |  |
 | `capital` |  |
-| `cities` |  |
-| `code` |  |
-| `country` |  |
+| `cities` | List of cities in the country |
+| `code` | Country code |
+| `country` | Country name |
 | `currency` |  |
-| `flag` |  |
-| `iso2` |  |
-| `iso3` |  |
-| `lat` |  |
-| `long` |  |
-| `name` |  |
+| `flag` | URL to the country flag image |
+| `iso2` | ISO 3166-1 alpha-2 code |
+| `iso3` | ISO 3166-1 alpha-3 code |
+| `lat` | Latitude |
+| `long` | Longitude |
+| `name` | Country name |
 | `populationCounts` |  |
 | `states` |  |
 
@@ -316,8 +316,8 @@ Create an instance: `$city = $client->City();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `string` |  |
-| `country` | `string` |  |
+| `city` | `string` | City name |
+| `country` | `string` | Country name |
 | `data` | `array` |  |
 | `error` | `bool` |  |
 | `limit` | `int` |  |
@@ -361,16 +361,16 @@ Create an instance: `$country = $client->Country();`
 | `Iso2` | `string` |  |
 | `Iso3` | `string` |  |
 | `capital` | `string` |  |
-| `cities` | `array` |  |
-| `code` | `string` |  |
-| `country` | `string` |  |
+| `cities` | `array` | List of cities in the country |
+| `code` | `string` | Country code |
+| `country` | `string` | Country name |
 | `currency` | `string` |  |
-| `flag` | `string` |  |
-| `iso2` | `string` |  |
-| `iso3` | `string` |  |
-| `lat` | `float` |  |
-| `long` | `float` |  |
-| `name` | `string` |  |
+| `flag` | `string` | URL to the country flag image |
+| `iso2` | `string` | ISO 3166-1 alpha-2 code |
+| `iso3` | `string` | ISO 3166-1 alpha-3 code |
+| `lat` | `float` | Latitude |
+| `long` | `float` | Longitude |
+| `name` | `string` | Country name |
 | `populationCounts` | `array` |  |
 | `states` | `array` |  |
 

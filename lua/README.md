@@ -243,8 +243,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
-| `country` |  |
+| `city` | City name |
+| `country` | Country name |
 | `data` |  |
 | `error` |  |
 | `limit` |  |
@@ -265,16 +265,16 @@ API path: `/countries/population/cities`
 | `Iso2` |  |
 | `Iso3` |  |
 | `capital` |  |
-| `cities` |  |
-| `code` |  |
-| `country` |  |
+| `cities` | List of cities in the country |
+| `code` | Country code |
+| `country` | Country name |
 | `currency` |  |
-| `flag` |  |
-| `iso2` |  |
-| `iso3` |  |
-| `lat` |  |
-| `long` |  |
-| `name` |  |
+| `flag` | URL to the country flag image |
+| `iso2` | ISO 3166-1 alpha-2 code |
+| `iso3` | ISO 3166-1 alpha-3 code |
+| `lat` | Latitude |
+| `long` | Longitude |
+| `name` | Country name |
 | `populationCounts` |  |
 | `states` |  |
 
@@ -302,8 +302,8 @@ Create an instance: `local city = client:City(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `string` |  |
-| `country` | `string` |  |
+| `city` | `string` | City name |
+| `country` | `string` | Country name |
 | `data` | `table` |  |
 | `error` | `boolean` |  |
 | `limit` | `number` |  |
@@ -346,16 +346,16 @@ Create an instance: `local country = client:Country(nil)`
 | `Iso2` | `string` |  |
 | `Iso3` | `string` |  |
 | `capital` | `string` |  |
-| `cities` | `table` |  |
-| `code` | `string` |  |
-| `country` | `string` |  |
+| `cities` | `table` | List of cities in the country |
+| `code` | `string` | Country code |
+| `country` | `string` | Country name |
 | `currency` | `string` |  |
-| `flag` | `string` |  |
-| `iso2` | `string` |  |
-| `iso3` | `string` |  |
-| `lat` | `number` |  |
-| `long` | `number` |  |
-| `name` | `string` |  |
+| `flag` | `string` | URL to the country flag image |
+| `iso2` | `string` | ISO 3166-1 alpha-2 code |
+| `iso3` | `string` | ISO 3166-1 alpha-3 code |
+| `lat` | `number` | Latitude |
+| `long` | `number` | Longitude |
+| `name` | `string` | Country name |
 | `populationCounts` | `table` |  |
 | `states` | `table` |  |
 

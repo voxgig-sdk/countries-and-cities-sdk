@@ -23,11 +23,13 @@ main: kit: entity: country: {
     {
       name: "cities"
       req: false
+      short: "List of cities in the country"
       type: "`$ARRAY`"
     }
     {
       name: "code"
       req: false
+      short: "Country code"
       type: "`$STRING`"
     }
     {
@@ -43,6 +45,7 @@ main: kit: entity: country: {
         }
       }
       req: true
+      short: "Country name"
       type: "`$STRING`"
     }
     {
@@ -53,31 +56,37 @@ main: kit: entity: country: {
     {
       name: "flag"
       req: false
+      short: "URL to the country flag image"
       type: "`$STRING`"
     }
     {
       name: "iso2"
       req: false
+      short: "ISO 3166-1 alpha-2 code"
       type: "`$STRING`"
     }
     {
       name: "iso3"
       req: false
+      short: "ISO 3166-1 alpha-3 code"
       type: "`$STRING`"
     }
     {
       name: "lat"
       req: false
+      short: "Latitude"
       type: "`$NUMBER`"
     }
     {
       name: "long"
       req: false
+      short: "Longitude"
       type: "`$NUMBER`"
     }
     {
       name: "name"
       req: false
+      short: "Country name"
       type: "`$STRING`"
     }
     {

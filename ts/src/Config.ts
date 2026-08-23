@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CountriesAndCities',
+        slug: "countries-and-cities",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -65,6 +76,7 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "City name",
           "type": "`$STRING`"
         },
         {
@@ -75,6 +87,7 @@ class Config {
               "type": "`$STRING`"
             }
           },
+          "short": "Country name",
           "type": "`$STRING`"
         },
         {
@@ -215,10 +228,12 @@ class Config {
         },
         {
           "name": "cities",
+          "short": "List of cities in the country",
           "type": "`$ARRAY`"
         },
         {
           "name": "code",
+          "short": "Country code",
           "type": "`$STRING`"
         },
         {
@@ -232,6 +247,7 @@ class Config {
             }
           },
           "req": true,
+          "short": "Country name",
           "type": "`$STRING`"
         },
         {
@@ -240,26 +256,32 @@ class Config {
         },
         {
           "name": "flag",
+          "short": "URL to the country flag image",
           "type": "`$STRING`"
         },
         {
           "name": "iso2",
+          "short": "ISO 3166-1 alpha-2 code",
           "type": "`$STRING`"
         },
         {
           "name": "iso3",
+          "short": "ISO 3166-1 alpha-3 code",
           "type": "`$STRING`"
         },
         {
           "name": "lat",
+          "short": "Latitude",
           "type": "`$NUMBER`"
         },
         {
           "name": "long",
+          "short": "Longitude",
           "type": "`$NUMBER`"
         },
         {
           "name": "name",
+          "short": "Country name",
           "type": "`$STRING`"
         },
         {

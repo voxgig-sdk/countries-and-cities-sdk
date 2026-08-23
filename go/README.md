@@ -6,7 +6,7 @@ The Golang SDK for the CountriesAndCities API — an entity-oriented client usin
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.City(nil)` — each with the same small set of operations (`List`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -270,8 +270,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"city"` |  |
-| `"country"` |  |
+| `"city"` | City name |
+| `"country"` | Country name |
 | `"data"` |  |
 | `"error"` |  |
 | `"limit"` |  |
@@ -292,16 +292,16 @@ API path: `/countries/population/cities`
 | `"Iso2"` |  |
 | `"Iso3"` |  |
 | `"capital"` |  |
-| `"cities"` |  |
-| `"code"` |  |
-| `"country"` |  |
+| `"cities"` | List of cities in the country |
+| `"code"` | Country code |
+| `"country"` | Country name |
 | `"currency"` |  |
-| `"flag"` |  |
-| `"iso2"` |  |
-| `"iso3"` |  |
-| `"lat"` |  |
-| `"long"` |  |
-| `"name"` |  |
+| `"flag"` | URL to the country flag image |
+| `"iso2"` | ISO 3166-1 alpha-2 code |
+| `"iso3"` | ISO 3166-1 alpha-3 code |
+| `"lat"` | Latitude |
+| `"long"` | Longitude |
+| `"name"` | Country name |
 | `"populationCounts"` |  |
 | `"states"` |  |
 
@@ -329,8 +329,8 @@ Create an instance: `city := client.City(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `string` |  |
-| `country` | `string` |  |
+| `city` | `string` | City name |
+| `country` | `string` | Country name |
 | `data` | `[]any` |  |
 | `error` | `bool` |  |
 | `limit` | `int` |  |
@@ -381,16 +381,16 @@ Create an instance: `country := client.Country(nil)`
 | `Iso2` | `string` |  |
 | `Iso3` | `string` |  |
 | `capital` | `string` |  |
-| `cities` | `[]any` |  |
-| `code` | `string` |  |
-| `country` | `string` |  |
+| `cities` | `[]any` | List of cities in the country |
+| `code` | `string` | Country code |
+| `country` | `string` | Country name |
 | `currency` | `string` |  |
-| `flag` | `string` |  |
-| `iso2` | `string` |  |
-| `iso3` | `string` |  |
-| `lat` | `float64` |  |
-| `long` | `float64` |  |
-| `name` | `string` |  |
+| `flag` | `string` | URL to the country flag image |
+| `iso2` | `string` | ISO 3166-1 alpha-2 code |
+| `iso3` | `string` | ISO 3166-1 alpha-3 code |
+| `lat` | `float64` | Latitude |
+| `long` | `float64` | Longitude |
+| `name` | `string` | Country name |
 | `populationCounts` | `[]any` |  |
 | `states` | `[]any` |  |
 

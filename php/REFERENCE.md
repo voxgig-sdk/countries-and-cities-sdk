@@ -96,8 +96,8 @@ $city = $client->City();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | No |  |
-| `country` | `string` | No |  |
+| `city` | `string` | No | City name |
+| `country` | `string` | No | Country name |
 | `data` | `array` | No |  |
 | `error` | `bool` | No |  |
 | `limit` | `int` | No |  |
@@ -185,16 +185,16 @@ $country = $client->Country();
 | `Iso2` | `string` | No |  |
 | `Iso3` | `string` | No |  |
 | `capital` | `string` | No |  |
-| `cities` | `array` | No |  |
-| `code` | `string` | No |  |
-| `country` | `string` | Yes |  |
+| `cities` | `array` | No | List of cities in the country |
+| `code` | `string` | No | Country code |
+| `country` | `string` | Yes | Country name |
 | `currency` | `string` | No |  |
-| `flag` | `string` | No |  |
-| `iso2` | `string` | No |  |
-| `iso3` | `string` | No |  |
-| `lat` | `float` | No |  |
-| `long` | `float` | No |  |
-| `name` | `string` | No |  |
+| `flag` | `string` | No | URL to the country flag image |
+| `iso2` | `string` | No | ISO 3166-1 alpha-2 code |
+| `iso3` | `string` | No | ISO 3166-1 alpha-3 code |
+| `lat` | `float` | No | Latitude |
+| `long` | `float` | No | Longitude |
+| `name` | `string` | No | Country name |
 | `populationCounts` | `array` | No |  |
 | `states` | `array` | No |  |
 

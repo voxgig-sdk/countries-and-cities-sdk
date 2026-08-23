@@ -247,8 +247,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
-| `country` |  |
+| `city` | City name |
+| `country` | Country name |
 | `data` |  |
 | `error` |  |
 | `limit` |  |
@@ -269,16 +269,16 @@ API path: `/countries/population/cities`
 | `Iso2` |  |
 | `Iso3` |  |
 | `capital` |  |
-| `cities` |  |
-| `code` |  |
-| `country` |  |
+| `cities` | List of cities in the country |
+| `code` | Country code |
+| `country` | Country name |
 | `currency` |  |
-| `flag` |  |
-| `iso2` |  |
-| `iso3` |  |
-| `lat` |  |
-| `long` |  |
-| `name` |  |
+| `flag` | URL to the country flag image |
+| `iso2` | ISO 3166-1 alpha-2 code |
+| `iso3` | ISO 3166-1 alpha-3 code |
+| `lat` | Latitude |
+| `long` | Longitude |
+| `name` | Country name |
 | `populationCounts` |  |
 | `states` |  |
 
@@ -306,8 +306,8 @@ Create an instance: `city = client.City`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `String` |  |
-| `country` | `String` |  |
+| `city` | `String` | City name |
+| `country` | `String` | Country name |
 | `data` | `Array` |  |
 | `error` | `Boolean` |  |
 | `limit` | `Integer` |  |
@@ -351,16 +351,16 @@ Create an instance: `country = client.Country`
 | `Iso2` | `String` |  |
 | `Iso3` | `String` |  |
 | `capital` | `String` |  |
-| `cities` | `Array` |  |
-| `code` | `String` |  |
-| `country` | `String` |  |
+| `cities` | `Array` | List of cities in the country |
+| `code` | `String` | Country code |
+| `country` | `String` | Country name |
 | `currency` | `String` |  |
-| `flag` | `String` |  |
-| `iso2` | `String` |  |
-| `iso3` | `String` |  |
-| `lat` | `Float` |  |
-| `long` | `Float` |  |
-| `name` | `String` |  |
+| `flag` | `String` | URL to the country flag image |
+| `iso2` | `String` | ISO 3166-1 alpha-2 code |
+| `iso3` | `String` | ISO 3166-1 alpha-3 code |
+| `lat` | `Float` | Latitude |
+| `long` | `Float` | Longitude |
+| `name` | `String` | Country name |
 | `populationCounts` | `Array` |  |
 | `states` | `Array` |  |
 

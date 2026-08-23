@@ -42,6 +42,7 @@
                 }
               },
               "req": false,
+              "short": "City name",
               "type": "`$STRING`"
             },
             {
@@ -54,6 +55,7 @@
                 }
               },
               "req": false,
+              "short": "Country name",
               "type": "`$STRING`"
             },
             {
@@ -225,12 +227,14 @@
               "active": true,
               "name": "cities",
               "req": false,
+              "short": "List of cities in the country",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "code",
               "req": false,
+              "short": "Country code",
               "type": "`$STRING`"
             },
             {
@@ -247,6 +251,7 @@
                 }
               },
               "req": true,
+              "short": "Country name",
               "type": "`$STRING`"
             },
             {
@@ -259,36 +264,42 @@
               "active": true,
               "name": "flag",
               "req": false,
+              "short": "URL to the country flag image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "iso2",
               "req": false,
+              "short": "ISO 3166-1 alpha-2 code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "iso3",
               "req": false,
+              "short": "ISO 3166-1 alpha-3 code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lat",
               "req": false,
+              "short": "Latitude",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "long",
               "req": false,
+              "short": "Longitude",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Country name",
               "type": "`$STRING`"
             },
             {
