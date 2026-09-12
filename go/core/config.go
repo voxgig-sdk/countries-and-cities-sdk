@@ -103,10 +103,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/population/cities",
-								"parts": []any{
-									"countries",
-									"population",
-									"cities",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "population",
+									},
+									map[string]any{
+										"lit": "cities",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
@@ -115,17 +121,30 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"population",
+									"cities",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/population/cities/filter",
-								"parts": []any{
-									"countries",
-									"population",
-									"cities",
-									"filter",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "population",
+									},
+									map[string]any{
+										"lit": "cities",
+									},
+									map[string]any{
+										"lit": "filter",
+									},
 								},
 								"select": map[string]any{
 									"$action": "filter",
@@ -134,21 +153,38 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"countries",
+									"population",
+									"cities",
+									"filter",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/state/cities",
-								"parts": []any{
-									"countries",
-									"state",
-									"cities",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "state",
+									},
+									map[string]any{
+										"lit": "cities",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"countries",
+									"state",
+									"cities",
 								},
 							},
 						},
@@ -162,15 +198,26 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/countries/population/cities",
-								"parts": []any{
-									"countries",
-									"population",
-									"cities",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "population",
+									},
+									map[string]any{
+										"lit": "cities",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"countries",
+									"population",
+									"cities",
 								},
 							},
 						},
@@ -223,6 +270,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "flag",
 						"short": "URL to the country flag image",
 						"type": "`$STRING`",
@@ -238,11 +286,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "lat",
 						"short": "Latitude",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "long",
 						"short": "Longitude",
 						"type": "`$NUMBER`",
@@ -272,9 +322,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/capital",
-								"parts": []any{
-									"countries",
-									"capital",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "capital",
+									},
 								},
 								"select": map[string]any{
 									"$action": "capital",
@@ -285,15 +339,23 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"capital",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/currency",
-								"parts": []any{
-									"countries",
-									"currency",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "currency",
+									},
 								},
 								"select": map[string]any{
 									"$action": "currency",
@@ -304,16 +366,26 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"currency",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/flag/images",
-								"parts": []any{
-									"countries",
-									"flag",
-									"images",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "flag",
+									},
+									map[string]any{
+										"lit": "images",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
@@ -322,15 +394,24 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"flag",
+									"images",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/iso",
-								"parts": []any{
-									"countries",
-									"iso",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "iso",
+									},
 								},
 								"select": map[string]any{
 									"$action": "iso",
@@ -341,15 +422,23 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"iso",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/population",
-								"parts": []any{
-									"countries",
-									"population",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "population",
+									},
 								},
 								"select": map[string]any{
 									"$action": "population",
@@ -360,15 +449,23 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"population",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/positions",
-								"parts": []any{
-									"countries",
-									"positions",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "positions",
+									},
 								},
 								"select": map[string]any{
 									"$action": "position",
@@ -379,15 +476,23 @@ func MakeConfig() map[string]any {
 									},
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"positions",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/countries/states",
-								"parts": []any{
-									"countries",
-									"states",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "states",
+									},
 								},
 								"select": map[string]any{
 									"$action": "state",
@@ -397,6 +502,10 @@ func MakeConfig() map[string]any {
 										"country": "`reqdata`",
 									},
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"countries",
+									"states",
 								},
 							},
 						},
@@ -410,13 +519,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/countries",
-								"parts": []any{
-									"countries",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"countries",
 								},
 							},
 							map[string]any{
@@ -424,9 +538,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/countries/codes",
-								"parts": []any{
-									"countries",
-									"codes",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "codes",
+									},
 								},
 								"select": map[string]any{
 									"$action": "code",
@@ -435,21 +553,36 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"codes",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/countries/flag/images",
-								"parts": []any{
-									"countries",
-									"flag",
-									"images",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "flag",
+									},
+									map[string]any{
+										"lit": "images",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"countries",
+									"flag",
+									"images",
 								},
 							},
 							map[string]any{
@@ -457,9 +590,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/countries/population",
-								"parts": []any{
-									"countries",
-									"population",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "population",
+									},
 								},
 								"select": map[string]any{
 									"$action": "population",
@@ -468,15 +605,23 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.data`",
 								},
+								"parts": []any{
+									"countries",
+									"population",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/countries/positions",
-								"parts": []any{
-									"countries",
-									"positions",
+								"segments": []any{
+									map[string]any{
+										"lit": "countries",
+									},
+									map[string]any{
+										"lit": "positions",
+									},
 								},
 								"select": map[string]any{
 									"$action": "position",
@@ -484,6 +629,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
+								},
+								"parts": []any{
+									"countries",
+									"positions",
 								},
 							},
 						},
@@ -495,6 +644,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

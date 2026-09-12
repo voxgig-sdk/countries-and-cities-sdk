@@ -125,10 +125,16 @@ class CountriesAndCitiesConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/population/cities',
-                  'parts' => [
-                    'countries',
-                    'population',
-                    'cities',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'population',
+                    ],
+                    [
+                      'lit' => 'cities',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
@@ -137,17 +143,30 @@ class CountriesAndCitiesConfig
                     ],
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'population',
+                    'cities',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/population/cities/filter',
-                  'parts' => [
-                    'countries',
-                    'population',
-                    'cities',
-                    'filter',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'population',
+                    ],
+                    [
+                      'lit' => 'cities',
+                    ],
+                    [
+                      'lit' => 'filter',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'filter',
@@ -156,21 +175,38 @@ class CountriesAndCitiesConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'population',
+                    'cities',
+                    'filter',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/state/cities',
-                  'parts' => [
-                    'countries',
-                    'state',
-                    'cities',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'state',
+                    ],
+                    [
+                      'lit' => 'cities',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'countries',
+                    'state',
+                    'cities',
                   ],
                 ],
               ],
@@ -184,15 +220,26 @@ class CountriesAndCitiesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/countries/population/cities',
-                  'parts' => [
-                    'countries',
-                    'population',
-                    'cities',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'population',
+                    ],
+                    [
+                      'lit' => 'cities',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'countries',
+                    'population',
+                    'cities',
                   ],
                 ],
               ],
@@ -245,6 +292,7 @@ class CountriesAndCitiesConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'flag',
               'short' => 'URL to the country flag image',
               'type' => '`$STRING`',
@@ -260,11 +308,13 @@ class CountriesAndCitiesConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'double',
               'name' => 'lat',
               'short' => 'Latitude',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'double',
               'name' => 'long',
               'short' => 'Longitude',
               'type' => '`$NUMBER`',
@@ -294,9 +344,13 @@ class CountriesAndCitiesConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/capital',
-                  'parts' => [
-                    'countries',
-                    'capital',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'capital',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'capital',
@@ -307,15 +361,23 @@ class CountriesAndCitiesConfig
                     ],
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'capital',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/currency',
-                  'parts' => [
-                    'countries',
-                    'currency',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'currency',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'currency',
@@ -326,16 +388,26 @@ class CountriesAndCitiesConfig
                     ],
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'currency',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/flag/images',
-                  'parts' => [
-                    'countries',
-                    'flag',
-                    'images',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'flag',
+                    ],
+                    [
+                      'lit' => 'images',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
@@ -344,15 +416,24 @@ class CountriesAndCitiesConfig
                     ],
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'flag',
+                    'images',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/iso',
-                  'parts' => [
-                    'countries',
-                    'iso',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'iso',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'iso',
@@ -363,15 +444,23 @@ class CountriesAndCitiesConfig
                     ],
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'iso',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/population',
-                  'parts' => [
-                    'countries',
-                    'population',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'population',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'population',
@@ -382,15 +471,23 @@ class CountriesAndCitiesConfig
                     ],
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'population',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/positions',
-                  'parts' => [
-                    'countries',
-                    'positions',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'positions',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'position',
@@ -401,15 +498,23 @@ class CountriesAndCitiesConfig
                     ],
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'positions',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/countries/states',
-                  'parts' => [
-                    'countries',
-                    'states',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'states',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'state',
@@ -419,6 +524,10 @@ class CountriesAndCitiesConfig
                       'country' => '`reqdata`',
                     ],
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'countries',
+                    'states',
                   ],
                 ],
               ],
@@ -432,13 +541,18 @@ class CountriesAndCitiesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/countries',
-                  'parts' => [
-                    'countries',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'countries',
                   ],
                 ],
                 [
@@ -446,9 +560,13 @@ class CountriesAndCitiesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/countries/codes',
-                  'parts' => [
-                    'countries',
-                    'codes',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'codes',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'code',
@@ -457,21 +575,36 @@ class CountriesAndCitiesConfig
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'codes',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/countries/flag/images',
-                  'parts' => [
-                    'countries',
-                    'flag',
-                    'images',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'flag',
+                    ],
+                    [
+                      'lit' => 'images',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'countries',
+                    'flag',
+                    'images',
                   ],
                 ],
                 [
@@ -479,9 +612,13 @@ class CountriesAndCitiesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/countries/population',
-                  'parts' => [
-                    'countries',
-                    'population',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'population',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'population',
@@ -490,15 +627,23 @@ class CountriesAndCitiesConfig
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
                   ],
+                  'parts' => [
+                    'countries',
+                    'population',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/countries/positions',
-                  'parts' => [
-                    'countries',
-                    'positions',
+                  'segments' => [
+                    [
+                      'lit' => 'countries',
+                    ],
+                    [
+                      'lit' => 'positions',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'position',
@@ -506,6 +651,10 @@ class CountriesAndCitiesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
+                  ],
+                  'parts' => [
+                    'countries',
+                    'positions',
                   ],
                 ],
               ],

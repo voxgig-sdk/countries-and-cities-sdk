@@ -54,6 +54,7 @@ main: kit: entity: country: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "flag"
       req: false
       short: "URL to the country flag image"
@@ -72,12 +73,14 @@ main: kit: entity: country: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "lat"
       req: false
       short: "Latitude"
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "long"
       req: false
       short: "Longitude"
@@ -109,9 +112,13 @@ main: kit: entity: country: {
         {
           method: "POST"
           orig: "/countries/capital"
-          parts: [
-            "countries"
-            "capital"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "capital"
+            }
           ]
           select: {
             "$action": "capital"
@@ -126,9 +133,13 @@ main: kit: entity: country: {
         {
           method: "POST"
           orig: "/countries/currency"
-          parts: [
-            "countries"
-            "currency"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "currency"
+            }
           ]
           select: {
             "$action": "currency"
@@ -143,10 +154,16 @@ main: kit: entity: country: {
         {
           method: "POST"
           orig: "/countries/flag/images"
-          parts: [
-            "countries"
-            "flag"
-            "images"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "flag"
+            }
+            {
+              lit: "images"
+            }
           ]
           transform: {
             req: {
@@ -158,9 +175,13 @@ main: kit: entity: country: {
         {
           method: "POST"
           orig: "/countries/iso"
-          parts: [
-            "countries"
-            "iso"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "iso"
+            }
           ]
           select: {
             "$action": "iso"
@@ -175,9 +196,13 @@ main: kit: entity: country: {
         {
           method: "POST"
           orig: "/countries/population"
-          parts: [
-            "countries"
-            "population"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
           ]
           select: {
             "$action": "population"
@@ -192,9 +217,13 @@ main: kit: entity: country: {
         {
           method: "POST"
           orig: "/countries/positions"
-          parts: [
-            "countries"
-            "positions"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "positions"
+            }
           ]
           select: {
             "$action": "position"
@@ -209,9 +238,13 @@ main: kit: entity: country: {
         {
           method: "POST"
           orig: "/countries/states"
-          parts: [
-            "countries"
-            "states"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "states"
+            }
           ]
           select: {
             "$action": "state"
@@ -231,8 +264,10 @@ main: kit: entity: country: {
         {
           method: "GET"
           orig: "/countries"
-          parts: [
-            "countries"
+          segments: [
+            {
+              lit: "countries"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -242,9 +277,13 @@ main: kit: entity: country: {
         {
           method: "GET"
           orig: "/countries/codes"
-          parts: [
-            "countries"
-            "codes"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "codes"
+            }
           ]
           select: {
             "$action": "code"
@@ -257,10 +296,16 @@ main: kit: entity: country: {
         {
           method: "GET"
           orig: "/countries/flag/images"
-          parts: [
-            "countries"
-            "flag"
-            "images"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "flag"
+            }
+            {
+              lit: "images"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -270,9 +315,13 @@ main: kit: entity: country: {
         {
           method: "GET"
           orig: "/countries/population"
-          parts: [
-            "countries"
-            "population"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
           ]
           select: {
             "$action": "population"
@@ -285,9 +334,13 @@ main: kit: entity: country: {
         {
           method: "GET"
           orig: "/countries/positions"
-          parts: [
-            "countries"
-            "positions"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "positions"
+            }
           ]
           select: {
             "$action": "position"

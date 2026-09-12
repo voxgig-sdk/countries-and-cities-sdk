@@ -79,10 +79,16 @@ main: kit: entity: city: {
         {
           method: "POST"
           orig: "/countries/population/cities"
-          parts: [
-            "countries"
-            "population"
-            "cities"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+            {
+              lit: "cities"
+            }
           ]
           transform: {
             req: {
@@ -94,11 +100,19 @@ main: kit: entity: city: {
         {
           method: "POST"
           orig: "/countries/population/cities/filter"
-          parts: [
-            "countries"
-            "population"
-            "cities"
-            "filter"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+            {
+              lit: "cities"
+            }
+            {
+              lit: "filter"
+            }
           ]
           select: {
             "$action": "filter"
@@ -111,10 +125,16 @@ main: kit: entity: city: {
         {
           method: "POST"
           orig: "/countries/state/cities"
-          parts: [
-            "countries"
-            "state"
-            "cities"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "state"
+            }
+            {
+              lit: "cities"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -129,10 +149,16 @@ main: kit: entity: city: {
         {
           method: "GET"
           orig: "/countries/population/cities"
-          parts: [
-            "countries"
-            "population"
-            "cities"
+          segments: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+            {
+              lit: "cities"
+            }
           ]
           transform: {
             req: "`reqdata`"
