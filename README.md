@@ -105,7 +105,7 @@ local results, err = client:City():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/countries-and-cities` | publish pending — [install from git tag](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases) |
+| TypeScript | `@voxgig-sdk/countries-and-cities-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases) |
 | Python | `voxgig-sdk-countries-and-cities` | publish pending — [install from git tag](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases) |
 | PHP | `voxgig-sdk/countries-and-cities` | publish pending — [install from git tag](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/countries-and-cities-sdk/go` | `go get github.com/voxgig-sdk/countries-and-cities-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:City():list()
 ### TypeScript
 
 ```ts
-import { CountriesAndCitiesSDK } from '@voxgig-sdk/countries-and-cities'
+import { CountriesAndCitiesSDK } from '@voxgig-sdk/countries-and-cities-sdk'
 
 const client = new CountriesAndCitiesSDK()
 
