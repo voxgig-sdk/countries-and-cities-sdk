@@ -6,7 +6,7 @@
         "country": "s65",
         "data": [],
         "error": false,
-        "limit": "s68",
+        "limit": 104,
         "msg": "s69",
         "order": "s6a",
         "orderBy": "s6b",
@@ -19,7 +19,7 @@
         "country": "sc9",
         "data": [],
         "error": false,
-        "limit": "scc",
+        "limit": 204,
         "msg": "scd",
         "order": "sce",
         "orderBy": "scf",
@@ -32,7 +32,7 @@
         "country": "s12d",
         "data": [],
         "error": false,
-        "limit": "s130",
+        "limit": 304,
         "msg": "s131",
         "order": "s132",
         "orderBy": "s133",
@@ -49,12 +49,312 @@
         "country": "s191",
         "data": [],
         "error": false,
-        "limit": "s194",
+        "limit": 404,
         "msg": "s195",
         "order": "s196",
         "orderBy": "s197",
         "populationCounts": [],
         "state": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /countries/population/cities": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCityPopulation",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "city": {
+                    "example": "Lagos",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "city": {
+                          "description": "City name",
+                          "type": "string"
+                        },
+                        "country": {
+                          "description": "Country name",
+                          "type": "string"
+                        },
+                        "populationCounts": {
+                          "items": {
+                            "properties": {
+                              "reliabilty": {
+                                "type": "string"
+                              },
+                              "sex": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              },
+                              "year": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/population/cities/filter": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "filterCitiesByPopulation",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "limit": {
+                    "example": 10,
+                    "type": "integer"
+                  },
+                  "order": {
+                    "enum": [
+                      "asc",
+                      "dsc"
+                    ],
+                    "example": "dsc",
+                    "type": "string"
+                  },
+                  "orderBy": {
+                    "example": "population",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "city": {
+                            "description": "City name",
+                            "type": "string"
+                          },
+                          "country": {
+                            "description": "Country name",
+                            "type": "string"
+                          },
+                          "populationCounts": {
+                            "items": {
+                              "properties": {
+                                "reliabilty": {
+                                  "type": "string"
+                                },
+                                "sex": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                },
+                                "year": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/state/cities": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getStateCities",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  },
+                  "state": {
+                    "example": "Lagos",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country",
+                  "state"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /countries/population/cities": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllCitiesPopulation",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "city": {
+                            "description": "City name",
+                            "type": "string"
+                          },
+                          "country": {
+                            "description": "Country name",
+                            "type": "string"
+                          },
+                          "populationCounts": {
+                            "items": {
+                              "properties": {
+                                "reliabilty": {
+                                  "type": "string"
+                                },
+                                "sex": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                },
+                                "year": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

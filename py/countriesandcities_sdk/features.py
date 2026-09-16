@@ -1,12 +1,18 @@
 # CountriesAndCities SDK feature factory
 
 from countriesandcities_sdk.feature.base_feature import CountriesAndCitiesBaseFeature
+from countriesandcities_sdk.feature.ratelimit_feature import CountriesAndCitiesRatelimitFeature
+from countriesandcities_sdk.feature.retry_feature import CountriesAndCitiesRetryFeature
 from countriesandcities_sdk.feature.test_feature import CountriesAndCitiesTestFeature
+from countriesandcities_sdk.feature.timeout_feature import CountriesAndCitiesTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CountriesAndCitiesBaseFeature(),
+    "ratelimit": lambda: CountriesAndCitiesRatelimitFeature(),
+    "retry": lambda: CountriesAndCitiesRetryFeature(),
     "test": lambda: CountriesAndCitiesTestFeature(),
+    "timeout": lambda: CountriesAndCitiesTimeoutFeature(),
 }
 
 

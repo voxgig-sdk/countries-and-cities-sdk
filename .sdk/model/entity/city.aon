@@ -77,6 +77,12 @@ main: kit: entity: city: {
       name: "create"
       points: [
         {
+          contract: {
+            id: "POST /countries/population/cities"
+            json: "{\"operationId\":\"getCityPopulation\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"city\":{\"example\":\"Lagos\",\"type\":\"string\"}},\"required\":[\"city\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"reliabilty\":{\"type\":\"string\"},\"sex\":{\"type\":\"string\"},\"value\":{\"type\":\"string\"},\"year\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/population/cities"
           segments: [
@@ -98,6 +104,12 @@ main: kit: entity: city: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/population/cities/filter"
+            json: "{\"operationId\":\"filterCitiesByPopulation\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"limit\":{\"example\":10,\"type\":\"integer\"},\"order\":{\"enum\":[\"asc\",\"dsc\"],\"example\":\"dsc\",\"type\":\"string\"},\"orderBy\":{\"example\":\"population\",\"type\":\"string\"}},\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"reliabilty\":{\"type\":\"string\"},\"sex\":{\"type\":\"string\"},\"value\":{\"type\":\"string\"},\"year\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/population/cities/filter"
           segments: [
@@ -123,6 +135,12 @@ main: kit: entity: city: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/state/cities"
+            json: "{\"operationId\":\"getStateCities\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"},\"state\":{\"example\":\"Lagos\",\"type\":\"string\"}},\"required\":[\"country\",\"state\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/state/cities"
           segments: [
@@ -147,6 +165,12 @@ main: kit: entity: city: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /countries/population/cities"
+            json: "{\"operationId\":\"getAllCitiesPopulation\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"reliabilty\":{\"type\":\"string\"},\"sex\":{\"type\":\"string\"},\"value\":{\"type\":\"string\"},\"year\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/countries/population/cities"
           segments: [

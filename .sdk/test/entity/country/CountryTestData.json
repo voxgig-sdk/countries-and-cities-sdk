@@ -77,5 +77,755 @@
         "states": []
       }
     }
+  },
+  "requests": {
+    "POST /countries/capital": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountryCapital",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "capital": {
+                          "type": "string"
+                        },
+                        "iso2": {
+                          "type": "string"
+                        },
+                        "iso3": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/currency": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountryCurrency",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "currency": {
+                          "type": "string"
+                        },
+                        "iso2": {
+                          "type": "string"
+                        },
+                        "iso3": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/flag/images": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountryFlag",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "flag": {
+                          "description": "URL to the country flag image",
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "iso2": {
+                          "description": "ISO 3166-1 alpha-2 code",
+                          "type": "string"
+                        },
+                        "iso3": {
+                          "description": "ISO 3166-1 alpha-3 code",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Country name",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/iso": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountryISO",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "Iso2": {
+                          "type": "string"
+                        },
+                        "Iso3": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/population": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountryPopulation",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "code": {
+                          "description": "Country code",
+                          "type": "string"
+                        },
+                        "country": {
+                          "description": "Country name",
+                          "type": "string"
+                        },
+                        "iso3": {
+                          "description": "ISO 3166-1 alpha-3 code",
+                          "type": "string"
+                        },
+                        "populationCounts": {
+                          "items": {
+                            "properties": {
+                              "value": {
+                                "type": "integer"
+                              },
+                              "year": {
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/positions": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountryPosition",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "iso2": {
+                          "description": "ISO 3166-1 alpha-2 code",
+                          "type": "string"
+                        },
+                        "lat": {
+                          "description": "Latitude",
+                          "format": "double",
+                          "type": "number"
+                        },
+                        "long": {
+                          "description": "Longitude",
+                          "format": "double",
+                          "type": "number"
+                        },
+                        "name": {
+                          "description": "Country name",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "POST /countries/states": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountryStates",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "country": {
+                    "example": "Nigeria",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "country"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "iso3": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "states": {
+                          "items": {
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "state_code": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /countries": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllCountries",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "cities": {
+                            "description": "List of cities in the country",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "country": {
+                            "description": "Country name",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /countries/codes": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllCountryCodes",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "code": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /countries/flag/images": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllCountryFlags",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "flag": {
+                            "description": "URL to the country flag image",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          "iso2": {
+                            "description": "ISO 3166-1 alpha-2 code",
+                            "type": "string"
+                          },
+                          "iso3": {
+                            "description": "ISO 3166-1 alpha-3 code",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Country name",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /countries/population": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCountriesPopulation",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "code": {
+                            "description": "Country code",
+                            "type": "string"
+                          },
+                          "country": {
+                            "description": "Country name",
+                            "type": "string"
+                          },
+                          "iso3": {
+                            "description": "ISO 3166-1 alpha-3 code",
+                            "type": "string"
+                          },
+                          "populationCounts": {
+                            "items": {
+                              "properties": {
+                                "value": {
+                                  "type": "integer"
+                                },
+                                "year": {
+                                  "type": "integer"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /countries/positions": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllCountryPositions",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "properties": {
+                          "iso2": {
+                            "description": "ISO 3166-1 alpha-2 code",
+                            "type": "string"
+                          },
+                          "lat": {
+                            "description": "Latitude",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "long": {
+                            "description": "Longitude",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "name": {
+                            "description": "Country name",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "error": {
+                      "type": "boolean"
+                    },
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

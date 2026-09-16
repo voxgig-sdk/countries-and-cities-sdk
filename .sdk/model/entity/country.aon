@@ -110,6 +110,12 @@ main: kit: entity: country: {
       name: "create"
       points: [
         {
+          contract: {
+            id: "POST /countries/capital"
+            json: "{\"operationId\":\"getCountryCapital\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"capital\":{\"type\":\"string\"},\"iso2\":{\"type\":\"string\"},\"iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/capital"
           segments: [
@@ -131,6 +137,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/currency"
+            json: "{\"operationId\":\"getCountryCurrency\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"currency\":{\"type\":\"string\"},\"iso2\":{\"type\":\"string\"},\"iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/currency"
           segments: [
@@ -152,6 +164,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/flag/images"
+            json: "{\"operationId\":\"getCountryFlag\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"flag\":{\"description\":\"URL to the country flag image\",\"format\":\"uri\",\"type\":\"string\"},\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/flag/images"
           segments: [
@@ -173,6 +191,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/iso"
+            json: "{\"operationId\":\"getCountryISO\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"Iso2\":{\"type\":\"string\"},\"Iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/iso"
           segments: [
@@ -194,6 +218,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/population"
+            json: "{\"operationId\":\"getCountryPopulation\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"code\":{\"description\":\"Country code\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"value\":{\"type\":\"integer\"},\"year\":{\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/population"
           segments: [
@@ -215,6 +245,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/positions"
+            json: "{\"operationId\":\"getCountryPosition\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"lat\":{\"description\":\"Latitude\",\"format\":\"double\",\"type\":\"number\"},\"long\":{\"description\":\"Longitude\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/positions"
           segments: [
@@ -236,6 +272,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "POST /countries/states"
+            json: "{\"operationId\":\"getCountryStates\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"states\":{\"items\":{\"properties\":{\"name\":{\"type\":\"string\"},\"state_code\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "POST"
           orig: "/countries/states"
           segments: [
@@ -262,6 +304,12 @@ main: kit: entity: country: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /countries"
+            json: "{\"operationId\":\"getAllCountries\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"cities\":{\"description\":\"List of cities in the country\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/countries"
           segments: [
@@ -275,6 +323,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "GET /countries/codes"
+            json: "{\"operationId\":\"getAllCountryCodes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"code\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/countries/codes"
           segments: [
@@ -294,6 +348,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "GET /countries/flag/images"
+            json: "{\"operationId\":\"getAllCountryFlags\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"flag\":{\"description\":\"URL to the country flag image\",\"format\":\"uri\",\"type\":\"string\"},\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/countries/flag/images"
           segments: [
@@ -313,6 +373,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "GET /countries/population"
+            json: "{\"operationId\":\"getCountriesPopulation\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"code\":{\"description\":\"Country code\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"value\":{\"type\":\"integer\"},\"year\":{\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/countries/population"
           segments: [
@@ -332,6 +398,12 @@ main: kit: entity: country: {
           }
         }
         {
+          contract: {
+            id: "GET /countries/positions"
+            json: "{\"operationId\":\"getAllCountryPositions\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"lat\":{\"description\":\"Latitude\",\"format\":\"double\",\"type\":\"number\"},\"long\":{\"description\":\"Longitude\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/countries/positions"
           segments: [
