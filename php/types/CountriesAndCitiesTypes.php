@@ -19,10 +19,7 @@ class City
     public ?string $country = null;
     public ?array $data = null;
     public ?bool $error = null;
-    public ?int $limit = null;
     public ?string $msg = null;
-    public ?string $order = null;
-    public ?string $orderBy = null;
     public ?array $populationCounts = null;
     public string $state;
 }
@@ -34,10 +31,7 @@ class CityListMatch
     public ?string $country = null;
     public ?array $data = null;
     public ?bool $error = null;
-    public ?int $limit = null;
     public ?string $msg = null;
-    public ?string $order = null;
-    public ?string $orderBy = null;
     public ?array $populationCounts = null;
     public ?string $state = null;
 }
@@ -49,10 +43,7 @@ class CityCreateData
     public ?string $country = null;
     public ?array $data = null;
     public ?bool $error = null;
-    public ?int $limit = null;
     public ?string $msg = null;
-    public ?string $order = null;
-    public ?string $orderBy = null;
     public ?array $populationCounts = null;
     public string $state;
 }
@@ -60,60 +51,33 @@ class CityCreateData
 /** Country entity data model. */
 class Country
 {
-    public ?string $Iso2 = null;
-    public ?string $Iso3 = null;
-    public ?string $capital = null;
     public ?array $cities = null;
-    public ?string $code = null;
     public string $country;
-    public ?string $currency = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
-    public ?float $lat = null;
-    public ?float $long = null;
     public ?string $name = null;
-    public ?array $populationCounts = null;
-    public ?array $states = null;
 }
 
 /** Request payload for Country#list. */
 class CountryListMatch
 {
-    public ?string $Iso2 = null;
-    public ?string $Iso3 = null;
-    public ?string $capital = null;
     public ?array $cities = null;
-    public ?string $code = null;
     public ?string $country = null;
-    public ?string $currency = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
-    public ?float $lat = null;
-    public ?float $long = null;
     public ?string $name = null;
-    public ?array $populationCounts = null;
-    public ?array $states = null;
 }
 
 /** Request payload for Country#create. */
 class CountryCreateData
 {
-    public ?string $Iso2 = null;
-    public ?string $Iso3 = null;
-    public ?string $capital = null;
     public ?array $cities = null;
-    public ?string $code = null;
     public string $country;
-    public ?string $currency = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
-    public ?float $lat = null;
-    public ?float $long = null;
     public ?string $name = null;
-    public ?array $populationCounts = null;
-    public ?array $states = null;
 }
 

@@ -2,42 +2,33 @@
   "existing": {
     "city": {
       "CITY00": {
-        "city": "s64",
-        "country": "s65",
+        "city": "s46",
+        "country": "s47",
         "data": [],
         "error": false,
-        "limit": 104,
-        "msg": "s69",
-        "order": "s6a",
-        "orderBy": "s6b",
+        "msg": "s4a",
         "populationCounts": [],
-        "state": "s6d",
+        "state": "s4c",
         "id": "CITY00"
       },
       "CITY01": {
-        "city": "sc8",
-        "country": "sc9",
+        "city": "s8c",
+        "country": "s8d",
         "data": [],
         "error": false,
-        "limit": 204,
-        "msg": "scd",
-        "order": "sce",
-        "orderBy": "scf",
+        "msg": "s90",
         "populationCounts": [],
-        "state": "sd1",
+        "state": "s92",
         "id": "CITY01"
       },
       "CITY02": {
-        "city": "s12c",
-        "country": "s12d",
+        "city": "sd2",
+        "country": "sd3",
         "data": [],
         "error": false,
-        "limit": 304,
-        "msg": "s131",
-        "order": "s132",
-        "orderBy": "s133",
+        "msg": "sd6",
         "populationCounts": [],
-        "state": "s135",
+        "state": "sd8",
         "id": "CITY02"
       }
     }
@@ -45,16 +36,13 @@
   "new": {
     "city": {
       "city_ref01": {
-        "city": "s190",
-        "country": "s191",
+        "city": "s118",
+        "country": "s119",
         "data": [],
         "error": false,
-        "limit": 404,
-        "msg": "s195",
-        "order": "s196",
-        "orderBy": "s197",
+        "msg": "s11c",
         "populationCounts": [],
-        "state": "s199"
+        "state": "s11e"
       }
     }
   },

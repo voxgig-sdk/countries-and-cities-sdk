@@ -117,19 +117,7 @@ local function make_config()
             ["type"] = "`$BOOLEAN`",
           },
           {
-            ["name"] = "limit",
-            ["type"] = "`$INTEGER`",
-          },
-          {
             ["name"] = "msg",
-            ["type"] = "`$STRING`",
-          },
-          {
-            ["name"] = "order",
-            ["type"] = "`$STRING`",
-          },
-          {
-            ["name"] = "orderBy",
             ["type"] = "`$STRING`",
           },
           {
@@ -280,43 +268,19 @@ local function make_config()
       ["country"] = {
         ["fields"] = {
           {
-            ["name"] = "Iso2",
-            ["type"] = "`$STRING`",
-          },
-          {
-            ["name"] = "Iso3",
-            ["type"] = "`$STRING`",
-          },
-          {
-            ["name"] = "capital",
-            ["type"] = "`$STRING`",
-          },
-          {
             ["name"] = "cities",
             ["short"] = "List of cities in the country",
             ["type"] = "`$ARRAY`",
           },
           {
-            ["name"] = "code",
-            ["short"] = "Country code",
-            ["type"] = "`$STRING`",
-          },
-          {
             ["name"] = "country",
             ["op"] = {
-              ["create"] = {
-                ["type"] = "`$STRING`",
-              },
               ["list"] = {
                 ["type"] = "`$STRING`",
               },
             },
             ["req"] = true,
             ["short"] = "Country name",
-            ["type"] = "`$STRING`",
-          },
-          {
-            ["name"] = "currency",
             ["type"] = "`$STRING`",
           },
           {
@@ -336,29 +300,9 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
-            ["format"] = "double",
-            ["name"] = "lat",
-            ["short"] = "Latitude",
-            ["type"] = "`$NUMBER`",
-          },
-          {
-            ["format"] = "double",
-            ["name"] = "long",
-            ["short"] = "Longitude",
-            ["type"] = "`$NUMBER`",
-          },
-          {
             ["name"] = "name",
             ["short"] = "Country name",
             ["type"] = "`$STRING`",
-          },
-          {
-            ["name"] = "populationCounts",
-            ["type"] = "`$ARRAY`",
-          },
-          {
-            ["name"] = "states",
-            ["type"] = "`$ARRAY`",
           },
         },
         ["name"] = "country",

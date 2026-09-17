@@ -40,22 +40,7 @@ main: kit: entity: city: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "limit"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
       name: "msg"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "order"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "orderBy"
       req: false
       type: "`$STRING`"
     }

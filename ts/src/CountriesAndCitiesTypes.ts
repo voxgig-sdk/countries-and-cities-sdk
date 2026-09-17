@@ -10,10 +10,7 @@ export interface City {
   country?: string
   data?: any[]
   error?: boolean
-  limit?: number
   msg?: string
-  order?: string
-  orderBy?: string
   populationCounts?: any[]
   state: string
 }
@@ -23,10 +20,7 @@ export interface CityListMatch {
   country?: string
   data?: any[]
   error?: boolean
-  limit?: number
   msg?: string
-  order?: string
-  orderBy?: string
   populationCounts?: any[]
   state?: string
 }
@@ -36,10 +30,7 @@ export interface CityCreateData {
   country?: string
   data?: any[]
   error?: boolean
-  limit?: number
   msg?: string
-  order?: string
-  orderBy?: string
   populationCounts?: any[]
   state: string
 
@@ -51,39 +42,21 @@ export interface CityCreateData {
 }
 
 export interface Country {
-  Iso2?: string
-  Iso3?: string
-  capital?: string
   cities?: any[]
-  code?: string
   country: string
-  currency?: string
   flag?: string
   iso2?: string
   iso3?: string
-  lat?: number
-  long?: number
   name?: string
-  populationCounts?: any[]
-  states?: any[]
 }
 
 export interface CountryListMatch {
-  Iso2?: string
-  Iso3?: string
-  capital?: string
   cities?: any[]
-  code?: string
   country?: string
-  currency?: string
   flag?: string
   iso2?: string
   iso3?: string
-  lat?: number
-  long?: number
   name?: string
-  populationCounts?: any[]
-  states?: any[]
 
   // Selects a custom action instead of the plain list:
   //   'code' | 'population' | 'position'
@@ -93,21 +66,12 @@ export interface CountryListMatch {
 }
 
 export interface CountryCreateData {
-  Iso2?: string
-  Iso3?: string
-  capital?: string
   cities?: any[]
-  code?: string
   country: string
-  currency?: string
   flag?: string
   iso2?: string
   iso3?: string
-  lat?: number
-  long?: number
   name?: string
-  populationCounts?: any[]
-  states?: any[]
 
   // Selects a custom action instead of the plain create:
   //   'capital' | 'currency' | 'iso' | 'population' | 'position' | 'state'

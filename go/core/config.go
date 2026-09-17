@@ -121,19 +121,7 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
-						"name": "limit",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
 						"name": "msg",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "order",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "orderBy",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -284,43 +272,19 @@ func MakeConfig() map[string]any {
 			"country": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"name": "Iso2",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "Iso3",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "capital",
-						"type": "`$STRING`",
-					},
-					map[string]any{
 						"name": "cities",
 						"short": "List of cities in the country",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"name": "code",
-						"short": "Country code",
-						"type": "`$STRING`",
-					},
-					map[string]any{
 						"name": "country",
 						"op": map[string]any{
-							"create": map[string]any{
-								"type": "`$STRING`",
-							},
 							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
 						"req": true,
 						"short": "Country name",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "currency",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -340,29 +304,9 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "double",
-						"name": "lat",
-						"short": "Latitude",
-						"type": "`$NUMBER`",
-					},
-					map[string]any{
-						"format": "double",
-						"name": "long",
-						"short": "Longitude",
-						"type": "`$NUMBER`",
-					},
-					map[string]any{
 						"name": "name",
 						"short": "Country name",
 						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "populationCounts",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "states",
-						"type": "`$ARRAY`",
 					},
 				},
 				"name": "country",

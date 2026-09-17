@@ -18,10 +18,7 @@ type City struct {
 	Country *string `json:"country,omitempty"`
 	Data *[]any `json:"data,omitempty"`
 	Error *bool `json:"error,omitempty"`
-	Limit *int `json:"limit,omitempty"`
 	Msg *string `json:"msg,omitempty"`
-	Order *string `json:"order,omitempty"`
-	OrderBy *string `json:"orderBy,omitempty"`
 	PopulationCounts *[]any `json:"populationCounts,omitempty"`
 	State string `json:"state"`
 }
@@ -32,10 +29,7 @@ type CityListMatch struct {
 	Country *string `json:"country,omitempty"`
 	Data *[]any `json:"data,omitempty"`
 	Error *bool `json:"error,omitempty"`
-	Limit *int `json:"limit,omitempty"`
 	Msg *string `json:"msg,omitempty"`
-	Order *string `json:"order,omitempty"`
-	OrderBy *string `json:"orderBy,omitempty"`
 	PopulationCounts *[]any `json:"populationCounts,omitempty"`
 	State *string `json:"state,omitempty"`
 }
@@ -46,69 +40,39 @@ type CityCreateData struct {
 	Country *string `json:"country,omitempty"`
 	Data *[]any `json:"data,omitempty"`
 	Error *bool `json:"error,omitempty"`
-	Limit *int `json:"limit,omitempty"`
 	Msg *string `json:"msg,omitempty"`
-	Order *string `json:"order,omitempty"`
-	OrderBy *string `json:"orderBy,omitempty"`
 	PopulationCounts *[]any `json:"populationCounts,omitempty"`
 	State string `json:"state"`
 }
 
 // Country is the typed data model for the country entity.
 type Country struct {
-	Iso2 *string `json:"Iso2,omitempty"`
-	Iso3 *string `json:"Iso3,omitempty"`
-	Capital *string `json:"capital,omitempty"`
 	Cities *[]any `json:"cities,omitempty"`
-	Code *string `json:"code,omitempty"`
 	Country string `json:"country"`
-	Currency *string `json:"currency,omitempty"`
 	Flag *string `json:"flag,omitempty"`
-	Iso22 *string `json:"iso2,omitempty"`
-	Iso32 *string `json:"iso3,omitempty"`
-	Lat *float64 `json:"lat,omitempty"`
-	Long *float64 `json:"long,omitempty"`
+	Iso2 *string `json:"iso2,omitempty"`
+	Iso3 *string `json:"iso3,omitempty"`
 	Name *string `json:"name,omitempty"`
-	PopulationCounts *[]any `json:"populationCounts,omitempty"`
-	States *[]any `json:"states,omitempty"`
 }
 
 // CountryListMatch is the typed request payload for Country.ListTyped.
 type CountryListMatch struct {
-	Iso2 *string `json:"Iso2,omitempty"`
-	Iso3 *string `json:"Iso3,omitempty"`
-	Capital *string `json:"capital,omitempty"`
 	Cities *[]any `json:"cities,omitempty"`
-	Code *string `json:"code,omitempty"`
 	Country *string `json:"country,omitempty"`
-	Currency *string `json:"currency,omitempty"`
 	Flag *string `json:"flag,omitempty"`
-	Iso22 *string `json:"iso2,omitempty"`
-	Iso32 *string `json:"iso3,omitempty"`
-	Lat *float64 `json:"lat,omitempty"`
-	Long *float64 `json:"long,omitempty"`
+	Iso2 *string `json:"iso2,omitempty"`
+	Iso3 *string `json:"iso3,omitempty"`
 	Name *string `json:"name,omitempty"`
-	PopulationCounts *[]any `json:"populationCounts,omitempty"`
-	States *[]any `json:"states,omitempty"`
 }
 
 // CountryCreateData is the typed request payload for Country.CreateTyped.
 type CountryCreateData struct {
-	Iso2 *string `json:"Iso2,omitempty"`
-	Iso3 *string `json:"Iso3,omitempty"`
-	Capital *string `json:"capital,omitempty"`
 	Cities *[]any `json:"cities,omitempty"`
-	Code *string `json:"code,omitempty"`
 	Country string `json:"country"`
-	Currency *string `json:"currency,omitempty"`
 	Flag *string `json:"flag,omitempty"`
-	Iso22 *string `json:"iso2,omitempty"`
-	Iso32 *string `json:"iso3,omitempty"`
-	Lat *float64 `json:"lat,omitempty"`
-	Long *float64 `json:"long,omitempty"`
+	Iso2 *string `json:"iso2,omitempty"`
+	Iso3 *string `json:"iso3,omitempty"`
 	Name *string `json:"name,omitempty"`
-	PopulationCounts *[]any `json:"populationCounts,omitempty"`
-	States *[]any `json:"states,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

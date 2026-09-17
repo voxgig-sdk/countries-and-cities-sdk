@@ -106,10 +106,7 @@ fmt.Println(city.GetName()) // "city"
 | `country` | `string` | No | Country name |
 | `data` | `[]any` | No |  |
 | `error` | `bool` | No |  |
-| `limit` | `int` | No |  |
 | `msg` | `string` | No |  |
-| `order` | `string` | No |  |
-| `orderBy` | `string` | No |  |
 | `populationCounts` | `[]any` | No |  |
 | `state` | `string` | Yes |  |
 
@@ -121,10 +118,7 @@ fmt.Println(city.GetName()) // "city"
 | `country` | - | Yes |
 | `data` | - | - |
 | `error` | - | - |
-| `limit` | - | - |
 | `msg` | - | - |
-| `order` | - | - |
-| `orderBy` | - | - |
 | `populationCounts` | - | - |
 | `state` | - | - |
 
@@ -191,41 +185,23 @@ fmt.Println(country.GetName()) // "country"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `Iso2` | `string` | No |  |
-| `Iso3` | `string` | No |  |
-| `capital` | `string` | No |  |
 | `cities` | `[]any` | No | List of cities in the country |
-| `code` | `string` | No | Country code |
 | `country` | `string` | Yes | Country name |
-| `currency` | `string` | No |  |
 | `flag` | `string` | No | URL to the country flag image |
 | `iso2` | `string` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | No | ISO 3166-1 alpha-3 code |
-| `lat` | `float64` | No | Latitude |
-| `long` | `float64` | No | Longitude |
 | `name` | `string` | No | Country name |
-| `populationCounts` | `[]any` | No |  |
-| `states` | `[]any` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `Iso2` | - | - |
-| `Iso3` | - | - |
-| `capital` | - | - |
 | `cities` | - | - |
-| `code` | - | - |
-| `country` | Yes | Yes |
-| `currency` | - | - |
+| `country` | Yes | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
-| `lat` | - | - |
-| `long` | - | - |
 | `name` | - | - |
-| `populationCounts` | - | - |
-| `states` | - | - |
 
 ### Operations
 

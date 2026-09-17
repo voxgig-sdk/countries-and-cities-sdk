@@ -251,10 +251,7 @@ returns a result `Hash` with these keys:
 | `country` | Country name |
 | `data` |  |
 | `error` |  |
-| `limit` |  |
 | `msg` |  |
-| `order` |  |
-| `orderBy` |  |
 | `populationCounts` |  |
 | `state` |  |
 
@@ -266,21 +263,12 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `Iso2` |  |
-| `Iso3` |  |
-| `capital` |  |
 | `cities` | List of cities in the country |
-| `code` | Country code |
 | `country` | Country name |
-| `currency` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
-| `lat` | Latitude |
-| `long` | Longitude |
 | `name` | Country name |
-| `populationCounts` |  |
-| `states` |  |
 
 Operations: Create, List.
 
@@ -310,10 +298,7 @@ Create an instance: `city = client.City`
 | `country` | `String` | Country name |
 | `data` | `Array` |  |
 | `error` | `Boolean` |  |
-| `limit` | `Integer` |  |
 | `msg` | `String` |  |
-| `order` | `String` |  |
-| `orderBy` | `String` |  |
 | `populationCounts` | `Array` |  |
 | `state` | `String` |  |
 
@@ -348,21 +333,12 @@ Create an instance: `country = client.Country`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `Iso2` | `String` |  |
-| `Iso3` | `String` |  |
-| `capital` | `String` |  |
 | `cities` | `Array` | List of cities in the country |
-| `code` | `String` | Country code |
 | `country` | `String` | Country name |
-| `currency` | `String` |  |
 | `flag` | `String` | URL to the country flag image |
 | `iso2` | `String` | ISO 3166-1 alpha-2 code |
 | `iso3` | `String` | ISO 3166-1 alpha-3 code |
-| `lat` | `Float` | Latitude |
-| `long` | `Float` | Longitude |
 | `name` | `String` | Country name |
-| `populationCounts` | `Array` |  |
-| `states` | `Array` |  |
 
 #### Example: List
 
@@ -522,6 +498,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── CountriesAndCities_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

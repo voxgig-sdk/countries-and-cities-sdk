@@ -183,13 +183,6 @@ declare class Config {
         country: {
             fields: ({
                 name: string;
-                type: string;
-                short?: undefined;
-                op?: undefined;
-                req?: undefined;
-                format?: undefined;
-            } | {
-                name: string;
                 short: string;
                 type: string;
                 op?: undefined;
@@ -198,9 +191,6 @@ declare class Config {
             } | {
                 name: string;
                 op: {
-                    create: {
-                        type: string;
-                    };
                     list: {
                         type: string;
                     };

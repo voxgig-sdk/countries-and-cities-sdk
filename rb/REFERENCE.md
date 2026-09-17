@@ -101,10 +101,7 @@ city = client.City
 | `country` | `String` | No | Country name |
 | `data` | `Array` | No |  |
 | `error` | `Boolean` | No |  |
-| `limit` | `Integer` | No |  |
 | `msg` | `String` | No |  |
-| `order` | `String` | No |  |
-| `orderBy` | `String` | No |  |
 | `populationCounts` | `Array` | No |  |
 | `state` | `String` | Yes |  |
 
@@ -116,10 +113,7 @@ city = client.City
 | `country` | - | Yes |
 | `data` | - | - |
 | `error` | - | - |
-| `limit` | - | - |
 | `msg` | - | - |
-| `order` | - | - |
-| `orderBy` | - | - |
 | `populationCounts` | - | - |
 | `state` | - | - |
 
@@ -183,41 +177,23 @@ country = client.Country
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `Iso2` | `String` | No |  |
-| `Iso3` | `String` | No |  |
-| `capital` | `String` | No |  |
 | `cities` | `Array` | No | List of cities in the country |
-| `code` | `String` | No | Country code |
 | `country` | `String` | Yes | Country name |
-| `currency` | `String` | No |  |
 | `flag` | `String` | No | URL to the country flag image |
 | `iso2` | `String` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `String` | No | ISO 3166-1 alpha-3 code |
-| `lat` | `Float` | No | Latitude |
-| `long` | `Float` | No | Longitude |
 | `name` | `String` | No | Country name |
-| `populationCounts` | `Array` | No |  |
-| `states` | `Array` | No |  |
 
 ### Field Usage by Operation
 
 | Field | list | create |
 | --- | --- | --- |
-| `Iso2` | - | - |
-| `Iso3` | - | - |
-| `capital` | - | - |
 | `cities` | - | - |
-| `code` | - | - |
-| `country` | Yes | Yes |
-| `currency` | - | - |
+| `country` | Yes | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
-| `lat` | - | - |
-| `long` | - | - |
 | `name` | - | - |
-| `populationCounts` | - | - |
-| `states` | - | - |
 
 ### Operations
 

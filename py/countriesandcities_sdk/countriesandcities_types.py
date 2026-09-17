@@ -25,10 +25,7 @@ class City(CityRequired, total=False):
     country: str
     data: list
     error: bool
-    limit: int
     msg: str
-    order: str
-    orderBy: str
     populationCounts: list
 
 
@@ -37,10 +34,7 @@ class CityListMatch(TypedDict, total=False):
     country: str
     data: list
     error: bool
-    limit: int
     msg: str
-    order: str
-    orderBy: str
     populationCounts: list
     state: str
 
@@ -54,10 +48,7 @@ class CityCreateData(CityCreateDataRequired, total=False):
     country: str
     data: list
     error: bool
-    limit: int
     msg: str
-    order: str
-    orderBy: str
     populationCounts: list
 
 
@@ -66,38 +57,20 @@ class CountryRequired(TypedDict):
 
 
 class Country(CountryRequired, total=False):
-    Iso2: str
-    Iso3: str
-    capital: str
     cities: list
-    code: str
-    currency: str
     flag: str
     iso2: str
     iso3: str
-    lat: float
-    long: float
     name: str
-    populationCounts: list
-    states: list
 
 
 class CountryListMatch(TypedDict, total=False):
-    Iso2: str
-    Iso3: str
-    capital: str
     cities: list
-    code: str
     country: str
-    currency: str
     flag: str
     iso2: str
     iso3: str
-    lat: float
-    long: float
     name: str
-    populationCounts: list
-    states: list
 
 
 class CountryCreateDataRequired(TypedDict):
@@ -105,17 +78,8 @@ class CountryCreateDataRequired(TypedDict):
 
 
 class CountryCreateData(CountryCreateDataRequired, total=False):
-    Iso2: str
-    Iso3: str
-    capital: str
     cities: list
-    code: str
-    currency: str
     flag: str
     iso2: str
     iso3: str
-    lat: float
-    long: float
     name: str
-    populationCounts: list
-    states: list

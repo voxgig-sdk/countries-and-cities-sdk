@@ -309,10 +309,7 @@ The `prepare()` method returns:
 | `country` | Country name |
 | `data` |  |
 | `error` |  |
-| `limit` |  |
 | `msg` |  |
-| `order` |  |
-| `orderBy` |  |
 | `populationCounts` |  |
 | `state` |  |
 
@@ -324,21 +321,12 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `Iso2` |  |
-| `Iso3` |  |
-| `capital` |  |
 | `cities` | List of cities in the country |
-| `code` | Country code |
 | `country` | Country name |
-| `currency` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
-| `lat` | Latitude |
-| `long` | Longitude |
 | `name` | Country name |
-| `populationCounts` |  |
-| `states` |  |
 
 Operations: create, list.
 
@@ -368,10 +356,7 @@ Create an instance: `const city = client.City()`
 | `country` | `string` | Country name |
 | `data` | `any[]` |  |
 | `error` | `boolean` |  |
-| `limit` | `number` |  |
 | `msg` | `string` |  |
-| `order` | `string` |  |
-| `orderBy` | `string` |  |
 | `populationCounts` | `any[]` |  |
 | `state` | `string` |  |
 
@@ -405,21 +390,12 @@ Create an instance: `const country = client.Country()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `Iso2` | `string` |  |
-| `Iso3` | `string` |  |
-| `capital` | `string` |  |
 | `cities` | `any[]` | List of cities in the country |
-| `code` | `string` | Country code |
 | `country` | `string` | Country name |
-| `currency` | `string` |  |
 | `flag` | `string` | URL to the country flag image |
 | `iso2` | `string` | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | ISO 3166-1 alpha-3 code |
-| `lat` | `number` | Latitude |
-| `long` | `number` | Longitude |
 | `name` | `string` | Country name |
-| `populationCounts` | `any[]` |  |
-| `states` | `any[]` |  |
 
 #### Example: List
 

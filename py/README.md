@@ -257,10 +257,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `country` | Country name |
 | `data` |  |
 | `error` |  |
-| `limit` |  |
 | `msg` |  |
-| `order` |  |
-| `orderBy` |  |
 | `populationCounts` |  |
 | `state` |  |
 
@@ -272,21 +269,12 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `Iso2` |  |
-| `Iso3` |  |
-| `capital` |  |
 | `cities` | List of cities in the country |
-| `code` | Country code |
 | `country` | Country name |
-| `currency` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
-| `lat` | Latitude |
-| `long` | Longitude |
 | `name` | Country name |
-| `populationCounts` |  |
-| `states` |  |
 
 Operations: Create, List.
 
@@ -316,10 +304,7 @@ Create an instance: `city = client.City()`
 | `country` | `str` | Country name |
 | `data` | `list` |  |
 | `error` | `bool` |  |
-| `limit` | `int` |  |
 | `msg` | `str` |  |
-| `order` | `str` |  |
-| `orderBy` | `str` |  |
 | `populationCounts` | `list` |  |
 | `state` | `str` |  |
 
@@ -353,21 +338,12 @@ Create an instance: `country = client.Country()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `Iso2` | `str` |  |
-| `Iso3` | `str` |  |
-| `capital` | `str` |  |
 | `cities` | `list` | List of cities in the country |
-| `code` | `str` | Country code |
 | `country` | `str` | Country name |
-| `currency` | `str` |  |
 | `flag` | `str` | URL to the country flag image |
 | `iso2` | `str` | ISO 3166-1 alpha-2 code |
 | `iso3` | `str` | ISO 3166-1 alpha-3 code |
-| `lat` | `float` | Latitude |
-| `long` | `float` | Longitude |
 | `name` | `str` | Country name |
-| `populationCounts` | `list` |  |
-| `states` | `list` |  |
 
 #### Example: List
 
@@ -526,6 +502,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── countriesandcities_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

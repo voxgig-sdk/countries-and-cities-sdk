@@ -247,10 +247,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `country` | Country name |
 | `data` |  |
 | `error` |  |
-| `limit` |  |
 | `msg` |  |
-| `order` |  |
-| `orderBy` |  |
 | `populationCounts` |  |
 | `state` |  |
 
@@ -262,21 +259,12 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `Iso2` |  |
-| `Iso3` |  |
-| `capital` |  |
 | `cities` | List of cities in the country |
-| `code` | Country code |
 | `country` | Country name |
-| `currency` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
-| `lat` | Latitude |
-| `long` | Longitude |
 | `name` | Country name |
-| `populationCounts` |  |
-| `states` |  |
 
 Operations: Create, List.
 
@@ -306,10 +294,7 @@ Create an instance: `local city = client:City(nil)`
 | `country` | `string` | Country name |
 | `data` | `table` |  |
 | `error` | `boolean` |  |
-| `limit` | `number` |  |
 | `msg` | `string` |  |
-| `order` | `string` |  |
-| `orderBy` | `string` |  |
 | `populationCounts` | `table` |  |
 | `state` | `string` |  |
 
@@ -343,21 +328,12 @@ Create an instance: `local country = client:Country(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `Iso2` | `string` |  |
-| `Iso3` | `string` |  |
-| `capital` | `string` |  |
 | `cities` | `table` | List of cities in the country |
-| `code` | `string` | Country code |
 | `country` | `string` | Country name |
-| `currency` | `string` |  |
 | `flag` | `string` | URL to the country flag image |
 | `iso2` | `string` | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | ISO 3166-1 alpha-3 code |
-| `lat` | `number` | Latitude |
-| `long` | `number` | Longitude |
 | `name` | `string` | Country name |
-| `populationCounts` | `table` |  |
-| `states` | `table` |  |
 
 #### Example: List
 
@@ -516,6 +492,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── countries-and-cities_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

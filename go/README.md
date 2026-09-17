@@ -274,10 +274,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"country"` | Country name |
 | `"data"` |  |
 | `"error"` |  |
-| `"limit"` |  |
 | `"msg"` |  |
-| `"order"` |  |
-| `"orderBy"` |  |
 | `"populationCounts"` |  |
 | `"state"` |  |
 
@@ -289,21 +286,12 @@ API path: `/countries/population/cities`
 
 | Field | Description |
 | --- | --- |
-| `"Iso2"` |  |
-| `"Iso3"` |  |
-| `"capital"` |  |
 | `"cities"` | List of cities in the country |
-| `"code"` | Country code |
 | `"country"` | Country name |
-| `"currency"` |  |
 | `"flag"` | URL to the country flag image |
 | `"iso2"` | ISO 3166-1 alpha-2 code |
 | `"iso3"` | ISO 3166-1 alpha-3 code |
-| `"lat"` | Latitude |
-| `"long"` | Longitude |
 | `"name"` | Country name |
-| `"populationCounts"` |  |
-| `"states"` |  |
 
 Operations: Create, List.
 
@@ -333,10 +321,7 @@ Create an instance: `city := client.City(nil)`
 | `country` | `string` | Country name |
 | `data` | `[]any` |  |
 | `error` | `bool` |  |
-| `limit` | `int` |  |
 | `msg` | `string` |  |
-| `order` | `string` |  |
-| `orderBy` | `string` |  |
 | `populationCounts` | `[]any` |  |
 | `state` | `string` |  |
 
@@ -378,21 +363,12 @@ Create an instance: `country := client.Country(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `Iso2` | `string` |  |
-| `Iso3` | `string` |  |
-| `capital` | `string` |  |
 | `cities` | `[]any` | List of cities in the country |
-| `code` | `string` | Country code |
 | `country` | `string` | Country name |
-| `currency` | `string` |  |
 | `flag` | `string` | URL to the country flag image |
 | `iso2` | `string` | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | ISO 3166-1 alpha-3 code |
-| `lat` | `float64` | Latitude |
-| `long` | `float64` | Longitude |
 | `name` | `string` | Country name |
-| `populationCounts` | `[]any` |  |
-| `states` | `[]any` |  |
 
 #### Example: List
 

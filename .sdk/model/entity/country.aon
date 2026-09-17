@@ -6,39 +6,14 @@ main: kit: entity: country: {
 
   fields: [
     {
-      name: "Iso2"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "Iso3"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "capital"
-      req: false
-      type: "`$STRING`"
-    }
-    {
       name: "cities"
       req: false
       short: "List of cities in the country"
       type: "`$ARRAY`"
     }
     {
-      name: "code"
-      req: false
-      short: "Country code"
-      type: "`$STRING`"
-    }
-    {
       name: "country"
       op: {
-        create: {
-          req: false
-          type: "`$STRING`"
-        }
         list: {
           req: false
           type: "`$STRING`"
@@ -46,11 +21,6 @@ main: kit: entity: country: {
       }
       req: true
       short: "Country name"
-      type: "`$STRING`"
-    }
-    {
-      name: "currency"
-      req: false
       type: "`$STRING`"
     }
     {
@@ -73,34 +43,10 @@ main: kit: entity: country: {
       type: "`$STRING`"
     }
     {
-      format: "double"
-      name: "lat"
-      req: false
-      short: "Latitude"
-      type: "`$NUMBER`"
-    }
-    {
-      format: "double"
-      name: "long"
-      req: false
-      short: "Longitude"
-      type: "`$NUMBER`"
-    }
-    {
       name: "name"
       req: false
       short: "Country name"
       type: "`$STRING`"
-    }
-    {
-      name: "populationCounts"
-      req: false
-      type: "`$ARRAY`"
-    }
-    {
-      name: "states"
-      req: false
-      type: "`$ARRAY`"
     }
   ]
 
