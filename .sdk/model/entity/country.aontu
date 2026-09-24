@@ -1,0 +1,371 @@
+# Entity: country
+
+main: kit: entity: country: {
+
+  alias: field: {}
+
+  fields: {
+    cities: {
+      h: "Cities"
+      n: "cities"
+      r: false
+      sh: "List of cities in the country"
+      t: "`$ARRAY`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Country name"
+      t: "`$STRING`"
+    }
+    flag: {
+      fo: "uri"
+      h: "Flag"
+      n: "flag"
+      r: false
+      sh: "URL to the country flag image"
+      t: "`$STRING`"
+    }
+    iso2: {
+      h: "Iso2"
+      n: "iso2"
+      r: false
+      sh: "ISO 3166-1 alpha-2 code"
+      t: "`$STRING`"
+    }
+    iso3: {
+      h: "Iso3"
+      n: "iso3"
+      r: false
+      sh: "ISO 3166-1 alpha-3 code"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Country name"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "country"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /countries/capital"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/capital"
+          q: {
+            "$action": "capital"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "capital"
+            }
+          ]
+          t: {
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/currency"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/currency"
+          q: {
+            "$action": "currency"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "currency"
+            }
+          ]
+          t: {
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/flag/images"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/flag/images"
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "flag"
+            }
+            {
+              lit: "images"
+            }
+          ]
+          t: {
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/iso"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/iso"
+          q: {
+            "$action": "iso"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "iso"
+            }
+          ]
+          t: {
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/population"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/population"
+          q: {
+            "$action": "population"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+          ]
+          t: {
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/positions"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/positions"
+          q: {
+            "$action": "position"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "positions"
+            }
+          ]
+          t: {
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/states"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/states"
+          q: {
+            "$action": "state"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "states"
+            }
+          ]
+          t: {
+            req: {
+              country: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /countries"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/countries"
+          s: [
+            {
+              lit: "countries"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /countries/codes"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/countries/codes"
+          q: {
+            "$action": "code"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "codes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /countries/flag/images"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/countries/flag/images"
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "flag"
+            }
+            {
+              lit: "images"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /countries/population"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/countries/population"
+          q: {
+            "$action": "population"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /countries/positions"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/countries/positions"
+          q: {
+            "$action": "position"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "positions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

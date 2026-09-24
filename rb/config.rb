@@ -100,6 +100,8 @@ module CountriesAndCitiesConfig
           "fields" => [
             {
               "name" => "city",
+              "title" => "City",
+              "type" => "`$STRING`",
               "op" => {
                 "create" => {
                   "req" => true,
@@ -107,10 +109,11 @@ module CountriesAndCitiesConfig
                 },
               },
               "short" => "City name",
-              "type" => "`$STRING`",
             },
             {
               "name" => "country",
+              "title" => "Country",
+              "type" => "`$STRING`",
               "op" => {
                 "create" => {
                   "req" => true,
@@ -118,28 +121,32 @@ module CountriesAndCitiesConfig
                 },
               },
               "short" => "Country name",
-              "type" => "`$STRING`",
             },
             {
               "name" => "data",
+              "title" => "Data",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "error",
+              "title" => "Error",
               "type" => "`$BOOLEAN`",
             },
             {
               "name" => "msg",
+              "title" => "Msg",
               "type" => "`$STRING`",
             },
             {
               "name" => "populationCounts",
+              "title" => "Population Counts",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "state",
-              "req" => true,
+              "title" => "State",
               "type" => "`$STRING`",
+              "req" => true,
             },
           ],
           "name" => "city",
@@ -149,7 +156,6 @@ module CountriesAndCitiesConfig
               "name" => "create",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/population/cities",
@@ -164,21 +170,22 @@ module CountriesAndCitiesConfig
                       "lit" => "cities",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "countries",
+                    "population",
+                    "cities",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "city" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "population",
-                    "cities",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/population/cities/filter",
@@ -196,22 +203,23 @@ module CountriesAndCitiesConfig
                       "lit" => "filter",
                     },
                   ],
-                  "select" => {
-                    "$action" => "filter",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                   "parts" => [
                     "countries",
                     "population",
                     "cities",
                     "filter",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "filter",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/state/cities",
@@ -226,16 +234,18 @@ module CountriesAndCitiesConfig
                       "lit" => "cities",
                     },
                   ],
-                  "select" => {},
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                   "parts" => [
                     "countries",
                     "state",
                     "cities",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -244,7 +254,6 @@ module CountriesAndCitiesConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/countries/population/cities",
@@ -259,16 +268,18 @@ module CountriesAndCitiesConfig
                       "lit" => "cities",
                     },
                   ],
-                  "select" => {},
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.data`",
-                  },
                   "parts" => [
                     "countries",
                     "population",
                     "cities",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.data`",
+                  },
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -281,40 +292,46 @@ module CountriesAndCitiesConfig
           "fields" => [
             {
               "name" => "cities",
-              "short" => "List of cities in the country",
+              "title" => "Cities",
               "type" => "`$ARRAY`",
+              "short" => "List of cities in the country",
             },
             {
               "name" => "country",
+              "title" => "Country",
+              "type" => "`$STRING`",
+              "req" => true,
               "op" => {
                 "list" => {
                   "type" => "`$STRING`",
                 },
               },
-              "req" => true,
               "short" => "Country name",
-              "type" => "`$STRING`",
             },
             {
-              "format" => "uri",
               "name" => "flag",
-              "short" => "URL to the country flag image",
+              "title" => "Flag",
               "type" => "`$STRING`",
+              "short" => "URL to the country flag image",
+              "format" => "uri",
             },
             {
               "name" => "iso2",
-              "short" => "ISO 3166-1 alpha-2 code",
+              "title" => "Iso2",
               "type" => "`$STRING`",
+              "short" => "ISO 3166-1 alpha-2 code",
             },
             {
               "name" => "iso3",
-              "short" => "ISO 3166-1 alpha-3 code",
+              "title" => "Iso3",
               "type" => "`$STRING`",
+              "short" => "ISO 3166-1 alpha-3 code",
             },
             {
               "name" => "name",
-              "short" => "Country name",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Country name",
             },
           ],
           "name" => "country",
@@ -324,7 +341,6 @@ module CountriesAndCitiesConfig
               "name" => "create",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/capital",
@@ -336,22 +352,23 @@ module CountriesAndCitiesConfig
                       "lit" => "capital",
                     },
                   ],
-                  "select" => {
-                    "$action" => "capital",
-                  },
+                  "parts" => [
+                    "countries",
+                    "capital",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "country" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "capital",
-                  ],
+                  "args" => {},
+                  "select" => {
+                    "$action" => "capital",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/currency",
@@ -363,22 +380,23 @@ module CountriesAndCitiesConfig
                       "lit" => "currency",
                     },
                   ],
-                  "select" => {
-                    "$action" => "currency",
-                  },
+                  "parts" => [
+                    "countries",
+                    "currency",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "country" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "currency",
-                  ],
+                  "args" => {},
+                  "select" => {
+                    "$action" => "currency",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/flag/images",
@@ -393,21 +411,22 @@ module CountriesAndCitiesConfig
                       "lit" => "images",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "countries",
+                    "flag",
+                    "images",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "country" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "flag",
-                    "images",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/iso",
@@ -419,22 +438,23 @@ module CountriesAndCitiesConfig
                       "lit" => "iso",
                     },
                   ],
-                  "select" => {
-                    "$action" => "iso",
-                  },
+                  "parts" => [
+                    "countries",
+                    "iso",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "country" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "iso",
-                  ],
+                  "args" => {},
+                  "select" => {
+                    "$action" => "iso",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/population",
@@ -446,22 +466,23 @@ module CountriesAndCitiesConfig
                       "lit" => "population",
                     },
                   ],
-                  "select" => {
-                    "$action" => "population",
-                  },
+                  "parts" => [
+                    "countries",
+                    "population",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "country" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "population",
-                  ],
+                  "args" => {},
+                  "select" => {
+                    "$action" => "population",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/positions",
@@ -473,22 +494,23 @@ module CountriesAndCitiesConfig
                       "lit" => "positions",
                     },
                   ],
-                  "select" => {
-                    "$action" => "position",
-                  },
+                  "parts" => [
+                    "countries",
+                    "positions",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "country" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "positions",
-                  ],
+                  "args" => {},
+                  "select" => {
+                    "$action" => "position",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "POST",
                   "orig" => "/countries/states",
@@ -500,19 +522,21 @@ module CountriesAndCitiesConfig
                       "lit" => "states",
                     },
                   ],
-                  "select" => {
-                    "$action" => "state",
-                  },
+                  "parts" => [
+                    "countries",
+                    "states",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => {
                       "country" => "`reqdata`",
                     },
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                    "states",
-                  ],
+                  "args" => {},
+                  "select" => {
+                    "$action" => "state",
+                  },
                 },
               ],
             },
@@ -521,7 +545,6 @@ module CountriesAndCitiesConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/countries",
@@ -530,17 +553,18 @@ module CountriesAndCitiesConfig
                       "lit" => "countries",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "countries",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
-                  "parts" => [
-                    "countries",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/countries/codes",
@@ -552,20 +576,21 @@ module CountriesAndCitiesConfig
                       "lit" => "codes",
                     },
                   ],
-                  "select" => {
-                    "$action" => "code",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.data`",
-                  },
                   "parts" => [
                     "countries",
                     "codes",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.data`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "code",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/countries/flag/images",
@@ -580,19 +605,20 @@ module CountriesAndCitiesConfig
                       "lit" => "images",
                     },
                   ],
-                  "select" => {},
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.data`",
-                  },
                   "parts" => [
                     "countries",
                     "flag",
                     "images",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.data`",
+                  },
+                  "args" => {},
+                  "select" => {},
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/countries/population",
@@ -604,20 +630,21 @@ module CountriesAndCitiesConfig
                       "lit" => "population",
                     },
                   ],
-                  "select" => {
-                    "$action" => "population",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.data`",
-                  },
                   "parts" => [
                     "countries",
                     "population",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.data`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "population",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/countries/positions",
@@ -629,17 +656,19 @@ module CountriesAndCitiesConfig
                       "lit" => "positions",
                     },
                   ],
-                  "select" => {
-                    "$action" => "position",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.data`",
-                  },
                   "parts" => [
                     "countries",
                     "positions",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.data`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "position",
+                  },
                 },
               ],
             },

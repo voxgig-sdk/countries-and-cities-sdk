@@ -1,7 +1,7 @@
 // Typed models for the CountriesAndCities SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,13 +14,6 @@ import (
 
 // City is the typed data model for the city entity.
 type City struct {
-	City *string `json:"city,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Data *[]any `json:"data,omitempty"`
-	Error *bool `json:"error,omitempty"`
-	Msg *string `json:"msg,omitempty"`
-	PopulationCounts *[]any `json:"populationCounts,omitempty"`
-	State string `json:"state"`
 }
 
 // CityListMatch is the typed request payload for City.ListTyped.
@@ -47,12 +40,6 @@ type CityCreateData struct {
 
 // Country is the typed data model for the country entity.
 type Country struct {
-	Cities *[]any `json:"cities,omitempty"`
-	Country string `json:"country"`
-	Flag *string `json:"flag,omitempty"`
-	Iso2 *string `json:"iso2,omitempty"`
-	Iso3 *string `json:"iso3,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // CountryListMatch is the typed request payload for Country.ListTyped.

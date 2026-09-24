@@ -1,0 +1,186 @@
+# Entity: city
+
+main: kit: entity: city: {
+
+  alias: field: {}
+
+  fields: {
+    city: {
+      h: "City"
+      n: "city"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "City name"
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "Country name"
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      t: "`$ARRAY`"
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    msg: {
+      h: "Msg"
+      n: "msg"
+      r: false
+      t: "`$STRING`"
+    }
+    populationCounts: {
+      h: "Population Counts"
+      n: "populationCounts"
+      r: false
+      t: "`$ARRAY`"
+    }
+    state: {
+      h: "State"
+      n: "state"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "city"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /countries/population/cities"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/population/cities"
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+            {
+              lit: "cities"
+            }
+          ]
+          t: {
+            req: {
+              city: "`reqdata`"
+            }
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/population/cities/filter"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/population/cities/filter"
+          q: {
+            "$action": "filter"
+          }
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+            {
+              lit: "cities"
+            }
+            {
+              lit: "filter"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /countries/state/cities"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/countries/state/cities"
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "state"
+            }
+            {
+              lit: "cities"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /countries/population/cities"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/countries/population/cities"
+          s: [
+            {
+              lit: "countries"
+            }
+            {
+              lit: "population"
+            }
+            {
+              lit: "cities"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,30 @@
+# BasicCityFlow
+
+main: kit: flow: BasicCityFlow:
+{
+  entity: "city",
+  kind: "basic",
+  name: "BasicCityFlow",
+  step: [
+    {
+      i: {
+        ref: "city_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "city_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCityFlow"
+}

@@ -24,70 +24,143 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "city": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "city",
+          "fields": {
+            "city": {
+              "a": true,
+              "h": "City",
+              "n": "city",
               "op": {
                 "create": {
                   "req": true,
                   "type": "`$STRING`"
                 }
               },
-              "req": false,
-              "short": "City name",
-              "type": "`$STRING`"
+              "r": false,
+              "sh": "City name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "country",
+            "country": {
+              "a": true,
+              "h": "Country",
+              "n": "country",
               "op": {
                 "create": {
                   "req": true,
                   "type": "`$STRING`"
                 }
               },
-              "req": false,
-              "short": "Country name",
-              "type": "`$STRING`"
+              "r": false,
+              "sh": "Country name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "data",
-              "req": false,
-              "type": "`$ARRAY`"
+            "data": {
+              "a": true,
+              "h": "Data",
+              "n": "data",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "error",
-              "req": false,
-              "type": "`$BOOLEAN`"
+            "error": {
+              "a": true,
+              "h": "Error",
+              "n": "error",
+              "r": false,
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "msg",
-              "req": false,
-              "type": "`$STRING`"
+            "msg": {
+              "a": true,
+              "h": "Msg",
+              "n": "msg",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "populationCounts",
-              "req": false,
-              "type": "`$ARRAY`"
+            "populationCounts": {
+              "a": true,
+              "h": "Population Counts",
+              "n": "populationCounts",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "state",
-              "req": true,
-              "type": "`$STRING`"
+            "state": {
+              "a": true,
+              "h": "State",
+              "n": "state",
+              "r": true,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "city",
           "op": {
             "create": {
@@ -95,18 +168,19 @@
               "name": "create",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/population/cities",
-                    "json": "{\"operationId\":\"getCityPopulation\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"city\":{\"example\":\"Lagos\",\"type\":\"string\"}},\"required\":[\"city\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"reliabilty\":{\"type\":\"string\"},\"sex\":{\"type\":\"string\"},\"value\":{\"type\":\"string\"},\"year\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/population/cities",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/population/cities",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -117,8 +191,7 @@
                       "lit": "cities"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": {
                       "city": "`reqdata`"
                     },
@@ -126,18 +199,21 @@
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/population/cities/filter",
-                    "json": "{\"operationId\":\"filterCitiesByPopulation\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"limit\":{\"example\":10,\"type\":\"integer\"},\"order\":{\"enum\":[\"asc\",\"dsc\"],\"example\":\"dsc\",\"type\":\"string\"},\"orderBy\":{\"example\":\"population\",\"type\":\"string\"}},\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"reliabilty\":{\"type\":\"string\"},\"sex\":{\"type\":\"string\"},\"value\":{\"type\":\"string\"},\"year\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/population/cities/filter",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/population/cities/filter",
+                  "q": {
+                    "$action": "filter"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -151,27 +227,25 @@
                       "lit": "filter"
                     }
                   ],
-                  "select": {
-                    "$action": "filter"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/state/cities",
-                    "json": "{\"operationId\":\"getStateCities\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"},\"state\":{\"example\":\"Lagos\",\"type\":\"string\"}},\"required\":[\"country\",\"state\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/state/cities",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/state/cities",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -182,8 +256,7 @@
                       "lit": "cities"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -195,18 +268,19 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /countries/population/cities",
-                    "json": "{\"operationId\":\"getAllCitiesPopulation\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"city\":{\"description\":\"City name\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"reliabilty\":{\"type\":\"string\"},\"sex\":{\"type\":\"string\"},\"value\":{\"type\":\"string\"},\"year\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/population/cities",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/population/cities",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -217,8 +291,7 @@
                       "lit": "cities"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
@@ -235,57 +308,63 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "cities",
-              "req": false,
-              "short": "List of cities in the country",
-              "type": "`$ARRAY`"
+          "fields": {
+            "cities": {
+              "a": true,
+              "h": "Cities",
+              "n": "cities",
+              "r": false,
+              "sh": "List of cities in the country",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "country",
+            "country": {
+              "a": true,
+              "h": "Country",
+              "n": "country",
               "op": {
                 "list": {
                   "req": false,
                   "type": "`$STRING`"
                 }
               },
-              "req": true,
-              "short": "Country name",
-              "type": "`$STRING`"
+              "r": true,
+              "sh": "Country name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "flag",
-              "req": false,
-              "short": "URL to the country flag image",
-              "type": "`$STRING`"
+            "flag": {
+              "a": true,
+              "fo": "uri",
+              "h": "Flag",
+              "n": "flag",
+              "r": false,
+              "sh": "URL to the country flag image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "iso2",
-              "req": false,
-              "short": "ISO 3166-1 alpha-2 code",
-              "type": "`$STRING`"
+            "iso2": {
+              "a": true,
+              "h": "Iso2",
+              "n": "iso2",
+              "r": false,
+              "sh": "ISO 3166-1 alpha-2 code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "iso3",
-              "req": false,
-              "short": "ISO 3166-1 alpha-3 code",
-              "type": "`$STRING`"
+            "iso3": {
+              "a": true,
+              "h": "Iso3",
+              "n": "iso3",
+              "r": false,
+              "sh": "ISO 3166-1 alpha-3 code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Country name",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Country name",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "country",
           "op": {
             "create": {
@@ -293,18 +372,21 @@
               "name": "create",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/capital",
-                    "json": "{\"operationId\":\"getCountryCapital\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"capital\":{\"type\":\"string\"},\"iso2\":{\"type\":\"string\"},\"iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/capital",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/capital",
+                  "q": {
+                    "$action": "capital"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -312,10 +394,7 @@
                       "lit": "capital"
                     }
                   ],
-                  "select": {
-                    "$action": "capital"
-                  },
-                  "transform": {
+                  "t": {
                     "req": {
                       "country": "`reqdata`"
                     },
@@ -323,18 +402,21 @@
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/currency",
-                    "json": "{\"operationId\":\"getCountryCurrency\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"currency\":{\"type\":\"string\"},\"iso2\":{\"type\":\"string\"},\"iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/currency",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/currency",
+                  "q": {
+                    "$action": "currency"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -342,10 +424,7 @@
                       "lit": "currency"
                     }
                   ],
-                  "select": {
-                    "$action": "currency"
-                  },
-                  "transform": {
+                  "t": {
                     "req": {
                       "country": "`reqdata`"
                     },
@@ -353,18 +432,19 @@
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/flag/images",
-                    "json": "{\"operationId\":\"getCountryFlag\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"flag\":{\"description\":\"URL to the country flag image\",\"format\":\"uri\",\"type\":\"string\"},\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/flag/images",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/flag/images",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -375,8 +455,7 @@
                       "lit": "images"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": {
                       "country": "`reqdata`"
                     },
@@ -384,18 +463,21 @@
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/iso",
-                    "json": "{\"operationId\":\"getCountryISO\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"Iso2\":{\"type\":\"string\"},\"Iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/iso",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/iso",
+                  "q": {
+                    "$action": "iso"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -403,10 +485,7 @@
                       "lit": "iso"
                     }
                   ],
-                  "select": {
-                    "$action": "iso"
-                  },
-                  "transform": {
+                  "t": {
                     "req": {
                       "country": "`reqdata`"
                     },
@@ -414,18 +493,21 @@
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/population",
-                    "json": "{\"operationId\":\"getCountryPopulation\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"code\":{\"description\":\"Country code\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"value\":{\"type\":\"integer\"},\"year\":{\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/population",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/population",
+                  "q": {
+                    "$action": "population"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -433,10 +515,7 @@
                       "lit": "population"
                     }
                   ],
-                  "select": {
-                    "$action": "population"
-                  },
-                  "transform": {
+                  "t": {
                     "req": {
                       "country": "`reqdata`"
                     },
@@ -444,18 +523,21 @@
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/positions",
-                    "json": "{\"operationId\":\"getCountryPosition\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"lat\":{\"description\":\"Latitude\",\"format\":\"double\",\"type\":\"number\"},\"long\":{\"description\":\"Longitude\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/positions",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/positions",
+                  "q": {
+                    "$action": "position"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -463,10 +545,7 @@
                       "lit": "positions"
                     }
                   ],
-                  "select": {
-                    "$action": "position"
-                  },
-                  "transform": {
+                  "t": {
                     "req": {
                       "country": "`reqdata`"
                     },
@@ -474,18 +553,21 @@
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /countries/states",
-                    "json": "{\"operationId\":\"getCountryStates\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"country\":{\"example\":\"Nigeria\",\"type\":\"string\"}},\"required\":[\"country\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"iso3\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"states\":{\"items\":{\"properties\":{\"name\":{\"type\":\"string\"},\"state_code\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/countries/states",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/countries/states",
+                  "q": {
+                    "$action": "state"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -493,10 +575,7 @@
                       "lit": "states"
                     }
                   ],
-                  "select": {
-                    "$action": "state"
-                  },
-                  "transform": {
+                  "t": {
                     "req": {
                       "country": "`reqdata`"
                     },
@@ -510,41 +589,44 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /countries",
-                    "json": "{\"operationId\":\"getAllCountries\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"cities\":{\"description\":\"List of cities in the country\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /countries/codes",
-                    "json": "{\"operationId\":\"getAllCountryCodes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"code\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/codes",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/codes",
+                  "q": {
+                    "$action": "code"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -552,27 +634,25 @@
                       "lit": "codes"
                     }
                   ],
-                  "select": {
-                    "$action": "code"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /countries/flag/images",
-                    "json": "{\"operationId\":\"getAllCountryFlags\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"flag\":{\"description\":\"URL to the country flag image\",\"format\":\"uri\",\"type\":\"string\"},\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/flag/images",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/flag/images",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -583,25 +663,27 @@
                       "lit": "images"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /countries/population",
-                    "json": "{\"operationId\":\"getCountriesPopulation\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"code\":{\"description\":\"Country code\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"type\":\"string\"},\"iso3\":{\"description\":\"ISO 3166-1 alpha-3 code\",\"type\":\"string\"},\"populationCounts\":{\"items\":{\"properties\":{\"value\":{\"type\":\"integer\"},\"year\":{\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/population",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/population",
+                  "q": {
+                    "$action": "population"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -609,27 +691,27 @@
                       "lit": "population"
                     }
                   ],
-                  "select": {
-                    "$action": "population"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /countries/positions",
-                    "json": "{\"operationId\":\"getAllCountryPositions\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"iso2\":{\"description\":\"ISO 3166-1 alpha-2 code\",\"type\":\"string\"},\"lat\":{\"description\":\"Latitude\",\"format\":\"double\",\"type\":\"number\"},\"long\":{\"description\":\"Longitude\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Country name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"error\":{\"type\":\"boolean\"},\"msg\":{\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/countries/positions",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/countries/positions",
+                  "q": {
+                    "$action": "position"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "countries"
                     },
@@ -637,10 +719,7 @@
                       "lit": "positions"
                     }
                   ],
-                  "select": {
-                    "$action": "position"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.data`"
                   }
@@ -1069,24 +1148,24 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "city_ref01"
               },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
             },
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1106,24 +1185,24 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "country_ref01"
               },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
             },
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

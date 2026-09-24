@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,46 +135,53 @@ class Config {
       "fields": [
         {
           "name": "city",
+          "title": "City",
+          "type": "`$STRING`",
           "op": {
             "create": {
               "req": true,
               "type": "`$STRING`"
             }
           },
-          "short": "City name",
-          "type": "`$STRING`"
+          "short": "City name"
         },
         {
           "name": "country",
+          "title": "Country",
+          "type": "`$STRING`",
           "op": {
             "create": {
               "req": true,
               "type": "`$STRING`"
             }
           },
-          "short": "Country name",
-          "type": "`$STRING`"
+          "short": "Country name"
         },
         {
           "name": "data",
+          "title": "Data",
           "type": "`$ARRAY`"
         },
         {
           "name": "error",
+          "title": "Error",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "msg",
+          "title": "Msg",
           "type": "`$STRING`"
         },
         {
           "name": "populationCounts",
+          "title": "Population Counts",
           "type": "`$ARRAY`"
         },
         {
           "name": "state",
-          "req": true,
-          "type": "`$STRING`"
+          "title": "State",
+          "type": "`$STRING`",
+          "req": true
         }
       ],
       "name": "city",
@@ -191,7 +191,6 @@ class Config {
           "name": "create",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/population/cities",
@@ -206,21 +205,22 @@ class Config {
                   "lit": "cities"
                 }
               ],
-              "select": {},
+              "parts": [
+                "countries",
+                "population",
+                "cities"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "city": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "population",
-                "cities"
-              ]
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/population/cities/filter",
@@ -238,22 +238,23 @@ class Config {
                   "lit": "filter"
                 }
               ],
-              "select": {
-                "$action": "filter"
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "countries",
                 "population",
                 "cities",
                 "filter"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {},
+              "select": {
+                "$action": "filter"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/state/cities",
@@ -268,16 +269,18 @@ class Config {
                   "lit": "cities"
                 }
               ],
-              "select": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "countries",
                 "state",
                 "cities"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {},
+              "select": {}
             }
           ]
         },
@@ -286,7 +289,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/countries/population/cities",
@@ -301,16 +303,18 @@ class Config {
                   "lit": "cities"
                 }
               ],
-              "select": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.data`"
-              },
               "parts": [
                 "countries",
                 "population",
                 "cities"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.data`"
+              },
+              "args": {},
+              "select": {}
             }
           ]
         }
@@ -323,40 +327,46 @@ class Config {
       "fields": [
         {
           "name": "cities",
-          "short": "List of cities in the country",
-          "type": "`$ARRAY`"
+          "title": "Cities",
+          "type": "`$ARRAY`",
+          "short": "List of cities in the country"
         },
         {
           "name": "country",
+          "title": "Country",
+          "type": "`$STRING`",
+          "req": true,
           "op": {
             "list": {
               "type": "`$STRING`"
             }
           },
-          "req": true,
-          "short": "Country name",
-          "type": "`$STRING`"
+          "short": "Country name"
         },
         {
-          "format": "uri",
           "name": "flag",
+          "title": "Flag",
+          "type": "`$STRING`",
           "short": "URL to the country flag image",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "iso2",
-          "short": "ISO 3166-1 alpha-2 code",
-          "type": "`$STRING`"
+          "title": "Iso2",
+          "type": "`$STRING`",
+          "short": "ISO 3166-1 alpha-2 code"
         },
         {
           "name": "iso3",
-          "short": "ISO 3166-1 alpha-3 code",
-          "type": "`$STRING`"
+          "title": "Iso3",
+          "type": "`$STRING`",
+          "short": "ISO 3166-1 alpha-3 code"
         },
         {
           "name": "name",
-          "short": "Country name",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Country name"
         }
       ],
       "name": "country",
@@ -366,7 +376,6 @@ class Config {
           "name": "create",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/capital",
@@ -378,22 +387,23 @@ class Config {
                   "lit": "capital"
                 }
               ],
-              "select": {
-                "$action": "capital"
-              },
+              "parts": [
+                "countries",
+                "capital"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "country": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "capital"
-              ]
+              "args": {},
+              "select": {
+                "$action": "capital"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/currency",
@@ -405,22 +415,23 @@ class Config {
                   "lit": "currency"
                 }
               ],
-              "select": {
-                "$action": "currency"
-              },
+              "parts": [
+                "countries",
+                "currency"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "country": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "currency"
-              ]
+              "args": {},
+              "select": {
+                "$action": "currency"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/flag/images",
@@ -435,21 +446,22 @@ class Config {
                   "lit": "images"
                 }
               ],
-              "select": {},
+              "parts": [
+                "countries",
+                "flag",
+                "images"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "country": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "flag",
-                "images"
-              ]
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/iso",
@@ -461,22 +473,23 @@ class Config {
                   "lit": "iso"
                 }
               ],
-              "select": {
-                "$action": "iso"
-              },
+              "parts": [
+                "countries",
+                "iso"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "country": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "iso"
-              ]
+              "args": {},
+              "select": {
+                "$action": "iso"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/population",
@@ -488,22 +501,23 @@ class Config {
                   "lit": "population"
                 }
               ],
-              "select": {
-                "$action": "population"
-              },
+              "parts": [
+                "countries",
+                "population"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "country": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "population"
-              ]
+              "args": {},
+              "select": {
+                "$action": "population"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/positions",
@@ -515,22 +529,23 @@ class Config {
                   "lit": "positions"
                 }
               ],
-              "select": {
-                "$action": "position"
-              },
+              "parts": [
+                "countries",
+                "positions"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "country": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "positions"
-              ]
+              "args": {},
+              "select": {
+                "$action": "position"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/countries/states",
@@ -542,19 +557,21 @@ class Config {
                   "lit": "states"
                 }
               ],
-              "select": {
-                "$action": "state"
-              },
+              "parts": [
+                "countries",
+                "states"
+              ],
+              "rename": {},
               "transform": {
                 "req": {
                   "country": "`reqdata`"
                 },
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "states"
-              ]
+              "args": {},
+              "select": {
+                "$action": "state"
+              }
             }
           ]
         },
@@ -563,7 +580,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/countries",
@@ -572,17 +588,18 @@ class Config {
                   "lit": "countries"
                 }
               ],
-              "select": {},
+              "parts": [
+                "countries"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries"
-              ]
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/countries/codes",
@@ -594,20 +611,21 @@ class Config {
                   "lit": "codes"
                 }
               ],
-              "select": {
-                "$action": "code"
-              },
+              "parts": [
+                "countries",
+                "codes"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "codes"
-              ]
+              "args": {},
+              "select": {
+                "$action": "code"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/countries/flag/images",
@@ -622,19 +640,20 @@ class Config {
                   "lit": "images"
                 }
               ],
-              "select": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.data`"
-              },
               "parts": [
                 "countries",
                 "flag",
                 "images"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.data`"
+              },
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/countries/population",
@@ -646,20 +665,21 @@ class Config {
                   "lit": "population"
                 }
               ],
-              "select": {
-                "$action": "population"
-              },
+              "parts": [
+                "countries",
+                "population"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "population"
-              ]
+              "args": {},
+              "select": {
+                "$action": "population"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/countries/positions",
@@ -671,17 +691,19 @@ class Config {
                   "lit": "positions"
                 }
               ],
-              "select": {
-                "$action": "position"
-              },
+              "parts": [
+                "countries",
+                "positions"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
               },
-              "parts": [
-                "countries",
-                "positions"
-              ]
+              "args": {},
+              "select": {
+                "$action": "position"
+              }
             }
           ]
         }

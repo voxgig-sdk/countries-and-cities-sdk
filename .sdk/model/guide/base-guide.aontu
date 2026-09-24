@@ -1,0 +1,87 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 12
+  metrics: count: method: 16
+
+  entity: city: {
+    path: "/countries/population/cities": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "city": *("`reqdata`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/countries/population/cities/filter": {
+      action: "filter": {}
+      op: create: method: *POST
+    }
+    path: "/countries/state/cities": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: country: {
+    path: "/countries": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/countries/capital": {
+      action: "capital": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "country": *("`reqdata`")|top
+    }
+    path: "/countries/codes": {
+      action: "code": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/countries/currency": {
+      action: "currency": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "country": *("`reqdata`")|top
+    }
+    path: "/countries/flag/images": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "country": *("`reqdata`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/countries/iso": {
+      action: "iso": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "country": *("`reqdata`")|top
+    }
+    path: "/countries/population": {
+      action: "population": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "country": *("`reqdata`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/countries/positions": {
+      action: "position": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "country": *("`reqdata`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/countries/states": {
+      action: "state": {}
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: create: transform: req: "country": *("`reqdata`")|top
+    }
+  }
+
+}
