@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/countries-and-cities",
+  "name": "voxgig-sdk/countries-and-cities-sdk",
   "description": "Unofficial generated PHP SDK for the Countries & Cities public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "countries-and-cities"],
