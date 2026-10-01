@@ -17,13 +17,13 @@ from typing import TypedDict, Any
 
 
 class CityRequired(TypedDict):
+    city: str
+    country: str
     state: str
 
 
 class City(CityRequired, total=False):
-    city: str
-    country: str
-    data: list
+    data: dict
     error: bool
     msg: str
     populationCounts: list
@@ -32,7 +32,7 @@ class City(CityRequired, total=False):
 class CityListMatch(TypedDict, total=False):
     city: str
     country: str
-    data: list
+    data: dict
     error: bool
     msg: str
     populationCounts: list
@@ -40,13 +40,13 @@ class CityListMatch(TypedDict, total=False):
 
 
 class CityCreateDataRequired(TypedDict):
+    city: str
+    country: str
     state: str
 
 
 class CityCreateData(CityCreateDataRequired, total=False):
-    city: str
-    country: str
-    data: list
+    data: dict
     error: bool
     msg: str
     populationCounts: list
@@ -58,18 +58,24 @@ class CountryRequired(TypedDict):
 
 class Country(CountryRequired, total=False):
     cities: list
+    data: dict
+    error: bool
     flag: str
     iso2: str
     iso3: str
+    msg: str
     name: str
 
 
 class CountryListMatch(TypedDict, total=False):
     cities: list
     country: str
+    data: dict
+    error: bool
     flag: str
     iso2: str
     iso3: str
+    msg: str
     name: str
 
 
@@ -79,7 +85,10 @@ class CountryCreateDataRequired(TypedDict):
 
 class CountryCreateData(CountryCreateDataRequired, total=False):
     cities: list
+    data: dict
+    error: bool
     flag: str
     iso2: str
     iso3: str
+    msg: str
     name: str

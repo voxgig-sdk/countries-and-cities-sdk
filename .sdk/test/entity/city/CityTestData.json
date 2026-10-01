@@ -4,7 +4,7 @@
       "CITY00": {
         "city": "s46",
         "country": "s47",
-        "data": [],
+        "data": {},
         "error": false,
         "msg": "s4a",
         "populationCounts": [],
@@ -14,7 +14,7 @@
       "CITY01": {
         "city": "s8c",
         "country": "s8d",
-        "data": [],
+        "data": {},
         "error": false,
         "msg": "s90",
         "populationCounts": [],
@@ -24,7 +24,7 @@
       "CITY02": {
         "city": "sd2",
         "country": "sd3",
-        "data": [],
+        "data": {},
         "error": false,
         "msg": "sd6",
         "populationCounts": [],
@@ -38,7 +38,7 @@
       "city_ref01": {
         "city": "s118",
         "country": "s119",
-        "data": [],
+        "data": {},
         "error": false,
         "msg": "s11c",
         "populationCounts": [],

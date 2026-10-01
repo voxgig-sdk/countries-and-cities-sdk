@@ -91,9 +91,9 @@ city = client.City()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `str` | No | City name |
-| `country` | `str` | No | Country name |
-| `data` | `list` | No |  |
+| `city` | `str` | Yes | City name |
+| `country` | `str` | Yes | Country name |
+| `data` | `dict` | No |  |
 | `error` | `bool` | No |  |
 | `msg` | `str` | No |  |
 | `populationCounts` | `list` | No |  |
@@ -103,8 +103,8 @@ city = client.City()
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | Yes |
-| `country` | - | Yes |
+| `city` | Yes | - |
+| `country` | Yes | - |
 | `data` | - | - |
 | `error` | - | - |
 | `msg` | - | - |
@@ -119,6 +119,8 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.City().create({
+    "city": "example_city",  # str
+    "country": "example_country",  # str
     "state": "example_state",  # str
 })
 ```
@@ -174,9 +176,12 @@ country = client.Country()
 | --- | --- | --- | --- |
 | `cities` | `list` | No | List of cities in the country |
 | `country` | `str` | Yes | Country name |
+| `data` | `dict` | No |  |
+| `error` | `bool` | No |  |
 | `flag` | `str` | No | URL to the country flag image |
 | `iso2` | `str` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `str` | No | ISO 3166-1 alpha-3 code |
+| `msg` | `str` | No |  |
 | `name` | `str` | No | Country name |
 
 ### Field Usage by Operation
@@ -185,9 +190,12 @@ country = client.Country()
 | --- | --- | --- |
 | `cities` | - | - |
 | `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
+| `msg` | - | - |
 | `name` | - | - |
 
 ### Operations

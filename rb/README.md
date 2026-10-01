@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/countries-and-cities-sdk/releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/countries-and-cities-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-countries-and-cities-sdk", path: "./countries-and-cities-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -48,7 +57,7 @@ end
 
 ```ruby
 # create returns the ENTITY — call data_get for the created City record.
-created = client.City.create({ "state" => "example_state" })
+created = client.City.create({ "city" => "example_city", "country" => "example_country", "state" => "example_state" })
 
 ```
 
@@ -265,9 +274,12 @@ API path: `/countries/population/cities`
 | --- | --- |
 | `cities` | List of cities in the country |
 | `country` | Country name |
+| `data` |  |
+| `error` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
+| `msg` |  |
 | `name` | Country name |
 
 Operations: Create, List.
@@ -296,7 +308,7 @@ Create an instance: `city = client.City`
 | --- | --- | --- |
 | `city` | `String` | City name |
 | `country` | `String` | Country name |
-| `data` | `Array` |  |
+| `data` | `Hash` |  |
 | `error` | `Boolean` |  |
 | `msg` | `String` |  |
 | `populationCounts` | `Array` |  |
@@ -313,6 +325,8 @@ citys = client.City.list
 
 ```ruby
 city = client.City.create({
+  "city" => "example_city", # String
+  "country" => "example_country", # String
   "state" => "example_state", # String
 })
 ```
@@ -335,9 +349,12 @@ Create an instance: `country = client.Country`
 | --- | --- | --- |
 | `cities` | `Array` | List of cities in the country |
 | `country` | `String` | Country name |
+| `data` | `Hash` |  |
+| `error` | `Boolean` |  |
 | `flag` | `String` | URL to the country flag image |
 | `iso2` | `String` | ISO 3166-1 alpha-2 code |
 | `iso3` | `String` | ISO 3166-1 alpha-3 code |
+| `msg` | `String` |  |
 | `name` | `String` | Country name |
 
 #### Example: List

@@ -15,9 +15,13 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`):
+release tag (`ts/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)), or from a
+clone, which carries the compiled `dist/`:
 
-- Releases: [https://github.com/voxgig-sdk/countries-and-cities-sdk/releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/countries-and-cities-sdk
+npm install ./countries-and-cities-sdk/ts
+```
 
 
 ## Tutorial: your first API call
@@ -52,6 +56,8 @@ for (const city of citys) {
 ```ts
 // Create — returns the created City ENTITY (.data() for the record)
 const created = await client.City().create({
+  city: 'example_city',
+  country: 'example_country',
   state: 'example_state',
 })
 
@@ -323,9 +329,12 @@ API path: `/countries/population/cities`
 | --- | --- |
 | `cities` | List of cities in the country |
 | `country` | Country name |
+| `data` |  |
+| `error` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
+| `msg` |  |
 | `name` | Country name |
 
 Operations: create, list.
@@ -354,7 +363,7 @@ Create an instance: `const city = client.City()`
 | --- | --- | --- |
 | `city` | `string` | City name |
 | `country` | `string` | Country name |
-| `data` | `any[]` |  |
+| `data` | `Record<string, any>` |  |
 | `error` | `boolean` |  |
 | `msg` | `string` |  |
 | `populationCounts` | `any[]` |  |
@@ -370,6 +379,8 @@ const citys = await client.City().list()
 
 ```ts
 const city = await client.City().create({
+  city: 'example_city',
+  country: 'example_country',
   state: 'example_state',
 })
 ```
@@ -392,9 +403,12 @@ Create an instance: `const country = client.Country()`
 | --- | --- | --- |
 | `cities` | `any[]` | List of cities in the country |
 | `country` | `string` | Country name |
+| `data` | `Record<string, any>` |  |
+| `error` | `boolean` |  |
 | `flag` | `string` | URL to the country flag image |
 | `iso2` | `string` | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | ISO 3166-1 alpha-3 code |
+| `msg` | `string` |  |
 | `name` | `string` | Country name |
 
 #### Example: List

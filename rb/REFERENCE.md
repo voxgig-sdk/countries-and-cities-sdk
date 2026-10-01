@@ -97,9 +97,9 @@ city = client.City
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `String` | No | City name |
-| `country` | `String` | No | Country name |
-| `data` | `Array` | No |  |
+| `city` | `String` | Yes | City name |
+| `country` | `String` | Yes | Country name |
+| `data` | `Hash` | No |  |
 | `error` | `Boolean` | No |  |
 | `msg` | `String` | No |  |
 | `populationCounts` | `Array` | No |  |
@@ -109,8 +109,8 @@ city = client.City
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | Yes |
-| `country` | - | Yes |
+| `city` | Yes | - |
+| `country` | Yes | - |
 | `data` | - | - |
 | `error` | - | - |
 | `msg` | - | - |
@@ -125,6 +125,8 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.City.create({
+  "city" => "example_city", # String
+  "country" => "example_country", # String
   "state" => "example_state", # String
 })
 ```
@@ -179,9 +181,12 @@ country = client.Country
 | --- | --- | --- | --- |
 | `cities` | `Array` | No | List of cities in the country |
 | `country` | `String` | Yes | Country name |
+| `data` | `Hash` | No |  |
+| `error` | `Boolean` | No |  |
 | `flag` | `String` | No | URL to the country flag image |
 | `iso2` | `String` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `String` | No | ISO 3166-1 alpha-3 code |
+| `msg` | `String` | No |  |
 | `name` | `String` | No | Country name |
 
 ### Field Usage by Operation
@@ -190,9 +195,12 @@ country = client.Country
 | --- | --- | --- |
 | `cities` | - | - |
 | `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
+| `msg` | - | - |
 | `name` | - | - |
 
 ### Operations

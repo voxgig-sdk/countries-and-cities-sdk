@@ -96,8 +96,8 @@ $city = $client->City();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | No | City name |
-| `country` | `string` | No | Country name |
+| `city` | `string` | Yes | City name |
+| `country` | `string` | Yes | Country name |
 | `data` | `array` | No |  |
 | `error` | `bool` | No |  |
 | `msg` | `string` | No |  |
@@ -108,8 +108,8 @@ $city = $client->City();
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | Yes |
-| `country` | - | Yes |
+| `city` | Yes | - |
+| `country` | Yes | - |
 | `data` | - | - |
 | `error` | - | - |
 | `msg` | - | - |
@@ -124,6 +124,8 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->City()->create([
+  "city" => null, // string
+  "country" => null, // string
   "state" => null, // string
 ]);
 ```
@@ -178,9 +180,12 @@ $country = $client->Country();
 | --- | --- | --- | --- |
 | `cities` | `array` | No | List of cities in the country |
 | `country` | `string` | Yes | Country name |
+| `data` | `array` | No |  |
+| `error` | `bool` | No |  |
 | `flag` | `string` | No | URL to the country flag image |
 | `iso2` | `string` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | No | ISO 3166-1 alpha-3 code |
+| `msg` | `string` | No |  |
 | `name` | `string` | No | Country name |
 
 ### Field Usage by Operation
@@ -189,9 +194,12 @@ $country = $client->Country();
 | --- | --- | --- |
 | `cities` | - | - |
 | `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
+| `msg` | - | - |
 | `name` | - | - |
 
 ### Operations

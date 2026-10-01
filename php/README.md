@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/countries-and-cities-sdk/releases](https://github.com/voxgig-sdk/countries-and-cities-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/countries-and-cities-sdk
+composer config repositories.countries-and-cities-sdk path ./countries-and-cities-sdk/php
+composer require voxgig-sdk/countries-and-cities-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
@@ -50,7 +55,7 @@ try {
 
 ```php
 // create() returns the ENTITY — call data_get() for the created City record.
-$created = $client->City()->create(["state" => "example_state"]);
+$created = $client->City()->create(["city" => "example_city", "country" => "example_country", "state" => "example_state"]);
 
 ```
 
@@ -276,9 +281,12 @@ API path: `/countries/population/cities`
 | --- | --- |
 | `cities` | List of cities in the country |
 | `country` | Country name |
+| `data` |  |
+| `error` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
+| `msg` |  |
 | `name` | Country name |
 
 Operations: Create, List.
@@ -324,6 +332,8 @@ $citys = $client->City()->list();
 
 ```php
 $city = $client->City()->create([
+    "city" => null, // string
+    "country" => null, // string
     "state" => null, // string
 ]);
 ```
@@ -346,9 +356,12 @@ Create an instance: `$country = $client->Country();`
 | --- | --- | --- |
 | `cities` | `array` | List of cities in the country |
 | `country` | `string` | Country name |
+| `data` | `array` |  |
+| `error` | `bool` |  |
 | `flag` | `string` | URL to the country flag image |
 | `iso2` | `string` | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | ISO 3166-1 alpha-3 code |
+| `msg` | `string` |  |
 | `name` | `string` | Country name |
 
 #### Example: List

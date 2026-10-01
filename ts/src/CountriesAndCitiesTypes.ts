@@ -6,9 +6,9 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface City {
-  city?: string
-  country?: string
-  data?: any[]
+  city: string
+  country: string
+  data?: Record<string, any>
   error?: boolean
   msg?: string
   populationCounts?: any[]
@@ -18,7 +18,7 @@ export interface City {
 export interface CityListMatch {
   city?: string
   country?: string
-  data?: any[]
+  data?: Record<string, any>
   error?: boolean
   msg?: string
   populationCounts?: any[]
@@ -26,9 +26,9 @@ export interface CityListMatch {
 }
 
 export interface CityCreateData {
-  city?: string
-  country?: string
-  data?: any[]
+  city: string
+  country: string
+  data?: Record<string, any>
   error?: boolean
   msg?: string
   populationCounts?: any[]
@@ -44,18 +44,24 @@ export interface CityCreateData {
 export interface Country {
   cities?: any[]
   country: string
+  data?: Record<string, any>
+  error?: boolean
   flag?: string
   iso2?: string
   iso3?: string
+  msg?: string
   name?: string
 }
 
 export interface CountryListMatch {
   cities?: any[]
   country?: string
+  data?: Record<string, any>
+  error?: boolean
   flag?: string
   iso2?: string
   iso3?: string
+  msg?: string
   name?: string
 
   // Selects a custom action instead of the plain list:
@@ -68,9 +74,12 @@ export interface CountryListMatch {
 export interface CountryCreateData {
   cities?: any[]
   country: string
+  data?: Record<string, any>
+  error?: boolean
   flag?: string
   iso2?: string
   iso3?: string
+  msg?: string
   name?: string
 
   // Selects a custom action instead of the plain create:

@@ -15,8 +15,8 @@ declare(strict_types=1);
 /** City entity data model. */
 class City
 {
-    public ?string $city = null;
-    public ?string $country = null;
+    public string $city;
+    public string $country;
     public ?array $data = null;
     public ?bool $error = null;
     public ?string $msg = null;
@@ -39,8 +39,8 @@ class CityListMatch
 /** Request payload for City#create. */
 class CityCreateData
 {
-    public ?string $city = null;
-    public ?string $country = null;
+    public string $city;
+    public string $country;
     public ?array $data = null;
     public ?bool $error = null;
     public ?string $msg = null;
@@ -53,9 +53,12 @@ class Country
 {
     public ?array $cities = null;
     public string $country;
+    public ?array $data = null;
+    public ?bool $error = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
+    public ?string $msg = null;
     public ?string $name = null;
 }
 
@@ -64,9 +67,12 @@ class CountryListMatch
 {
     public ?array $cities = null;
     public ?string $country = null;
+    public ?array $data = null;
+    public ?bool $error = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
+    public ?string $msg = null;
     public ?string $name = null;
 }
 
@@ -75,9 +81,12 @@ class CountryCreateData
 {
     public ?array $cities = null;
     public string $country;
+    public ?array $data = null;
+    public ?bool $error = null;
     public ?string $flag = null;
     public ?string $iso2 = null;
     public ?string $iso3 = null;
+    public ?string $msg = null;
     public ?string $name = null;
 }
 

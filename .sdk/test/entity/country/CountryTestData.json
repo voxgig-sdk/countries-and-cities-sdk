@@ -3,29 +3,38 @@
     "country": {
       "COUNTRY00": {
         "cities": [],
-        "country": "s3d",
-        "flag": "s3e",
-        "iso2": "s3f",
-        "iso3": "s40",
-        "name": "s41",
+        "country": "s5b",
+        "data": {},
+        "error": false,
+        "flag": "s5e",
+        "iso2": "s5f",
+        "iso3": "s60",
+        "msg": "s61",
+        "name": "s62",
         "id": "COUNTRY00"
       },
       "COUNTRY01": {
         "cities": [],
-        "country": "s79",
-        "flag": "s7a",
-        "iso2": "s7b",
-        "iso3": "s7c",
-        "name": "s7d",
+        "country": "sb5",
+        "data": {},
+        "error": false,
+        "flag": "sb8",
+        "iso2": "sb9",
+        "iso3": "sba",
+        "msg": "sbb",
+        "name": "sbc",
         "id": "COUNTRY01"
       },
       "COUNTRY02": {
         "cities": [],
-        "country": "sb5",
-        "flag": "sb6",
-        "iso2": "sb7",
-        "iso3": "sb8",
-        "name": "sb9",
+        "country": "s10f",
+        "data": {},
+        "error": false,
+        "flag": "s112",
+        "iso2": "s113",
+        "iso3": "s114",
+        "msg": "s115",
+        "name": "s116",
         "id": "COUNTRY02"
       }
     }
@@ -34,11 +43,14 @@
     "country": {
       "country_ref01": {
         "cities": [],
-        "country": "sf1",
-        "flag": "sf2",
-        "iso2": "sf3",
-        "iso3": "sf4",
-        "name": "sf5"
+        "country": "s169",
+        "data": {},
+        "error": false,
+        "flag": "s16c",
+        "iso2": "s16d",
+        "iso3": "s16e",
+        "msg": "s16f",
+        "name": "s170"
       }
     }
   },

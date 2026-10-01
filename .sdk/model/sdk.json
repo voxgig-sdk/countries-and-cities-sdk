@@ -102,12 +102,12 @@
               "h": "City",
               "n": "city",
               "op": {
-                "create": {
-                  "req": true,
+                "list": {
+                  "req": false,
                   "type": "`$STRING`"
                 }
               },
-              "r": false,
+              "r": true,
               "sh": "City name",
               "t": "`$STRING`"
             },
@@ -116,12 +116,12 @@
               "h": "Country",
               "n": "country",
               "op": {
-                "create": {
-                  "req": true,
+                "list": {
+                  "req": false,
                   "type": "`$STRING`"
                 }
               },
-              "r": false,
+              "r": true,
               "sh": "Country name",
               "t": "`$STRING`"
             },
@@ -130,7 +130,7 @@
               "h": "Data",
               "n": "data",
               "r": false,
-              "t": "`$ARRAY`"
+              "t": "`$OBJECT`"
             },
             "error": {
               "a": true,
@@ -192,10 +192,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "city": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -331,6 +329,20 @@
               "sh": "Country name",
               "t": "`$STRING`"
             },
+            "data": {
+              "a": true,
+              "h": "Data",
+              "n": "data",
+              "r": false,
+              "t": "`$OBJECT`"
+            },
+            "error": {
+              "a": true,
+              "h": "Error",
+              "n": "error",
+              "r": false,
+              "t": "`$BOOLEAN`"
+            },
             "flag": {
               "a": true,
               "fo": "uri",
@@ -354,6 +366,13 @@
               "n": "iso3",
               "r": false,
               "sh": "ISO 3166-1 alpha-3 code",
+              "t": "`$STRING`"
+            },
+            "msg": {
+              "a": true,
+              "h": "Msg",
+              "n": "msg",
+              "r": false,
               "t": "`$STRING`"
             },
             "name": {
@@ -395,10 +414,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "country": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -425,10 +442,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "country": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -456,10 +471,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "country": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -486,10 +499,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "country": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -516,10 +527,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "country": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -546,10 +555,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "country": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 },
                 {
@@ -576,10 +583,8 @@
                     }
                   ],
                   "t": {
-                    "req": {
-                      "country": "`reqdata`"
-                    },
-                    "res": "`body.data`"
+                    "req": "`reqdata`",
+                    "res": "`body`"
                   }
                 }
               ]
@@ -1251,7 +1256,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

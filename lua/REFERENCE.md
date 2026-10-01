@@ -94,8 +94,8 @@ local city = client:City(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | No | City name |
-| `country` | `string` | No | Country name |
+| `city` | `string` | Yes | City name |
+| `country` | `string` | Yes | Country name |
 | `data` | `table` | No |  |
 | `error` | `boolean` | No |  |
 | `msg` | `string` | No |  |
@@ -106,8 +106,8 @@ local city = client:City(nil)
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | Yes |
-| `country` | - | Yes |
+| `city` | Yes | - |
+| `country` | Yes | - |
 | `data` | - | - |
 | `error` | - | - |
 | `msg` | - | - |
@@ -122,6 +122,8 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:City():create({
+  city = --[[ string ]],
+  country = --[[ string ]],
   state = --[[ string ]],
 })
 ```
@@ -176,9 +178,12 @@ local country = client:Country(nil)
 | --- | --- | --- | --- |
 | `cities` | `table` | No | List of cities in the country |
 | `country` | `string` | Yes | Country name |
+| `data` | `table` | No |  |
+| `error` | `boolean` | No |  |
 | `flag` | `string` | No | URL to the country flag image |
 | `iso2` | `string` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | No | ISO 3166-1 alpha-3 code |
+| `msg` | `string` | No |  |
 | `name` | `string` | No | Country name |
 
 ### Field Usage by Operation
@@ -187,9 +192,12 @@ local country = client:Country(nil)
 | --- | --- | --- |
 | `cities` | - | - |
 | `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
+| `msg` | - | - |
 | `name` | - | - |
 
 ### Operations

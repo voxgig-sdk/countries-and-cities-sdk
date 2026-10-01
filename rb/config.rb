@@ -102,9 +102,9 @@ module CountriesAndCitiesConfig
               "name" => "city",
               "title" => "City",
               "type" => "`$STRING`",
+              "req" => true,
               "op" => {
-                "create" => {
-                  "req" => true,
+                "list" => {
                   "type" => "`$STRING`",
                 },
               },
@@ -114,9 +114,9 @@ module CountriesAndCitiesConfig
               "name" => "country",
               "title" => "Country",
               "type" => "`$STRING`",
+              "req" => true,
               "op" => {
-                "create" => {
-                  "req" => true,
+                "list" => {
                   "type" => "`$STRING`",
                 },
               },
@@ -125,7 +125,7 @@ module CountriesAndCitiesConfig
             {
               "name" => "data",
               "title" => "Data",
-              "type" => "`$ARRAY`",
+              "type" => "`$OBJECT`",
             },
             {
               "name" => "error",
@@ -177,10 +177,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "city" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {},
@@ -309,6 +307,16 @@ module CountriesAndCitiesConfig
               "short" => "Country name",
             },
             {
+              "name" => "data",
+              "title" => "Data",
+              "type" => "`$OBJECT`",
+            },
+            {
+              "name" => "error",
+              "title" => "Error",
+              "type" => "`$BOOLEAN`",
+            },
+            {
               "name" => "flag",
               "title" => "Flag",
               "type" => "`$STRING`",
@@ -326,6 +334,11 @@ module CountriesAndCitiesConfig
               "title" => "Iso3",
               "type" => "`$STRING`",
               "short" => "ISO 3166-1 alpha-3 code",
+            },
+            {
+              "name" => "msg",
+              "title" => "Msg",
+              "type" => "`$STRING`",
             },
             {
               "name" => "name",
@@ -358,10 +371,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "country" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {
@@ -386,10 +397,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "country" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {
@@ -418,10 +427,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "country" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {},
@@ -444,10 +451,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "country" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {
@@ -472,10 +477,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "country" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {
@@ -500,10 +503,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "country" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {
@@ -528,10 +529,8 @@ module CountriesAndCitiesConfig
                   ],
                   "rename" => {},
                   "transform" => {
-                    "req" => {
-                      "country" => "`reqdata`",
-                    },
-                    "res" => "`body.data`",
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
                   },
                   "args" => {},
                   "select" => {

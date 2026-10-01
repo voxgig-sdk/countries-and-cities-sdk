@@ -60,7 +60,7 @@ func main() {
     }
 
     // Create a city.
-    created, err := client.City(nil).Create(map[string]any{"state": "example_state"}, nil)
+    created, err := client.City(nil).Create(map[string]any{"city": "example_city", "country": "example_country", "state": "example_state"}, nil)
     if err != nil {
         panic(err)
     }
@@ -288,9 +288,12 @@ API path: `/countries/population/cities`
 | --- | --- |
 | `"cities"` | List of cities in the country |
 | `"country"` | Country name |
+| `"data"` |  |
+| `"error"` |  |
 | `"flag"` | URL to the country flag image |
 | `"iso2"` | ISO 3166-1 alpha-2 code |
 | `"iso3"` | ISO 3166-1 alpha-3 code |
+| `"msg"` |  |
 | `"name"` | Country name |
 
 Operations: Create, List.
@@ -319,7 +322,7 @@ Create an instance: `city := client.City(nil)`
 | --- | --- | --- |
 | `city` | `string` | City name |
 | `country` | `string` | Country name |
-| `data` | `[]any` |  |
+| `data` | `map[string]any` |  |
 | `error` | `bool` |  |
 | `msg` | `string` |  |
 | `populationCounts` | `[]any` |  |
@@ -339,6 +342,8 @@ fmt.Println(citys) // the array of records
 
 ```go
 result, err := client.City(nil).Create(map[string]any{
+    "city": "example_city",
+    "country": "example_country",
     "state": "example_state",
 }, nil)
 if err != nil {
@@ -365,9 +370,12 @@ Create an instance: `country := client.Country(nil)`
 | --- | --- | --- |
 | `cities` | `[]any` | List of cities in the country |
 | `country` | `string` | Country name |
+| `data` | `map[string]any` |  |
+| `error` | `bool` |  |
 | `flag` | `string` | URL to the country flag image |
 | `iso2` | `string` | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | ISO 3166-1 alpha-3 code |
+| `msg` | `string` |  |
 | `name` | `string` | Country name |
 
 #### Example: List

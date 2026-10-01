@@ -94,9 +94,9 @@ func MakeConfig() map[string]any {
 						"name": "city",
 						"title": "City",
 						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
-							"create": map[string]any{
-								"req": true,
+							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
@@ -106,9 +106,9 @@ func MakeConfig() map[string]any {
 						"name": "country",
 						"title": "Country",
 						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
-							"create": map[string]any{
-								"req": true,
+							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
@@ -117,7 +117,7 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "data",
 						"title": "Data",
-						"type": "`$ARRAY`",
+						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "error",
@@ -169,10 +169,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"city": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{},
@@ -301,6 +299,16 @@ func MakeConfig() map[string]any {
 						"short": "Country name",
 					},
 					map[string]any{
+						"name": "data",
+						"title": "Data",
+						"type": "`$OBJECT`",
+					},
+					map[string]any{
+						"name": "error",
+						"title": "Error",
+						"type": "`$BOOLEAN`",
+					},
+					map[string]any{
 						"name": "flag",
 						"title": "Flag",
 						"type": "`$STRING`",
@@ -318,6 +326,11 @@ func MakeConfig() map[string]any {
 						"title": "Iso3",
 						"type": "`$STRING`",
 						"short": "ISO 3166-1 alpha-3 code",
+					},
+					map[string]any{
+						"name": "msg",
+						"title": "Msg",
+						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
@@ -350,10 +363,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"country": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{
@@ -378,10 +389,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"country": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{
@@ -410,10 +419,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"country": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{},
@@ -436,10 +443,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"country": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{
@@ -464,10 +469,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"country": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{
@@ -492,10 +495,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"country": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{
@@ -520,10 +521,8 @@ func MakeConfig() map[string]any {
 								},
 								"rename": map[string]any{},
 								"transform": map[string]any{
-									"req": map[string]any{
-										"country": "`reqdata`",
-									},
-									"res": "`body.data`",
+									"req": "`reqdata`",
+									"res": "`body`",
 								},
 								"args": map[string]any{},
 								"select": map[string]any{

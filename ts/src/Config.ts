@@ -137,9 +137,9 @@ class Config {
           "name": "city",
           "title": "City",
           "type": "`$STRING`",
+          "req": true,
           "op": {
-            "create": {
-              "req": true,
+            "list": {
               "type": "`$STRING`"
             }
           },
@@ -149,9 +149,9 @@ class Config {
           "name": "country",
           "title": "Country",
           "type": "`$STRING`",
+          "req": true,
           "op": {
-            "create": {
-              "req": true,
+            "list": {
               "type": "`$STRING`"
             }
           },
@@ -160,7 +160,7 @@ class Config {
         {
           "name": "data",
           "title": "Data",
-          "type": "`$ARRAY`"
+          "type": "`$OBJECT`"
         },
         {
           "name": "error",
@@ -212,10 +212,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "city": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {}
@@ -344,6 +342,16 @@ class Config {
           "short": "Country name"
         },
         {
+          "name": "data",
+          "title": "Data",
+          "type": "`$OBJECT`"
+        },
+        {
+          "name": "error",
+          "title": "Error",
+          "type": "`$BOOLEAN`"
+        },
+        {
           "name": "flag",
           "title": "Flag",
           "type": "`$STRING`",
@@ -361,6 +369,11 @@ class Config {
           "title": "Iso3",
           "type": "`$STRING`",
           "short": "ISO 3166-1 alpha-3 code"
+        },
+        {
+          "name": "msg",
+          "title": "Msg",
+          "type": "`$STRING`"
         },
         {
           "name": "name",
@@ -393,10 +406,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "country": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {
@@ -421,10 +432,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "country": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {
@@ -453,10 +462,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "country": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {}
@@ -479,10 +486,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "country": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {
@@ -507,10 +512,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "country": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {
@@ -535,10 +538,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "country": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {
@@ -563,10 +564,8 @@ class Config {
               ],
               "rename": {},
               "transform": {
-                "req": {
-                  "country": "`reqdata`"
-                },
-                "res": "`body.data`"
+                "req": "`reqdata`",
+                "res": "`body`"
               },
               "args": {},
               "select": {

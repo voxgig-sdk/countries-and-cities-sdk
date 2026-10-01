@@ -79,21 +79,20 @@ declare class Config {
                 name: string;
                 title: string;
                 type: string;
+                req: boolean;
                 op: {
-                    create: {
-                        req: boolean;
+                    list: {
                         type: string;
                     };
                 };
                 short: string;
-                req?: undefined;
             } | {
                 name: string;
                 title: string;
                 type: string;
+                req?: undefined;
                 op?: undefined;
                 short?: undefined;
-                req?: undefined;
             } | {
                 name: string;
                 title: string;
@@ -117,9 +116,7 @@ declare class Config {
                         parts: string[];
                         rename: {};
                         transform: {
-                            req: {
-                                city: string;
-                            };
+                            req: string;
                             res: string;
                         };
                         args: {};
@@ -142,23 +139,6 @@ declare class Config {
                         args: {};
                         select: {
                             $action: string;
-                        };
-                    } | {
-                        kind: string;
-                        method: string;
-                        orig: string;
-                        segments: {
-                            lit: string;
-                        }[];
-                        parts: string[];
-                        rename: {};
-                        transform: {
-                            req: string;
-                            res: string;
-                        };
-                        args: {};
-                        select: {
-                            $action?: undefined;
                         };
                     })[];
                 };
@@ -212,6 +192,14 @@ declare class Config {
                 name: string;
                 title: string;
                 type: string;
+                short?: undefined;
+                req?: undefined;
+                op?: undefined;
+                format?: undefined;
+            } | {
+                name: string;
+                title: string;
+                type: string;
                 short: string;
                 format: string;
                 req?: undefined;
@@ -232,9 +220,7 @@ declare class Config {
                         parts: string[];
                         rename: {};
                         transform: {
-                            req: {
-                                country: string;
-                            };
+                            req: string;
                             res: string;
                         };
                         args: {};
@@ -251,9 +237,7 @@ declare class Config {
                         parts: string[];
                         rename: {};
                         transform: {
-                            req: {
-                                country: string;
-                            };
+                            req: string;
                             res: string;
                         };
                         args: {};

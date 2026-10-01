@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CountriesAndCitiesUtility.registrar = ->(u) {
   u.clean = CountriesAndCitiesUtilities::Clean
+  u.clean_add = CountriesAndCitiesUtilities::CleanAdd
+  u.clean_explain = CountriesAndCitiesUtilities::CleanExplain
   u.done = CountriesAndCitiesUtilities::Done
   u.make_error = CountriesAndCitiesUtilities::MakeError
   u.feature_add = CountriesAndCitiesUtilities::FeatureAdd

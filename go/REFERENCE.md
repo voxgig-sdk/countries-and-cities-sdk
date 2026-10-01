@@ -102,9 +102,9 @@ fmt.Println(city.GetName()) // "city"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | No | City name |
-| `country` | `string` | No | Country name |
-| `data` | `[]any` | No |  |
+| `city` | `string` | Yes | City name |
+| `country` | `string` | Yes | Country name |
+| `data` | `map[string]any` | No |  |
 | `error` | `bool` | No |  |
 | `msg` | `string` | No |  |
 | `populationCounts` | `[]any` | No |  |
@@ -114,8 +114,8 @@ fmt.Println(city.GetName()) // "city"
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | Yes |
-| `country` | - | Yes |
+| `city` | Yes | - |
+| `country` | Yes | - |
 | `data` | - | - |
 | `error` | - | - |
 | `msg` | - | - |
@@ -142,6 +142,8 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.City(nil).Create(map[string]any{
+    "city": "example_city",
+    "country": "example_country",
     "state": "example_state",
 }, nil)
 if err != nil {
@@ -187,9 +189,12 @@ fmt.Println(country.GetName()) // "country"
 | --- | --- | --- | --- |
 | `cities` | `[]any` | No | List of cities in the country |
 | `country` | `string` | Yes | Country name |
+| `data` | `map[string]any` | No |  |
+| `error` | `bool` | No |  |
 | `flag` | `string` | No | URL to the country flag image |
 | `iso2` | `string` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | No | ISO 3166-1 alpha-3 code |
+| `msg` | `string` | No |  |
 | `name` | `string` | No | Country name |
 
 ### Field Usage by Operation
@@ -198,9 +203,12 @@ fmt.Println(country.GetName()) // "country"
 | --- | --- | --- |
 | `cities` | - | - |
 | `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
+| `msg` | - | - |
 | `name` | - | - |
 
 ### Operations

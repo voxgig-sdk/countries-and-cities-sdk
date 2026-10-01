@@ -25,6 +25,18 @@ main: kit: entity: country: {
       sh: "Country name"
       t: "`$STRING`"
     }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      t: "`$OBJECT`"
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      t: "`$BOOLEAN`"
+    }
     flag: {
       fo: "uri"
       h: "Flag"
@@ -45,6 +57,12 @@ main: kit: entity: country: {
       n: "iso3"
       r: false
       sh: "ISO 3166-1 alpha-3 code"
+      t: "`$STRING`"
+    }
+    msg: {
+      h: "Msg"
+      n: "msg"
+      r: false
       t: "`$STRING`"
     }
     name: {
@@ -81,10 +99,8 @@ main: kit: entity: country: {
             }
           ]
           t: {
-            req: {
-              country: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
         {
@@ -107,10 +123,8 @@ main: kit: entity: country: {
             }
           ]
           t: {
-            req: {
-              country: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
         {
@@ -133,10 +147,8 @@ main: kit: entity: country: {
             }
           ]
           t: {
-            req: {
-              country: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
         {
@@ -159,10 +171,8 @@ main: kit: entity: country: {
             }
           ]
           t: {
-            req: {
-              country: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
         {
@@ -185,10 +195,8 @@ main: kit: entity: country: {
             }
           ]
           t: {
-            req: {
-              country: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
         {
@@ -211,10 +219,8 @@ main: kit: entity: country: {
             }
           ]
           t: {
-            req: {
-              country: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
         {
@@ -237,10 +243,8 @@ main: kit: entity: country: {
             }
           ]
           t: {
-            req: {
-              country: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
       ]

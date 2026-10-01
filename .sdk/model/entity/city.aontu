@@ -9,12 +9,12 @@ main: kit: entity: city: {
       h: "City"
       n: "city"
       op: {
-        create: {
-          req: true
+        list: {
+          req: false
           type: "`$STRING`"
         }
       }
-      r: false
+      r: true
       sh: "City name"
       t: "`$STRING`"
     }
@@ -22,12 +22,12 @@ main: kit: entity: city: {
       h: "Country"
       n: "country"
       op: {
-        create: {
-          req: true
+        list: {
+          req: false
           type: "`$STRING`"
         }
       }
-      r: false
+      r: true
       sh: "Country name"
       t: "`$STRING`"
     }
@@ -35,7 +35,7 @@ main: kit: entity: city: {
       h: "Data"
       n: "data"
       r: false
-      t: "`$ARRAY`"
+      t: "`$OBJECT`"
     }
     error: {
       h: "Error"
@@ -88,10 +88,8 @@ main: kit: entity: city: {
             }
           ]
           t: {
-            req: {
-              city: "`reqdata`"
-            }
-            res: "`body.data`"
+            req: "`reqdata`"
+            res: "`body`"
           }
         }
         {

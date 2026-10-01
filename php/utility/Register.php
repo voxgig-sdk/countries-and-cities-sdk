@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CountriesAndCitiesUtility::setRegistrar(function (CountriesAndCitiesUtility $u): void {
     $u->clean = [CountriesAndCitiesClean::class, 'call'];
+    $u->clean_add = [CountriesAndCitiesClean::class, 'add'];
+    $u->clean_explain = [CountriesAndCitiesDone::class, 'clean_explain'];
     $u->done = [CountriesAndCitiesDone::class, 'call'];
     $u->make_error = [CountriesAndCitiesMakeError::class, 'call'];
     $u->feature_add = [CountriesAndCitiesFeatureAdd::class, 'call'];

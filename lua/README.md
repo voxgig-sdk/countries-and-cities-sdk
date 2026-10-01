@@ -51,7 +51,7 @@ end
 
 ```lua
 -- Create
-local created, err = client:City():create({ state = "example_state" })
+local created, err = client:City():create({ city = "example_city", country = "example_country", state = "example_state" })
 if err then error(err) end
 
 ```
@@ -261,9 +261,12 @@ API path: `/countries/population/cities`
 | --- | --- |
 | `cities` | List of cities in the country |
 | `country` | Country name |
+| `data` |  |
+| `error` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
+| `msg` |  |
 | `name` | Country name |
 
 Operations: Create, List.
@@ -308,6 +311,8 @@ local citys, err = client:City():list()
 
 ```lua
 local city, err = client:City():create({
+  city = "example_city", -- string
+  country = "example_country", -- string
   state = "example_state", -- string
 })
 ```
@@ -330,9 +335,12 @@ Create an instance: `local country = client:Country(nil)`
 | --- | --- | --- |
 | `cities` | `table` | List of cities in the country |
 | `country` | `string` | Country name |
+| `data` | `table` |  |
+| `error` | `boolean` |  |
 | `flag` | `string` | URL to the country flag image |
 | `iso2` | `string` | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | ISO 3166-1 alpha-3 code |
+| `msg` | `string` |  |
 | `name` | `string` | Country name |
 
 #### Example: List

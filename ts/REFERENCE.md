@@ -128,9 +128,9 @@ const city = client.City()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | No | City name |
-| `country` | `string` | No | Country name |
-| `data` | `any[]` | No |  |
+| `city` | `string` | Yes | City name |
+| `country` | `string` | Yes | Country name |
+| `data` | `Record<string, any>` | No |  |
 | `error` | `boolean` | No |  |
 | `msg` | `string` | No |  |
 | `populationCounts` | `any[]` | No |  |
@@ -140,8 +140,8 @@ const city = client.City()
 
 | Field | list | create |
 | --- | --- | --- |
-| `city` | - | Yes |
-| `country` | - | Yes |
+| `city` | Yes | - |
+| `country` | Yes | - |
 | `data` | - | - |
 | `error` | - | - |
 | `msg` | - | - |
@@ -176,6 +176,8 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.City().create({
+  city: 'example_city',
+  country: 'example_country',
   state: 'example_state',
 })
 ```
@@ -228,9 +230,12 @@ const country = client.Country()
 | --- | --- | --- | --- |
 | `cities` | `any[]` | No | List of cities in the country |
 | `country` | `string` | Yes | Country name |
+| `data` | `Record<string, any>` | No |  |
+| `error` | `boolean` | No |  |
 | `flag` | `string` | No | URL to the country flag image |
 | `iso2` | `string` | No | ISO 3166-1 alpha-2 code |
 | `iso3` | `string` | No | ISO 3166-1 alpha-3 code |
+| `msg` | `string` | No |  |
 | `name` | `string` | No | Country name |
 
 ### Field Usage by Operation
@@ -239,9 +244,12 @@ const country = client.Country()
 | --- | --- | --- |
 | `cities` | - | - |
 | `country` | Yes | - |
+| `data` | - | - |
+| `error` | - | - |
 | `flag` | - | - |
 | `iso2` | - | - |
 | `iso3` | - | - |
+| `msg` | - | - |
 | `name` | - | - |
 
 ### Actions

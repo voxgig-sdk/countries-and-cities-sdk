@@ -54,7 +54,7 @@ except Exception as err:
 
 ```python
 # Create — returns the ENTITY (call data_get() for the record)
-created = client.City().create({"state": "example_state"})
+created = client.City().create({"city": "example_city", "country": "example_country", "state": "example_state"})
 
 ```
 
@@ -271,9 +271,12 @@ API path: `/countries/population/cities`
 | --- | --- |
 | `cities` | List of cities in the country |
 | `country` | Country name |
+| `data` |  |
+| `error` |  |
 | `flag` | URL to the country flag image |
 | `iso2` | ISO 3166-1 alpha-2 code |
 | `iso3` | ISO 3166-1 alpha-3 code |
+| `msg` |  |
 | `name` | Country name |
 
 Operations: Create, List.
@@ -302,7 +305,7 @@ Create an instance: `city = client.City()`
 | --- | --- | --- |
 | `city` | `str` | City name |
 | `country` | `str` | Country name |
-| `data` | `list` |  |
+| `data` | `dict` |  |
 | `error` | `bool` |  |
 | `msg` | `str` |  |
 | `populationCounts` | `list` |  |
@@ -318,6 +321,8 @@ citys = client.City().list()
 
 ```python
 city = client.City().create({
+    "city": "example_city",  # str
+    "country": "example_country",  # str
     "state": "example_state",  # str
 })
 ```
@@ -340,9 +345,12 @@ Create an instance: `country = client.Country()`
 | --- | --- | --- |
 | `cities` | `list` | List of cities in the country |
 | `country` | `str` | Country name |
+| `data` | `dict` |  |
+| `error` | `bool` |  |
 | `flag` | `str` | URL to the country flag image |
 | `iso2` | `str` | ISO 3166-1 alpha-2 code |
 | `iso3` | `str` | ISO 3166-1 alpha-3 code |
+| `msg` | `str` |  |
 | `name` | `str` | Country name |
 
 #### Example: List
