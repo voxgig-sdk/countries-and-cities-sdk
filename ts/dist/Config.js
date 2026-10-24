@@ -87,6 +87,7 @@ class Config {
             },
             "optspec": {
                 "clearTimer": "`$FUNCTION`",
+                "now": "`$FUNCTION`",
                 "setTimer": "`$FUNCTION`"
             },
             "strict": false,
@@ -189,7 +190,11 @@ class Config {
                                 "res": "`body`"
                             },
                             "args": {},
-                            "select": {}
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
                         },
                         {
                             "kind": "http",
@@ -223,6 +228,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "filter"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -251,7 +260,11 @@ class Config {
                                 "res": "`body`"
                             },
                             "args": {},
-                            "select": {}
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
                         }
                     ]
                 },
@@ -285,7 +298,11 @@ class Config {
                                 "res": "`body.data`"
                             },
                             "args": {},
-                            "select": {}
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
                         }
                     ]
                 }
@@ -385,6 +402,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "capital"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -411,6 +432,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "currency"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -439,7 +464,11 @@ class Config {
                                 "res": "`body`"
                             },
                             "args": {},
-                            "select": {}
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
                         },
                         {
                             "kind": "http",
@@ -465,6 +494,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "iso"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -491,6 +524,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "population"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -517,6 +554,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "position"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -543,6 +584,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "state"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -569,7 +614,11 @@ class Config {
                                 "res": "`body.data`"
                             },
                             "args": {},
-                            "select": {}
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
                         },
                         {
                             "kind": "http",
@@ -595,6 +644,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "code"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -623,7 +676,11 @@ class Config {
                                 "res": "`body.data`"
                             },
                             "args": {},
-                            "select": {}
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
+                            }
                         },
                         {
                             "kind": "http",
@@ -649,6 +706,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "population"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         },
                         {
@@ -675,6 +736,10 @@ class Config {
                             "args": {},
                             "select": {
                                 "$action": "position"
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]

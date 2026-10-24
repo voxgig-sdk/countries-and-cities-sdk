@@ -93,6 +93,7 @@ class CountriesAndCitiesConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -196,6 +197,10 @@ class CountriesAndCitiesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -230,6 +235,10 @@ class CountriesAndCitiesConfig
                   'select' => [
                     '$action' => 'filter',
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -258,6 +267,10 @@ class CountriesAndCitiesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -292,6 +305,10 @@ class CountriesAndCitiesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -392,6 +409,10 @@ class CountriesAndCitiesConfig
                   'select' => [
                     '$action' => 'capital',
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -417,6 +438,10 @@ class CountriesAndCitiesConfig
                   'args' => [],
                   'select' => [
                     '$action' => 'currency',
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
                 [
@@ -446,6 +471,10 @@ class CountriesAndCitiesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -471,6 +500,10 @@ class CountriesAndCitiesConfig
                   'args' => [],
                   'select' => [
                     '$action' => 'iso',
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
                 [
@@ -498,6 +531,10 @@ class CountriesAndCitiesConfig
                   'select' => [
                     '$action' => 'population',
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -523,6 +560,10 @@ class CountriesAndCitiesConfig
                   'args' => [],
                   'select' => [
                     '$action' => 'position',
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
                 [
@@ -550,6 +591,10 @@ class CountriesAndCitiesConfig
                   'select' => [
                     '$action' => 'state',
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -576,6 +621,10 @@ class CountriesAndCitiesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -601,6 +650,10 @@ class CountriesAndCitiesConfig
                   'args' => [],
                   'select' => [
                     '$action' => 'code',
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
                 [
@@ -630,6 +683,10 @@ class CountriesAndCitiesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -656,6 +713,10 @@ class CountriesAndCitiesConfig
                   'select' => [
                     '$action' => 'population',
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -681,6 +742,10 @@ class CountriesAndCitiesConfig
                   'args' => [],
                   'select' => [
                     '$action' => 'position',
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

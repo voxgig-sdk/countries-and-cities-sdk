@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { CountriesAndCitiesSDK, BaseFeature, stdutil } from '../../..'
+import { CountriesAndCitiesSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('CityEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('city hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of CountriesAndCitiesSDK.test(offline).City().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of CountriesAndCitiesSDK.test(offline).City()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = CountriesAndCitiesSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.City().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of CountriesAndCitiesSDK.test().City().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new CountriesAndCitiesSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.City().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.City().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = CountriesAndCitiesSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.City().list({"city":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.COUNTRIES_AND_CITIES_TEST_LIVE
@@ -51,7 +109,7 @@ describe('CityEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"city":{"a":true,"h":"City","n":"city","op":{"list":{"req":false,"type":"`$STRING`"}},"r":true,"sh":"City name","t":"`$STRING`","key$":"city","index$":0},"country":{"a":true,"h":"Country","n":"country","op":{"list":{"req":false,"type":"`$STRING`"}},"r":true,"sh":"Country name","t":"`$STRING`","key$":"country","index$":1},"data":{"a":true,"h":"Data","n":"data","r":false,"t":"`$OBJECT`","key$":"data","index$":2},"error":{"a":true,"h":"Error","n":"error","r":false,"t":"`$BOOLEAN`","key$":"error","index$":3},"msg":{"a":true,"h":"Msg","n":"msg","r":false,"t":"`$STRING`","key$":"msg","index$":4},"populationCounts":{"a":true,"h":"Population Counts","n":"populationCounts","r":false,"t":"`$ARRAY`","key$":"populationCounts","index$":5},"state":{"a":true,"h":"State","n":"state","r":true,"t":"`$STRING`","key$":"state","index$":6}},"name":"city","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /countries/population/cities","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/countries/population/cities","q":{},"r":{},"s":[{"lit":"countries"},{"lit":"population"},{"lit":"cities"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"POST /countries/population/cities/filter","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/countries/population/cities/filter","q":{"$action":"filter"},"r":{},"s":[{"lit":"countries"},{"lit":"population"},{"lit":"cities"},{"lit":"filter"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1},{"a":true,"co":{"id":"POST /countries/state/cities","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/countries/state/cities","q":{},"r":{},"s":[{"lit":"countries"},{"lit":"state"},{"lit":"cities"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":2}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /countries/population/cities","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/countries/population/cities","q":{},"r":{},"s":[{"lit":"countries"},{"lit":"population"},{"lit":"cities"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"city","name__orig":"city","Name":"City","name_":"city","name-":"city","NAME":"CITY","index$":0}, {"active":true,"entity":"city","key$":"BasicCityFlow","kind":"basic","name":"BasicCityFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"city_ref01"},"m":{},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"city_ref01"}}],"index$":1}]}, 'City', {"POST /countries/population/cities":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"city":{"type":"string","example":"Lagos","key$":"city"}},"required":["city"],"index$":1}}}},"parameters":[]},"POST /countries/population/cities/filter":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"limit":{"type":"integer","example":10},"order":{"type":"string","enum":["asc","dsc"],"example":"dsc"},"orderBy":{"type":"string","example":"population"}}}}}},"parameters":[]},"POST /countries/state/cities":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"country":{"type":"string","example":"Nigeria","key$":"country"},"state":{"type":"string","example":"Lagos","key$":"state"}},"required":["country","state"],"index$":1}}}},"parameters":[]},"GET /countries/population/cities":{"protocol":"http","parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"city":{"a":true,"h":"City","n":"city","op":{"list":{"req":false,"type":"`$STRING`"}},"r":true,"sh":"City name","t":"`$STRING`","key$":"city","index$":0},"country":{"a":true,"h":"Country","n":"country","op":{"list":{"req":false,"type":"`$STRING`"}},"r":true,"sh":"Country name","t":"`$STRING`","key$":"country","index$":1},"data":{"a":true,"h":"Data","n":"data","r":false,"t":"`$OBJECT`","key$":"data","index$":2},"error":{"a":true,"h":"Error","n":"error","r":false,"t":"`$BOOLEAN`","key$":"error","index$":3},"msg":{"a":true,"h":"Msg","n":"msg","r":false,"t":"`$STRING`","key$":"msg","index$":4},"populationCounts":{"a":true,"h":"Population Counts","n":"populationCounts","r":false,"t":"`$ARRAY`","key$":"populationCounts","index$":5},"state":{"a":true,"h":"State","n":"state","r":true,"t":"`$STRING`","key$":"state","index$":6}},"name":"city","op":{"create":{"input":"data","name":"create","points":[{"a":true,"bf":["city"],"co":{"id":"POST /countries/population/cities","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/countries/population/cities","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"countries"},{"lit":"population"},{"lit":"cities"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"bf":["limit","order","orderBy"],"co":{"id":"POST /countries/population/cities/filter","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/countries/population/cities/filter","q":{"$action":"filter"},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"countries"},{"lit":"population"},{"lit":"cities"},{"lit":"filter"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1},{"a":true,"bf":["country","state"],"co":{"id":"POST /countries/state/cities","source":"openapi3","version":2},"g":{},"k":"http","m":"POST","o":"/countries/state/cities","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"countries"},{"lit":"state"},{"lit":"cities"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":2}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /countries/population/cities","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/countries/population/cities","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"countries"},{"lit":"population"},{"lit":"cities"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"city","name__orig":"city","Name":"City","name_":"city","name-":"city","NAME":"CITY","index$":0}, {"active":true,"entity":"city","key$":"BasicCityFlow","kind":"basic","name":"BasicCityFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"city_ref01"},"m":{},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"city_ref01"}}],"index$":1}]}, 'City', {"POST /countries/population/cities":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"city":{"type":"string","example":"Lagos","key$":"city"}},"required":["city"],"index$":1}}}},"parameters":[]},"POST /countries/population/cities/filter":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"limit":{"type":"integer","example":10},"order":{"type":"string","enum":["asc","dsc"],"example":"dsc"},"orderBy":{"type":"string","example":"population"}}}}}},"parameters":[]},"POST /countries/state/cities":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"country":{"type":"string","example":"Nigeria","key$":"country"},"state":{"type":"string","example":"Lagos","key$":"state"}},"required":["country","state"],"index$":1}}}},"parameters":[]},"GET /countries/population/cities":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -78,6 +136,12 @@ describe('CityEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

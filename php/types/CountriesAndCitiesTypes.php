@@ -41,10 +41,6 @@ class CityCreateData
 {
     public string $city;
     public string $country;
-    public ?array $data = null;
-    public ?bool $error = null;
-    public ?string $msg = null;
-    public ?array $populationCounts = null;
     public string $state;
 }
 
@@ -79,14 +75,6 @@ class CountryListMatch
 /** Request payload for Country#create. */
 class CountryCreateData
 {
-    public ?array $cities = null;
     public string $country;
-    public ?array $data = null;
-    public ?bool $error = null;
-    public ?string $flag = null;
-    public ?string $iso2 = null;
-    public ?string $iso3 = null;
-    public ?string $msg = null;
-    public ?string $name = null;
 }
 

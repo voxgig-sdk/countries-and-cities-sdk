@@ -18,7 +18,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -30,10 +35,10 @@ const PLAN = [
                     "country": "x",
                     "populationCounts": [
                         {
-                            "reliabilty": "x",
-                            "sex": "x",
+                            "year": "x",
                             "value": "x",
-                            "year": "x"
+                            "sex": "x",
+                            "reliabilty": "x"
                         }
                     ]
                 }
@@ -50,7 +55,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -62,10 +72,10 @@ const PLAN = [
                     "country": "x",
                     "populationCounts": [
                         {
-                            "reliabilty": "x",
-                            "sex": "x",
+                            "year": "x",
                             "value": "x",
-                            "year": "x"
+                            "sex": "x",
+                            "reliabilty": "x"
                         }
                     ]
                 }
@@ -83,7 +93,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -108,7 +123,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -132,7 +152,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -157,7 +182,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -181,7 +211,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -193,8 +228,8 @@ const PLAN = [
                 "iso3": "x",
                 "populationCounts": [
                     {
-                        "value": 1,
-                        "year": 1
+                        "year": 1,
+                        "value": 1
                     }
                 ]
             }
@@ -211,7 +246,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -236,7 +276,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -265,7 +310,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -273,8 +323,8 @@ const PLAN = [
             "msg": "x",
             "data": [
                 {
-                    "code": "x",
-                    "name": "x"
+                    "name": "x",
+                    "code": "x"
                 }
             ]
         },
@@ -290,7 +340,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -298,13 +353,13 @@ const PLAN = [
             "msg": "x",
             "data": [
                 {
-                    "code": "x",
                     "country": "x",
+                    "code": "x",
                     "iso3": "x",
                     "populationCounts": [
                         {
-                            "value": 1,
-                            "year": 1
+                            "year": 1,
+                            "value": 1
                         }
                     ]
                 }
@@ -322,7 +377,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -330,10 +390,10 @@ const PLAN = [
             "msg": "x",
             "data": [
                 {
+                    "name": "x",
                     "iso2": "x",
-                    "lat": 1,
                     "long": 1,
-                    "name": "x"
+                    "lat": 1
                 }
             ]
         },

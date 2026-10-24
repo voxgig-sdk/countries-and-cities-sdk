@@ -3,5 +3,18 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "City name",
+      "Country name",
+      "ISO 3166-1 alpha-2 code",
+      "ISO 3166-1 alpha-3 code",
+      "List of cities in the country",
+      "Production server",
+      "Provides population and geographical data for countries and cities. Use it to get detailed information on populations, locations, flags, currencies, capitals, and more. Access endpoints to retrieve single city data, country codes, and other related details. No API key required.",
+      "Successful response",
+      "URL to the country flag image"
+    ]
+  }
 }

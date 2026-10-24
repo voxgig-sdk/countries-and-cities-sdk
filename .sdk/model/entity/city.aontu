@@ -69,6 +69,9 @@ main: kit: entity: city: {
       name: "create"
       points: [
         {
+          bf: [
+            "city"
+          ]
           co: {
             id: "POST /countries/population/cities"
             source: "openapi3"
@@ -76,6 +79,10 @@ main: kit: entity: city: {
           }
           m: "POST"
           o: "/countries/population/cities"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "countries"
@@ -93,6 +100,11 @@ main: kit: entity: city: {
           }
         }
         {
+          bf: [
+            "limit"
+            "order"
+            "orderBy"
+          ]
           co: {
             id: "POST /countries/population/cities/filter"
             source: "openapi3"
@@ -102,6 +114,10 @@ main: kit: entity: city: {
           o: "/countries/population/cities/filter"
           q: {
             "$action": "filter"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -123,6 +139,10 @@ main: kit: entity: city: {
           }
         }
         {
+          bf: [
+            "country"
+            "state"
+          ]
           co: {
             id: "POST /countries/state/cities"
             source: "openapi3"
@@ -130,6 +150,10 @@ main: kit: entity: city: {
           }
           m: "POST"
           o: "/countries/state/cities"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "countries"
@@ -159,6 +183,10 @@ main: kit: entity: city: {
           }
           m: "GET"
           o: "/countries/population/cities"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "countries"

@@ -28,10 +28,6 @@ export interface CityListMatch {
 export interface CityCreateData {
   city: string
   country: string
-  data?: Record<string, any>
-  error?: boolean
-  msg?: string
-  populationCounts?: any[]
   state: string
 
   // Selects a custom action instead of the plain create:
@@ -72,15 +68,7 @@ export interface CountryListMatch {
 }
 
 export interface CountryCreateData {
-  cities?: any[]
   country: string
-  data?: Record<string, any>
-  error?: boolean
-  flag?: string
-  iso2?: string
-  iso3?: string
-  msg?: string
-  name?: string
 
   // Selects a custom action instead of the plain create:
   //   'capital' | 'currency' | 'iso' | 'population' | 'position' | 'state'

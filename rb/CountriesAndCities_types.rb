@@ -82,27 +82,11 @@ CityListMatch = Struct.new(
 # @!attribute [rw] country
 #   @return [String]
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] error
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] msg
-#   @return [String, nil]
-#
-# @!attribute [rw] populationCounts
-#   @return [Array, nil]
-#
 # @!attribute [rw] state
 #   @return [String]
 CityCreateData = Struct.new(
   :city,
   :country,
-  :data,
-  :error,
-  :msg,
-  :populationCounts,
   :state,
   keyword_init: true
 )
@@ -191,42 +175,10 @@ CountryListMatch = Struct.new(
 
 # Request payload for Country#create.
 #
-# @!attribute [rw] cities
-#   @return [Array, nil]
-#
 # @!attribute [rw] country
 #   @return [String]
-#
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] error
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] flag
-#   @return [String, nil]
-#
-# @!attribute [rw] iso2
-#   @return [String, nil]
-#
-# @!attribute [rw] iso3
-#   @return [String, nil]
-#
-# @!attribute [rw] msg
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
 CountryCreateData = Struct.new(
-  :cities,
   :country,
-  :data,
-  :error,
-  :flag,
-  :iso2,
-  :iso3,
-  :msg,
-  :name,
   keyword_init: true
 )
 

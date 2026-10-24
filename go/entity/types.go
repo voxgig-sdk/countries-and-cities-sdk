@@ -31,10 +31,6 @@ type CityListMatch struct {
 type CityCreateData struct {
 	City string `json:"city"`
 	Country string `json:"country"`
-	Data *map[string]any `json:"data,omitempty"`
-	Error *bool `json:"error,omitempty"`
-	Msg *string `json:"msg,omitempty"`
-	PopulationCounts *[]any `json:"populationCounts,omitempty"`
 	State string `json:"state"`
 }
 
@@ -57,15 +53,7 @@ type CountryListMatch struct {
 
 // CountryCreateData is the typed request payload for Country.CreateTyped.
 type CountryCreateData struct {
-	Cities *[]any `json:"cities,omitempty"`
 	Country string `json:"country"`
-	Data *map[string]any `json:"data,omitempty"`
-	Error *bool `json:"error,omitempty"`
-	Flag *string `json:"flag,omitempty"`
-	Iso2 *string `json:"iso2,omitempty"`
-	Iso3 *string `json:"iso3,omitempty"`
-	Msg *string `json:"msg,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

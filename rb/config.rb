@@ -79,6 +79,7 @@ module CountriesAndCitiesConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -182,6 +183,10 @@ module CountriesAndCitiesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -216,6 +221,10 @@ module CountriesAndCitiesConfig
                   "select" => {
                     "$action" => "filter",
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -244,6 +253,10 @@ module CountriesAndCitiesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -278,6 +291,10 @@ module CountriesAndCitiesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -378,6 +395,10 @@ module CountriesAndCitiesConfig
                   "select" => {
                     "$action" => "capital",
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -403,6 +424,10 @@ module CountriesAndCitiesConfig
                   "args" => {},
                   "select" => {
                     "$action" => "currency",
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
                 {
@@ -432,6 +457,10 @@ module CountriesAndCitiesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -457,6 +486,10 @@ module CountriesAndCitiesConfig
                   "args" => {},
                   "select" => {
                     "$action" => "iso",
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
                 {
@@ -484,6 +517,10 @@ module CountriesAndCitiesConfig
                   "select" => {
                     "$action" => "population",
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -509,6 +546,10 @@ module CountriesAndCitiesConfig
                   "args" => {},
                   "select" => {
                     "$action" => "position",
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
                 {
@@ -536,6 +577,10 @@ module CountriesAndCitiesConfig
                   "select" => {
                     "$action" => "state",
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -562,6 +607,10 @@ module CountriesAndCitiesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -587,6 +636,10 @@ module CountriesAndCitiesConfig
                   "args" => {},
                   "select" => {
                     "$action" => "code",
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
                 {
@@ -616,6 +669,10 @@ module CountriesAndCitiesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -642,6 +699,10 @@ module CountriesAndCitiesConfig
                   "select" => {
                     "$action" => "population",
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -667,6 +728,10 @@ module CountriesAndCitiesConfig
                   "args" => {},
                   "select" => {
                     "$action" => "position",
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

@@ -27,10 +27,6 @@
 ---@class CityCreateData
 ---@field city string
 ---@field country string
----@field data? table
----@field error? boolean
----@field msg? string
----@field populationCounts? table
 ---@field state string
 
 ---@class Country
@@ -56,15 +52,7 @@
 ---@field name? string
 
 ---@class CountryCreateData
----@field cities? table
 ---@field country string
----@field data? table
----@field error? boolean
----@field flag? string
----@field iso2? string
----@field iso3? string
----@field msg? string
----@field name? string
 
 local M = {}
 
